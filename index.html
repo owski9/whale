@@ -184,7 +184,7 @@
   <div class="window-titlebar">
     <div class="window-title">About Me</div>
     <div class="window-buttons">
-      <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" on click = "closeWindow(this)">
+      <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
     </div>
   </div>
   <div class="about-content">
@@ -296,7 +296,7 @@ const windows = document.querySelectorAll('.window');
             <div class="window-titlebar">
                 <div class="window-title">${windowName.charAt(0).toUpperCase() + windowName.slice(1)}</div>
                 <div class="window-buttons">
-                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" online="closeWindow(this)">
+                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
             ${windowName === 'calculator' ? `
