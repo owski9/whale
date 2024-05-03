@@ -167,6 +167,33 @@
       left: calc(50% - 5px);
       display: none;
     }
+
+    /* Taskbar styles */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #008080; /* Windows 95 taskbar color */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    .taskbar-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .taskbar-icon {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
