@@ -167,10 +167,6 @@
       left: calc(50% - 5px);
       display: none;
     }
-
-    .hidden {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -192,27 +188,15 @@
       <div class="window-button" onclick="reopenAboutMe()">↻</div>
     </div>
   </div>
+  <div class="about-content">
+  <img src="https://files.catbox.moe/0950ou.png" alt="About Image" style="max-width: 100%; height: auto;">
+  <div class="about-text">
   <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
   <button class="contact-btn" onclick="openContactWindow()">Contact</button>
-  <button class="projects-btn" onclick="openWindow('projects')">Projects</button>
-</div>
-
-<div class="desktop-icons">
-  <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openWindow('notepad')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/7/75/Notepad16.svg" alt="Notepad">
+  <button class="project-btn" onclick="openWindow('projects')">Projects</button>
   </div>
-  <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openWindow('calculator')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/9/9c/Calculator_Win3.1.svg" alt="Calculator">
-  </div>
-  <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openWindow('calendar')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/7/98/Calendar_Windows_3.svg" alt="Calendar">
-  </div>
+ </div>
 </div>
-
-<div class="start-menu">
-  <div class="start-button" onclick="openWindow('about')">Start</div>
-</div>
-
 <script>
   // Function to show boot-up sequence text
   function showBootUpSequence() {
@@ -249,7 +233,24 @@
   window.addEventListener('load', showBootUpSequence);
 </script>
 
-<script> 
+<div class="desktop-icons">
+  <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openWindow('notepad')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/7/75/Notepad16.svg" alt="Notepad">
+  </div>
+  <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openWindow('calculator')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/9/9c/Calculator_Win3.1.svg" alt="Calculator">
+  </div>
+  <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openWindow('calendar')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/7/98/Calendar_Windows_3.svg" alt="Calendar">
+  </div>
+</div>
+
+<div class="start-menu">
+  <div class="start-button" onclick="openWindow('about')">Start</div>
+  
+</div>
+
+<script>
 const windows = document.querySelectorAll('.window');
   windows.forEach(window => {
     window.addEventListener('mousedown', startDragging);
@@ -414,6 +415,5 @@ const windows = document.querySelectorAll('.window');
     makeDraggable(contactWindow);
   }
 </script>
-
 </body>
 </html>
