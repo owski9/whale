@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me - Windows 95</title>
+<link rel="icon" href="favicon.ico"> <!-- Add your favicon URL here -->
+<style>
+  body {
+    background-color: #008080; /* Windows 95 desktop background color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .window {
+    position: absolute;
+    width: 300px;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: move;
+    padding: 10px;
+  }
+
+  .window-titlebar {
+    height: 20px;
+    background-color: #008080;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+  }
+
+  .window-title {
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .window-buttons {
+    display: flex;
+    gap: 5px;
+  }
+
+  .window-button {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .desktop-icons {
+    display: flex;
+    align-items: middle;
+    justify-items: center;
+    flex-direction: column; /* Updated to cascade down */
+  }
+
+  .icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #008080;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  .icon img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  textarea, input {
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+  }
+
+  .start-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #008080;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+  }
+
+  .start-button {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    margin: 0 5px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .start-menu-bar {
+    position: fixed;
+    bottom: 55px; /* Height of the start menu */
+    width: 100%;
+    background-color: #008080;
+    height: 30px; /* Height of the start menu bar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    flex-direction: column; /* Updated to cascade down */
+  }
+
+  .start-menu-button {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+
+  .calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    position: relative;
+  }
+
+  .current-day-dot {
+    position: absolute;
+    bottom: -5px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    left: calc(50% - 5px);
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="window about-window" style="top: 100px; left: 100px;">
+  <div class="window-titlebar">
+    <div class="window-title">About Me</div>
+    <div class="window-buttons">
+      <div class="window-button" onclick="closeWindow(this)">X</div>
+      <div class="window-button" onclick="reopenAboutMe()">↻</div>
+    </div>
+  </div>
+  <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
+  <button class="contact-btn" onclick="openContactWindow()">Contact</button>
+  <button class="projects-btn" onclick="openWindow('projects')">Projects</button>
+</div>
+
+<div class="desktop-icons">
+  <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openWindow('notepad')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/7/75/Notepad16.svg" alt="Notepad">
+  </div>
+  <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openWindow('calculator')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/9/9c/Calculator_Win3.1.svg" alt="Calculator">
+  </div>
+  <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openWindow('calendar')">
+    <img src="https://static.wikia.nocookie.net/logopedia/images/7/98/Calendar_Windows_3.svg" alt="Calendar">
+  </div>
+</div>
+
+
+<div class="start-menu">
+  <div class="start-button" onclick="openWindow('about')">Start</div>
+</div>
+
+<script>
+  const windows = document.querySelectorAll('.window');
+  windows.forEach(window => {
+    window.addEventListener('mousedown', startDragging);
+  });
+
+  let offsetX, offsetY;
+
+  function startDragging(e) {
+    const window = e.target.closest('.window');
+    offsetX = e.clientX - window.getBoundingClientRect().left;
+    offsetY = e.clientY - window.getBoundingClientRect().top;
+
+    window.style.zIndex = '1000'; // Bring the window to the front
+
+    document.addEventListener('mousemove', dragWindow);
+    document.addEventListener('mouseup', stopDragging);
+  }
+
+  function dragWindow(e) {
+    const window = e.target.closest('.window');
+    const newX = e.clientX - offsetX;
+    const newY = e.clientY - offsetY;
+    window.style.left = newX + 'px';
+       window.style.top = newY + 'px';
+  }
+
+ function stopDragging() {
+    document.removeEventListener('mousemove', dragWindow);
+    document.removeEventListener('mouseup', stopDragging);
+  }
+
+  function openWindow(windowName) {
+    const windowSelector = '.' + windowName + '-window';
+    const existingWindow = document.querySelector(windowSelector + ':not([style*="display: none"])');
+
+    if (existingWindow) {
+        alert(windowName.charAt(0).toUpperCase() + windowName.slice(1) + " window is already open.");
+    } else {
+        const newWindow = document.createElement('div');
+        newWindow.classList.add('window', windowName + '-window');
+        newWindow.style.top = '20px';
+        newWindow.style.left = '20px';
+        newWindow.innerHTML = `
+            <div class="window-titlebar">
+                <div class="window-title">${windowName.charAt(0).toUpperCase() + windowName.slice(1)}</div>
+                <div class="window-buttons">
+                    <div class="window-button" onclick="closeWindow(this)">X</div>
+                </div>
+            </div>
+            ${windowName === 'calculator' ? `
+                <input type="text" id="calcInput" readonly>
+                <br>
+                <button onclick="addToCalc('1')">1</button>
+                <button onclick="addToCalc('2')">2</button>
+                <button onclick="addToCalc('3')">3</button>
+                <button onclick="addToCalc('+')">+</button>
+                <br>
+                <button onclick="addToCalc('4')">4</button>
+                <button onclick="addToCalc('5')">5</button>
+                <button onclick="addToCalc('6')">6</button>
+                <button onclick="addToCalc('-')">-</button>
+                <br>
+                <button onclick="addToCalc('7')">7</button>
+                <button onclick="addToCalc('8')">8</button>
+                <button onclick="addToCalc('9')">9</button>
+                <button onclick="addToCalc('*')">*</button>
+                <br>
+                <button onclick="addToCalc('0')">0</button>
+                <button onclick="addToCalc('.')">.</button>
+                <button onclick="clearCalc()">C</button>
+                <button onclick="calculate()">=</button>
+            ` : windowName === 'calendar' ? `
+                <div class="calendar">
+                    <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
+                    <div class="calendar-day">Mon</div>
+                    <div class="calendar-day">Tue</div>
+                    <div class="calendar-day">Wed</div>
+                    <div class="calendar-day">Thu</div>
+                    <div class="calendar-day">Fri</div>
+                    <div class="calendar-day">Sat</div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                </div>
+            ` : windowName === 'about' ? `
+                <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
+                <button class="contact-btn" onclick="openContactWindow()">Contact</button>
+                <button class="projects-btn" onclick="openWindow('projects')">Projects</button>
+            ` : `
+                <textarea rows="6" placeholder="Type your notes here..."></textarea>
+            `}
+        `;
+        document.body.appendChild(newWindow);
+        makeDraggable(newWindow);
+    }
+}
+
+
+  function closeWindow(button) {
+    const window = button.closest('.window');
+    window.remove();
+  }
+
+  function makeDraggable(window) {
+    window.addEventListener('mousedown', startDragging);
+  }
+
+  function reopenAboutMe() {
+    const aboutWindow = document.querySelector('.about-window');
+    if (aboutWindow) {
+      aboutWindow.remove();
+    }
+    openWindow('about');
+  }
+
+  function openContactWindow() {
+    const contactWindow = document.createElement('div');
+    contactWindow.classList.add('window', 'contact-window');
+    contactWindow.style.top = '20px';
+    contactWindow.style.left = '20px';
+    contactWindow.innerHTML = `
+        <div class="window-titlebar">
+          <div class="window-title">Contact Me</div>
+          <div class="window-buttons">
+            <div class="window-button" onclick="closeWindow(this)">X</div>
+          </div>
+        </div>
+        <p>You can contact me at theturtleinwater@gmail.com</p>
+        <p>My Discord is lnarion.</p>
+        <p>My Matrix is [@lnarin:matrix.com].</p>
+        <p>My phone number is +1(703)459-6819.</p> 
+      `;
+    document.body.appendChild(contactWindow);
+    makeDraggable(contactWindow);
+  }
+</script>
+
+</body>
+</html>
