@@ -363,6 +363,26 @@ const windows = document.querySelectorAll('.window');
     document.addEventListener('mousemove', dragWindow);
     document.addEventListener('mouseup', stopDragging);
   }
+  
+  function addToCalc(value) {
+  	const inputField=document.getElementById('calcInput');
+    inputField.value += value;
+  }
+  function clearCalc() {
+  	const inputField = document.getElementById('calcInput');
+    inputField.value = '';
+  }
+  
+  function calculate() {
+  const inputField = document.getElementById('calcInput');
+  const expression = inputField.value;
+  try {
+  	const result = eval(expression);
+    inputField.value = result;
+  } catch (error) {
+  	inputField.value = 'Error';
+  	}
+  }
 
   function dragWindow(e) {
     const window = e.target.closest('.window');
