@@ -299,6 +299,18 @@ updateClock();
       particle.remove();
     }, 1500); // Adjust particle duration
   });
+  function animateStar(star) {
+    const randomX = Math.random() * 2-1;
+    const randomY = Math.random() * 2-1;
+    let posY = parseFloat(star.style.left);
+    let posY = parseFloat(star.style.top);
+    setInterval(() => {
+      posX += randomX;
+      posY += randomY;
+      star.style.left = posX + 'px';
+      star.style.top = posY + 'px';
+    }, 50);
+  }
 </script>
 
 <script>
