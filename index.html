@@ -253,18 +253,27 @@
   // Function to update the clock
   function updateClock() {
     const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
+    let hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-    const timeString = `${hours}:${minutes}:${seconds}`;
-    document.getElementById('clock').textContent = timeString;
-  }
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
 
-  // Update the clock every second
-  setInterval(updateClock, 1000);
+    // converts hours to 12-hour 
+    hours = hours % 12 || 12;
 
-  // Call the function once to initialize the clock
-  updateClock();
+    const timeString = `${hours}:${padZero(minutes)}:${padZero(seconds)} ${meridiem}`;
+    document.querySelector('.clock').textContent = timeString;
+}
+
+function padZero(number) {
+    return number < 10 ? '0' + number : number;
+}
+  
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Call the function once to initialize the clock
+updateClock();
 </script>
 
 <script>
