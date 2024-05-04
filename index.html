@@ -318,8 +318,8 @@ updateClock();
   const numStars = 1500;
 
   function getRandomPosition() {
-    const x = Math.floor(Math.random() * (screenWidth - 30)); // Adjusted for star width
-    const y = Math.floor(Math.random() * (screenHeight - 30)); // Adjusted for star height
+    const x = Math.floor(Math.random() * (screenWidth + 30)); // Adjusted for star width
+    const y = Math.floor(Math.random() * (screenHeight + 30)); // Adjusted for star height
     return { x, y };
 }
 
