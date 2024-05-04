@@ -172,18 +172,6 @@
       border-radius: 30%;
       left: calc(50% - 5px);
     }
-    .star {
-      position: absolute;
-      background-color: #fff;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      pointer-events: none;
-   	}
-    
-    .blue-star {
-      background-color: #89CFF0;
-    }
     
   </style>
 </head>
@@ -215,6 +203,93 @@
  </div>
 </div>
 <script>
+var sparkles = 50,
+  swide = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+  shigh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+  sleft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+  sdown = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+  
+var tiny = [],
+  star = [],
+  starv = [],
+  starx = [],
+  stary = [];
+
+window.onload = function () {
+  if (document.getElementById) {
+    for (var i = 0; i < sparkles; i++) {
+      createStar(i);
+      document.body.appendChild(tiny[i]);
+      document.body.appendChild(star[i]);
+    }
+    sparkle();
+  }
+}
+
+function sparkle() {
+  for (var i = 0; i < sparkles; i++) {
+    if (starv[i]) {
+      updateStar(i);
+    } else {
+      createStar(i);
+    }
+  }
+  setTimeout(sparkle, 40);
+}
+
+function createStar(index) {
+  var div = createDiv(3, 3);
+  div.style.visibility = 'hidden';
+  div.style.zIndex = '999';
+  tiny[index] = div;
+
+  div = createDiv(5, 5);
+  div.style.backgroundColor = 'transparent';
+  div.style.visibility = 'hidden';
+  div.style.zIndex = '999';
+  var child1 = createDiv(1, 5);
+  var child2 = createDiv(5, 1);
+  div.appendChild(child1);
+  div.appendChild(child2);
+  child1.style.top = '2px';
+  child1.style.left = '0px';
+  child2.style.top = '0px';
+  child2.style.left = '2px';
+  star[index] = div;
+  
+  starv[index] = 50;
+  starx[index] = Math.random() * swide;
+  stary[index] = Math.random() * shigh;
+}
+
+function updateStar(index) {
+  if (--starv[index] == 25) {
+    star[index].style.clip = 'rect(1px, 4px, 4px, 1px)';
+  }
+  if (starv[index]) {
+    stary[index] += 1 + Math.random() * 3;
+    starx[index] += ((index % 5) - 2) / 5;
+    if (stary[index] < shigh + sdown) {
+      star[index].style.top = stary[index] + 'px';
+      star[index].style.left = starx[index] + 'px';
+    } else {
+      star[index].style.visibility = 'hidden';
+      starv[index] = 0;
+    }
+  } else {
+    tiny[index].style.visibility = 'hidden';
+  }
+}
+
+function createDiv(width, height) {
+  var div = document.createElement('div');
+  div.style.position = 'absolute';
+  div.style.height = width + 'px';
+  div.style.width = height + 'px';
+  div.style.overflow = 'hidden';
+  return div;
+}
+
   // Function to show boot-up sequence text
   function showBootUpSequence() {
   const bootUpText = [
@@ -312,57 +387,6 @@ setInterval(updateClock, 1000);
 
 // Call the function once to initialize the clock
 updateClock();
-
-  const screenWidth = screen.width;
-  const screenHeight = screen.height;
-  const numStars = 1500;
-
-  function getRandomPosition() {
-    const x = Math.floor(Math.random() * (screenWidth + 30)); // Adjusted for star width
-    const y = Math.floor(Math.random() * (screenHeight + 30)); // Adjusted for star height
-    return { x, y };
-}
-
-  function createStar() {
-    const star = document.createElement('div');
-    star.classList.add('star');
-    if (Math.random() < 0.2) { // 20% chance of creating a blue star
-      star.classList.add('blue-star');
-    }
-    const position = getRandomPosition();
-    star.style.left = position.x + 'px';
-    star.style.top = position.y + 'px';
-    document.body.appendChild(star);
-    setTimeout(() => {
-      star.style.opacity = '0'; // Initially set opacity to 0 for fade-in effect
-      setTimeout(() => {
-        star.style.opacity = '1'; // Increase opacity to 1 for fade-in effect
-      }, 100);
-    }, Math.random() * 1000); // Random delay for fade-in effect
-  }
-
-  function createStars() {
-    for (let i = 0; i < numStars; i++) {
-      createStar();
-    }
-  }
-
-  function moveStars() {
-    const stars = document.querySelectorAll('.star');
-    stars.forEach(star => {
-        const x = parseFloat(star.style.left);
-        const y = parseFloat(star.style.top);
-        const newX = x + (Math.random() - 0.5) * 2;
-        const newY = y + (Math.random() - 0.5) * 2;
-        if (newX >= 0 && newX <= screenWidth && newY >= 0 && newY <= screenHeight) {
-            star.style.left = newX + 0 + 'px'; // Adjust the subtraction value to control the shift
-            star.style.top = newY + 'px';
-        }
-    });
-}
-
-  createStars();
-  setInterval(moveStars, 50);
   
 const windows = document.querySelectorAll('.window');
   windows.forEach(window => {
