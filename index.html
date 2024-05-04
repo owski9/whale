@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       background-color: #008080; /* Windows 95 desktop background color */
-      font-family: Times New Roman, sans-serif;
+      font-family: Monospace, sans-serif;
     }
 
     .loading-screen {
@@ -22,14 +22,14 @@
       height: 100%;
       background-color: rgba(0, 0, 8); /* Semi-transparent black overlay */
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: left;
+      justify-content: left;
       z-index: 9999; /* Ensure it's above all other content */
     }
 
     .loading-text {
       color: #fff;
-      font-size: 24px;
+      font-size: 16px;
     }
 
     /* Existing styles for other elements */
@@ -400,12 +400,12 @@ const windows = document.querySelectorAll('.window');
     contactWindow.style.top = '20px';
     contactWindow.style.left = '20px';
     contactWindow.innerHTML = `
-    	  <div class="window-titlebar">
+    	 <div class="window-titlebar">
         <div class="window-title">Contact Me</div>
         <div class="window-buttons">
         <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
         </div>
-    	  </div>
+        </div>
     	  <div class="window-content">
         <p>You can contact me via:</p>
         <ul>
