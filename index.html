@@ -299,10 +299,11 @@ updateClock();
       particle.remove();
     }, 1500); // Adjust particle duration
   });
+  
   function animateStar(star) {
-    const randomX = Math.random() * 2-1;
-    const randomY = Math.random() * 2-1;
-    let posY = parseFloat(star.style.left);
+    const randomX = Math.random() * 2 - 1;
+    const randomY = Math.random() * 2 - 1;
+    let posX = parseFloat(star.style.left);
     let posY = parseFloat(star.style.top);
     setInterval(() => {
       posX += randomX;
