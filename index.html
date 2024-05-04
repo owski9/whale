@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,8 +115,11 @@
     }
 
     textarea, input {
-      width: calc(100% - 20px);
+      width: calc(100% - 23px);
       margin-bottom: 10px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 2px inset #c8c7c7;
     }
 
     .start-menu {
@@ -152,6 +156,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 10px;
       border: 1px solid #ccc;
       padding: 5px;
       position: relative;
@@ -169,15 +174,16 @@
       display: none;
     }
     .star {
-    position: absolute;
-    background-color: #fff;
-    width: 2px;
-    height: 2px;
-    border-radius: 50%;
-    pointer-events: none;
+      position: absolute;
+      background-color: #fff;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      pointer-events: none;
    	}
+    
     .blue-star {
-    background-color: #89CFF0;
+      background-color: #89CFF0;
     }
     
   </style>
@@ -282,7 +288,7 @@
 }
 
 function padZero(number) {
-    return number < 10 ? '0' + number : number.toString();
+    return number < 10 ? number : number;
 }
   
 // Update the clock every second
