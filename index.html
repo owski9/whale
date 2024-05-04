@@ -172,6 +172,15 @@
       border-radius: 30%;
       left: calc(50% - 5px);
     }
+    .sparkle {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(0,0,0, 0.5);
+      border-radius: 50%; /* Ensures the sparkles are circular */
+      pointer-events: none; /* So the sparkles don't interfere with mouse events */
+      z-index: 9999; /* Ensure the sparkles are above other content */
+    }
     
   </style>
 </head>
@@ -203,92 +212,7 @@
  </div>
 </div>
 <script>
-var sparkles = 50,
-  swide = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-  shigh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-  sleft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
-  sdown = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-  
-var tiny = [],
-  star = [],
-  starv = [],
-  starx = [],
-  stary = [];
 
-window.onload = function () {
-  if (document.getElementById) {
-    for (var i = 0; i < sparkles; i++) {
-      createStar(i);
-      document.body.appendChild(tiny[i]);
-      document.body.appendChild(star[i]);
-    }
-    sparkle();
-  }
-}
-
-function sparkle() {
-  for (var i = 0; i < sparkles; i++) {
-    if (starv[i]) {
-      updateStar(i);
-    } else {
-      createStar(i);
-    }
-  }
-  setTimeout(sparkle, 40);
-}
-
-function createStar(index) {
-  var div = createDiv(3, 3);
-  div.style.visibility = 'hidden';
-  div.style.zIndex = '999';
-  tiny[index] = div;
-
-  div = createDiv(5, 5);
-  div.style.backgroundColor = 'transparent';
-  div.style.visibility = 'hidden';
-  div.style.zIndex = '999';
-  var child1 = createDiv(1, 5);
-  var child2 = createDiv(5, 1);
-  div.appendChild(child1);
-  div.appendChild(child2);
-  child1.style.top = '2px';
-  child1.style.left = '0px';
-  child2.style.top = '0px';
-  child2.style.left = '2px';
-  star[index] = div;
-  
-  starv[index] = 50;
-  starx[index] = Math.random() * swide;
-  stary[index] = Math.random() * shigh;
-}
-
-function updateStar(index) {
-  if (--starv[index] == 25) {
-    star[index].style.clip = 'rect(1px, 4px, 4px, 1px)';
-  }
-  if (starv[index]) {
-    stary[index] += 1 + Math.random() * 3;
-    starx[index] += ((index % 5) - 2) / 5;
-    if (stary[index] < shigh + sdown) {
-      star[index].style.top = stary[index] + 'px';
-      star[index].style.left = starx[index] + 'px';
-    } else {
-      star[index].style.visibility = 'hidden';
-      starv[index] = 0;
-    }
-  } else {
-    tiny[index].style.visibility = 'hidden';
-  }
-}
-
-function createDiv(width, height) {
-  var div = document.createElement('div');
-  div.style.position = 'absolute';
-  div.style.height = width + 'px';
-  div.style.width = height + 'px';
-  div.style.overflow = 'hidden';
-  return div;
-}
 
   // Function to show boot-up sequence text
   function showBootUpSequence() {
@@ -552,6 +476,17 @@ const windows = document.querySelectorAll('.window');
     openWindow('about');
   }
 
+ // forgot 
+function createDiv(width, height) {
+  var div = document.createElement('div');
+  div.style.position = 'absolute';
+  div.style.height = width + 'px';
+  div.style.width = height + 'px';
+  div.style.overflow = 'hidden';
+  return div;
+}
+
+
   function openContactWindow() {
     const contactWindow = document.createElement('div');
     contactWindow.classList.add('window', 'contact-window');
@@ -578,6 +513,101 @@ const windows = document.querySelectorAll('.window');
     document.body.appendChild(contactWindow);
     makeDraggable(contactWindow);
   } 
+  
+  
+var sparkles = 300,
+    swide = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+    shigh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+var tiny = [],
+    star = [],
+    starv = [],
+    starx = [],
+    stary = [],
+    starSpeed = [];
+
+window.onload = function () {
+  if (document.getElementById) {
+    for (var i = 0; i < sparkles; i++) {
+      createStar(i, 'white');
+      document.body.appendChild(tiny[i]);
+      document.body.appendChild(star[i]);
+
+      createStar(i + sparkles, 'skyblue');
+      document.body.appendChild(tiny[i + sparkles]);
+      document.body.appendChild(star[i + sparkles]);
+    }
+    sparkle();
+  }
+}
+
+function sparkle() {
+  for (var i = 0; i < sparkles; i++) {
+    updateStar(i);
+    updateStar(i + sparkles);
+  }
+  setTimeout(sparkle, 40);
+}
+
+function createStar(index, color) {
+  var div = createDiv(3, 3, color);
+  tiny[index] = div;
+
+  div = createDiv(5, 5, color);
+  div.style.backgroundColor = 'transparent';
+  var child1 = createDiv(1, 5, color);
+  var child2 = createDiv(5, 1, color);
+  div.appendChild(child1);
+  div.appendChild(child2);
+  child1.style.top = '2px';
+  child1.style.left = '0px';
+  child2.style.top = '0px';
+  child2.style.left = '2px';
+  star[index] = div;
+
+  starv[index] = 50;
+  starSpeed[index] = 1 + Math.random() * 3; // Random speed for each sparkle
+  starx[index] = Math.random() * swide;
+  stary[index] = Math.random() * shigh;
+  star[index].style.top = stary[index] + 'px'; // Set initial position
+  star[index].style.left = starx[index] + 'px'; // Set initial position
+}
+
+function updateStar(index) {
+  if (--starv[index] == 25) {
+    star[index].style.clip = 'rect(1px, 4px, 4px, 1px)';
+  }
+  if (starv[index] <= 0) {
+    regenerateStar(index);
+  } else {
+    stary[index] += Math.random() * 2 - 1; // Random vertical movement
+    starx[index] += Math.random() * 2 - 1; // Random horizontal movement
+    star[index].style.top = stary[index] + 'px';
+    star[index].style.left = starx[index] + 'px';
+  }
+}
+
+function regenerateStar(index) {
+  starv[index] = 50;
+  starx[index] = Math.random() * swide;
+  stary[index] = Math.random() * shigh;
+  star[index].style.top = stary[index] + 'px';
+  star[index].style.left = starx[index] + 'px';
+}
+
+function createDiv(width, height, color) {
+  var div = document.createElement('div');
+  div.className = 'sparkle'; // Set class name for styling
+  div.style.position = 'absolute';
+  div.style.height = width + 'px';
+  div.style.width = height + 'px';
+  div.style.overflow = 'hidden';
+  div.style.backgroundColor = color; // Set color
+  return div;
+}
+
+
+
 </script>
 </body>
 </html>
