@@ -13,6 +13,14 @@
       background-color: #008080; /* Windows 95 desktop background color */
       font-family: Monospace, sans-serif;
     }
+    
+    .clock {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 18px;
+    color: fff;
+    }
 
     .loading-screen {
       position: fixed;
@@ -101,45 +109,24 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background-color: #008080;
+      background-color: #c0c0c0;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       padding: 5px;
+      border: 2px outset #c8c7c7;
     }
 
     .start-button {
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      margin: 0 5px;
+      width: 80px;
+      height: 40px;
+      background-color: #c0c0c0;
+      margin: 15 15px;
       text-align: center;
-      line-height: 50px;
+      line-height: 40px;
       cursor: pointer;
-      font-size: 18px;
-    }
-
-    .start-menu-bar {
-      position: fixed;
-      bottom: 55px; /* Height of the start menu */
-      width: 100%;
-      background-color: #008080;
-      height: 30px; /* Height of the start menu bar */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 10px;
-      flex-direction: column; /* Updated to cascade down */
-    }
-
-    .start-menu-button {
-      width: 100px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      cursor: pointer;
+      font-size: 15px;
+      border: 2px outset #c0c0c0;
     }
 
     .calendar {
@@ -188,7 +175,7 @@
     </div>
   </div>
   <div class="about-content">
-  <img src="https://files.catbox.moe/0950ou.png" alt="About Image" style="max-width: 100%; height: auto;">
+  <img src="https://files.catbox.moe/0950ou.png" alt="About Image" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
   <div class="about-text">
   <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
   <button class="contact-btn" onclick="openContactWindow()">Contact</button>
@@ -199,34 +186,35 @@
 <script>
   // Function to show boot-up sequence text
   function showBootUpSequence() {
-    const bootUpText = [
-      "Initializing system...",
-      "Loading drivers...",
-      "Establishing network connection...",
-      "Performing memory check...",
-      "Booting operating system...",
-      "Loading user interface...",
-      "Ready for use."
-    ];
+  const bootUpText = [
+    "Initializing system...",
+    "Loading drivers...",
+    "Establishing network connection...",
+    "Performing memory check...",
+    "Booting operating system...",
+    "Loading user interface...",
+    "Ready for use."
+  ];
 
-    const bootUpDelay = 130; // Adjust the delay between each line of text (in milliseconds)
-    let currentIndex = 0;
+  const bootUpDelay = 130; // Adjust the delay between each line of text (in milliseconds)
+  const finalDelay = 500; // Additional delay after the final line (in milliseconds)
+  let currentIndex = 0;
 
-    const bootUpInterval = setInterval(() => {
-      if (currentIndex < bootUpText.length) {
-        const loadingText = document.createElement('p');
-        loadingText.textContent = bootUpText[currentIndex];
-        document.querySelector('.loading-text').appendChild(loadingText);
-        currentIndex++;
-      } else {
-        clearInterval(bootUpInterval);
-        // Hide the loading screen after the boot-up sequence is complete
-        setTimeout(() => {
-          document.querySelector('.loading-screen').style.display = 'none';
-        }, bootUpDelay);
-      }
-    }, bootUpDelay);
-  }
+  const bootUpInterval = setInterval(() => {
+    if (currentIndex < bootUpText.length) {
+      const loadingText = document.createElement('p');
+      loadingText.textContent = bootUpText[currentIndex];
+      document.querySelector('.loading-text').appendChild(loadingText);
+      currentIndex++;
+    } else {
+      clearInterval(bootUpInterval);
+      // Hide the loading screen after the boot-up sequence is complete
+      setTimeout(() => {
+        document.querySelector('.loading-screen').style.display = 'none';
+      }, finalDelay);
+    }
+  }, bootUpDelay);
+}
 
   // Call the function to start the boot-up sequence when the window loads
   window.addEventListener('load', showBootUpSequence);
