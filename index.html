@@ -291,7 +291,7 @@ updateClock();
 <script>
   const screenWidth = screen.width;
   const screenHeight = screen.height;
-  const numStars = 1000;
+  const numStars = 1500;
 
   function getRandomPosition() {
     const x = Math.floor(Math.random() * screenWidth);
@@ -302,13 +302,19 @@ updateClock();
   function createStar() {
     const star = document.createElement('div');
     star.classList.add('star');
-    if (Math.random() < 0.5) { // 20% chance of creating a blue star
+    if (Math.random() < 0.2) { // 20% chance of creating a blue star
       star.classList.add('blue-star');
     }
     const position = getRandomPosition();
     star.style.left = position.x + 'px';
     star.style.top = position.y + 'px';
     document.body.appendChild(star);
+    setTimeout(() => {
+      star.style.opacity = '0'; // Initially set opacity to 0 for fade-in effect
+      setTimeout(() => {
+        star.style.opacity = '1'; // Increase opacity to 1 for fade-in effect
+      }, 100);
+    }, Math.random() * 1000); // Random delay for fade-in effect
   }
 
   function createStars() {
@@ -320,14 +326,15 @@ updateClock();
   function moveStars() {
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {
-      const x = parseFloat(star.style.left);
-      const y = parseFloat(star.style.top);
-      const newX = x + (Math.random() - 0.5) * 2;
-      const newY = y + (Math.random() - 0.5) * 2;
-      if (newX >= 0 && newX <= screenWidth && newY >= 0 && newY <= screenHeight) {
-        star.style.left = newX + 'px';
-        star.style.top = newY + 'px';
-      }
+      let newX = parseFloat(star.style.left) + (Math.random() - 0.5) * 2;
+      let newY = parseFloat(star.style.top) + (Math.random() - 0.5) * 2;
+
+      // Ensure stars stay within the visible screen area
+      newX = Math.max(0, Math.min(screenWidth, newX));
+      newY = Math.max(0, Math.min(screenHeight, newY));
+
+      star.style.left = newX + 'px';
+      star.style.top = newY + 'px';
     });
   }
 
