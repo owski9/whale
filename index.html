@@ -164,14 +164,16 @@
       left: calc(50% - 5px);
       display: none;
     }
-    .particle {
-      position: fixed;
-      background-color: #add8e6;
-      border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      z-index: 9999;
-      pointer-events: none;
+    .star {
+    position: absolute;
+    background-color: #fff;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    pointer-events: none;
+   	}
+    .blue-star {
+    background-color: #89CFF0;
     }
     
   </style>
@@ -286,32 +288,51 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 
-<div class="particle"></div>
-
 <script>
-  document.addEventListener('mousemove', function(event) {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    particle.style.left = (event.clientX - 5) + 'px'; // Adjust particle position
-    particle.style.top = (event.clientY - 5) + 'px'; // Adjust particle position
-    document.body.appendChild(particle);
-    setTimeout(() => {
-      particle.remove();
-    }, 1500); // Adjust particle duration
-  });
-  
-  function animateStar(star) {
-    const randomX = Math.random() * 2 - 1;
-    const randomY = Math.random() * 2 - 1;
-    let posX = parseFloat(star.style.left);
-    let posY = parseFloat(star.style.top);
-    setInterval(() => {
-      posX += randomX;
-      posY += randomY;
-      star.style.left = posX + 'px';
-      star.style.top = posY + 'px';
-    }, 50);
+  const screenWidth = screen.width;
+  const screenHeight = screen.height;
+  const numStars = 1000;
+
+  function getRandomPosition() {
+    const x = Math.floor(Math.random() * screenWidth);
+    const y = Math.floor(Math.random() * screenHeight);
+    return { x, y };
   }
+
+  function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    if (Math.random() < 0.5) { // 20% chance of creating a blue star
+      star.classList.add('blue-star');
+    }
+    const position = getRandomPosition();
+    star.style.left = position.x + 'px';
+    star.style.top = position.y + 'px';
+    document.body.appendChild(star);
+  }
+
+  function createStars() {
+    for (let i = 0; i < numStars; i++) {
+      createStar();
+    }
+  }
+
+  function moveStars() {
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+      const x = parseFloat(star.style.left);
+      const y = parseFloat(star.style.top);
+      const newX = x + (Math.random() - 0.5) * 2;
+      const newY = y + (Math.random() - 0.5) * 2;
+      if (newX >= 0 && newX <= screenWidth && newY >= 0 && newY <= screenHeight) {
+        star.style.left = newX + 'px';
+        star.style.top = newY + 'px';
+      }
+    });
+  }
+
+  createStars();
+  setInterval(moveStars, 50);
 </script>
 
 <script>
