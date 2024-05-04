@@ -15,11 +15,17 @@
     }
     
     .clock {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 18px;
-    color: fff;
+      position: fixed;
+      bottom: 13px;
+      right: 20px;
+      font-size: 18px;
+      color: #000000;
+      text-align: center;
+      line-height: 33px;
+      border: 2px inset #c8c7c7;
+      width: 150px;
+      height: 30px;
+      background-color: rgba(170,170,170,255);
     }
 
     .loading-screen {
@@ -239,6 +245,26 @@
   <div class="start-button" onclick="openWindow('about')">Start</div>
   
 </div>
+
+<div class="clock" id="clock"></div>
+
+<script>
+  // Function to update the clock
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('clock').textContent = timeString;
+  }
+
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+
+  // Call the function once to initialize the clock
+  updateClock();
+</script>
 
 <script>
 const windows = document.querySelectorAll('.window');
