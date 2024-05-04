@@ -164,6 +164,16 @@
       left: calc(50% - 5px);
       display: none;
     }
+    .particle {
+      position: fixed;
+      background-color: #add8e6;
+      border-radius: 50%;
+      width: 10px:
+      height: 10px:
+      z-index: 9999;
+      pointer-events: none;
+    }
+    
   </style>
 </head>
 <body>
@@ -274,6 +284,21 @@ setInterval(updateClock, 1000);
 
 // Call the function once to initialize the clock
 updateClock();
+</script>
+
+<div class="particle"></div>
+
+<script>
+  document.addEventListener('mousemove', function(event) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    particle.style.left = (event.clientX - 5) + 'px'; // Adjust particle position
+    particle.style.top = (event.clientY - 5) + 'px'; // Adjust particle position
+    document.body.appendChild(particle);
+    setTimeout(() => {
+      particle.remove();
+    }, 1500); // Adjust particle duration
+  });
 </script>
 
 <script>
@@ -446,7 +471,7 @@ const windows = document.querySelectorAll('.window');
       `;
     document.body.appendChild(contactWindow);
     makeDraggable(contactWindow);
-  }
+  } 
 </script>
 </body>
 </html>
