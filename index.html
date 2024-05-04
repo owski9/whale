@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi I'm Lunarion</title>
-  <link rel="icon" href="favicon.ico"> <!-- Add your favicon URL here -->
+  <title>Windows 95</title>
+  <link rel="icon" href="https://files.catbox.moe/xdhnnz.png" type = "image/png">
   <style>
     /* Global styles */
     body {
@@ -326,17 +326,16 @@ updateClock();
   function moveStars() {
     const stars = document.querySelectorAll('.star');
     stars.forEach(star => {
-      let newX = parseFloat(star.style.left) + (Math.random() - 0.5) * 2;
-      let newY = parseFloat(star.style.top) + (Math.random() - 0.5) * 2;
-
-      // Ensure stars stay within the visible screen area
-      newX = Math.max(0, Math.min(screenWidth, newX));
-      newY = Math.max(0, Math.min(screenHeight, newY));
-
-      star.style.left = newX + 'px';
-      star.style.top = newY + 'px';
+        const x = parseFloat(star.style.left);
+        const y = parseFloat(star.style.top);
+        const newX = x + (Math.random() - 0.5) * 2;
+        const newY = y + (Math.random() - 0.5) * 2;
+        if (newX >= 0 && newX <= screenWidth && newY >= 0 && newY <= screenHeight) {
+            star.style.left = newX + 0 + 'px'; // Adjust the subtraction value to control the shift
+            star.style.top = newY + 'px';
+        }
     });
-  }
+}
 
   createStars();
   setInterval(moveStars, 50);
