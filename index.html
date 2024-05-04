@@ -49,6 +49,7 @@
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
       cursor: move;
       padding: 10px;
+      border: 2px outset #c8c7c7;
     }
 
     .window-titlebar {
@@ -68,6 +69,7 @@
     .window-buttons {
       display: flex;
       gap: 5px;
+      border: 1px outset #c8c7c7;
     }
 
     .window-button {
@@ -75,6 +77,7 @@
       height: 12px;
       background-color: #fff;
       cursor: pointer;
+      border: 2px outset #c8c7c7;
     }
 
     .desktop-icons {
@@ -178,8 +181,8 @@
   <img src="https://files.catbox.moe/0950ou.png" alt="About Image" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
   <div class="about-text">
   <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
-  <button class="contact-btn" onclick="openContactWindow()">Contact</button>
-  <button class="project-btn" onclick="openWindow('projects')">Projects</button>
+  <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
+  <button class="project-btn" onclick="openWindow('projects')" style="border: 2px outset #c8c7c7;">Projects</button>
   </div>
  </div>
 </div>
@@ -353,8 +356,8 @@ const windows = document.querySelectorAll('.window');
             ` : windowName === 'about' ? `
                 <img src="https://files.catbox.moe/0950ou.png" alt="About Image" style="max-width: 100%; height: auto;">
                 <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
-                <button class="contact-btn" onclick="openContactWindow()">Contact</button>
-                <button class="projects-btn" onclick="openWindow('projects')">Projects</button>
+                <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
+                <button class="projects-btn" onclick="openWindow('projects')" style="border: 2px outset #c8c7c7;">Projects</button>
             ` : `
                 <textarea rows="6" placeholder="Type your notes here..."></textarea>
             `}
