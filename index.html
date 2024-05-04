@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,10 +167,9 @@
       bottom: -5px;
       width: 10px;
       height: 10px;
-      background-color: red;
-      border-radius: 50%;
+      background-color: rgba(0,0,0);
+      border-radius: 30%;
       left: calc(50% - 5px);
-      display: none;
     }
     .star {
       position: absolute;
@@ -272,6 +270,23 @@
 <div class="clock" id="clock"></div>
 
 <script>
+  // That god damn calendar
+  function updateCalendar() {
+  const currentDate = new Date();
+  const currentDay = currentDate.getDate();
+  
+  const calendarDays = document.querySelectorAll('.calendar-day');
+  
+  calendarDays.forEach(day => {
+    day.classList.remove('current-day-dot');
+    if (parseInt(day.textContent) === currentDay) {
+    	day.classList.add('current-day-dot');
+    }    
+  });
+}
+
+updateCalendar();
+
   // Function to update the clock
   function updateClock() {
     const now = new Date();
@@ -296,9 +311,7 @@ setInterval(updateClock, 1000);
 
 // Call the function once to initialize the clock
 updateClock();
-</script>
 
-<script>
   const screenWidth = screen.width;
   const screenHeight = screen.height;
   const numStars = 1500;
@@ -349,9 +362,7 @@ updateClock();
 
   createStars();
   setInterval(moveStars, 50);
-</script>
-
-<script>
+  
 const windows = document.querySelectorAll('.window');
   windows.forEach(window => {
     window.addEventListener('mousedown', startDragging);
