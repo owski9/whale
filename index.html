@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Windows 95</title>
+  <title>Hi I'm Lunarion</title>
   <link rel="icon" href="favicon.ico"> <!-- Add your favicon URL here -->
   <style>
     /* Global styles */
@@ -294,10 +294,10 @@ updateClock();
   const numStars = 1500;
 
   function getRandomPosition() {
-    const x = Math.floor(Math.random() * screenWidth);
-    const y = Math.floor(Math.random() * screenHeight);
+    const x = Math.floor(Math.random() * (screenWidth - 3)); // Adjusted for star width
+    const y = Math.floor(Math.random() * (screenHeight - 3)); // Adjusted for star height
     return { x, y };
-  }
+}
 
   function createStar() {
     const star = document.createElement('div');
