@@ -267,7 +267,7 @@
         transform: rotate(0deg);
       }
       to {
-        transform: rotate(360deg);
+        transform: rotate(180deg);
       }
     }
     
@@ -379,20 +379,20 @@ updateCalendar();
   // Function to update the clock
   function updateClock() {
     const now = new Date();
-    let hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const meridiem = hours >= 12 ? ' PM' : ' AM';
 
     // converts hours to 12-hour 
-    hours = hours % 12 || 12;
+    const formattedHours = hours % 12 || 12;
 
-    const timeString = `${hours}:${padZero(minutes)}:${padZero(seconds)} ${meridiem}`;
+    const timeString = `${formattedHours}:${padZero(minutes)}:${padZero(seconds)}${meridiem}`;
     document.querySelector('.clock').textContent = timeString;
 }
 
 function padZero(number) {
-    return number < 10 ? number : number;
+    return number < 10 ? '0' + number : number;
 }
   
 // Update the clock every second
@@ -597,7 +597,7 @@ const windows = document.querySelectorAll('.window');
   <script>
   // Generate stars
     const container = document.getElementById('stars-container');
-    const numStars = 1500;
+    const numStars = 900;
 
     function createStar() {
       const star = document.createElement('div');
