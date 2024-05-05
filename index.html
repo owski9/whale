@@ -171,15 +171,103 @@
       background-color: rgba(0,0,0);
       border-radius: 30%;
       left: calc(50% - 5px);
+      
     }
-    .sparkle {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background-color: rgba(0,0,0, 0.5);
-      border-radius: 50%; /* Ensures the sparkles are circular */
-      pointer-events: none; /* So the sparkles don't interfere with mouse events */
-      z-index: 9999; /* Ensure the sparkles are above other content */
+    #stars-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .star {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      animation: fade-animation 2s linear infinite alternate, rotate-animation 10s linear infinite;
+    }
+
+    .star.white {
+      background-color: #fff;
+    }
+
+    .star.blue {
+      background-color: #89CFF0;
+    }
+
+    .star.cross {
+      background-color: transparent;
+    }
+
+    .star.cross::before,
+	  .star.cross::after {
+  	  content: '';
+  	  position: absolute;
+  	  background-color: inherit; /* Inherit color from parent */
+	}
+
+	.star.cross::before {
+  	  width: 1px;
+  	  height: 100%;
+  	  left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+	}
+
+	.star.cross::after {
+  	  width: 100%;
+  	  height: 1px;
+  	  top: 50%;
+  	  left: 0;
+  	  transform: translateY(-50%);
+	}
+
+	.star.blue::before,
+	.star.blue::after {
+  	  background-color: #89CFF0; /* Set blue color */
+	}
+
+	.star.white::before,
+	.star.white::after {
+  	  background-color: #fff; /* Set white color */
+	}
+
+    .star.cross::before {
+      width: 1px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+
+    .star.cross::after {
+      width: 100%;
+      height: 1px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    @keyframes fade-animation {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rotate-animation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
     
   </style>
@@ -513,100 +601,38 @@ function createDiv(width, height) {
     document.body.appendChild(contactWindow);
     makeDraggable(contactWindow);
   } 
-  
-  
-var sparkles = 400,
-    swide = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
-    shigh = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  </script>
+  <div id="stars-container"></div>
+  <script>
+  // Generate stars
+    const container = document.getElementById('stars-container');
+    const numStars = 1500;
 
-var tiny = [],
-    star = [],
-    starv = [],
-    starx = [],
-    stary = [],
-    starSpeed = [];
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
 
-window.onload = function () {
-  if (document.getElementById) {
-    for (var i = 0; i < sparkles; i++) {
-      createStar(i, 'white');
-      document.body.appendChild(tiny[i]);
-      document.body.appendChild(star[i]);
+      // Randomly assign color
+      const randomColor = Math.random();
+      if (randomColor < 0.3) {
+        star.classList.add('white');
+      } else if (randomColor < 0.6) {
+        star.classList.add('blue');
+      } else {
+        // You can add more colors here if needed
+        // star.classList.add('otherColor');
+      }
 
-      createStar(i + sparkles, 'skyblue');
-      document.body.appendChild(tiny[i + sparkles]);
-      document.body.appendChild(star[i + sparkles]);
+      star.classList.add('cross');
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      container.appendChild(star);
     }
-    sparkle();
-  }
-}
 
-function sparkle() {
-  for (var i = 0; i < sparkles; i++) {
-    updateStar(i);
-    updateStar(i + sparkles);
-  }
-  setTimeout(sparkle, 40);
-}
-
-function createStar(index, color) {
-  var div = createDiv(3, 3, color);
-  tiny[index] = div;
-
-  div = createDiv(5, 5, color);
-  div.style.backgroundColor = 'transparent';
-  var child1 = createDiv(1, 5, color);
-  var child2 = createDiv(5, 1, color);
-  div.appendChild(child1);
-  div.appendChild(child2);
-  child1.style.top = '2px';
-  child1.style.left = '0px';
-  child2.style.top = '0px';
-  child2.style.left = '2px';
-  star[index] = div;
-
-  starv[index] = 50;
-  starSpeed[index] = 1 + Math.random() * 3; // Random speed for each sparkle
-  starx[index] = Math.random() * swide;
-  stary[index] = Math.random() * shigh;
-  star[index].style.top = stary[index] + 'px'; // Set initial position
-  star[index].style.left = starx[index] + 'px'; // Set initial position
-}
-
-function updateStar(index) {
-  if (--starv[index] == 25) {
-    star[index].style.clip = 'rect(1px, 4px, 4px, 1px)';
-  }
-  if (starv[index] <= 0) {
-    regenerateStar(index);
-  } else {
-    stary[index] += Math.random() * 2 - 1; // Random vertical movement
-    starx[index] += Math.random() * 2 - 1; // Random horizontal movement
-    star[index].style.top = stary[index] + 'px';
-    star[index].style.left = starx[index] + 'px';
-  }
-}
-
-function regenerateStar(index) {
-  starv[index] = 50;
-  starx[index] = Math.random() * swide;
-  stary[index] = Math.random() * shigh;
-  star[index].style.top = stary[index] + 'px';
-  star[index].style.left = starx[index] + 'px';
-}
-
-function createDiv(width, height, color) {
-  var div = document.createElement('div');
-  div.className = 'sparkle'; // Set class name for styling
-  div.style.position = 'absolute';
-  div.style.height = width + 'px';
-  div.style.width = height + 'px';
-  div.style.overflow = 'hidden';
-  div.style.backgroundColor = color; // Set color
-  return div;
-}
-
-
+    // Start animation
+    for (let i = 0; i < numStars; i++) {
+      createStar();
+    }
 
 </script>
 </body>
