@@ -1,469 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi There</title>
-  <meta property="og:title" content="hi">
-  <meta property="og:description" content="This is my bio">
-  <meta property="og:image" content="https://files.catbox.moe/0950ou.png"/>
-  <meta property="og:url" content="https://whale.lat/">    
-  <link rel="icon" href="https://files.catbox.moe/as4bdr.png" type = "image/png">
-  <style>
-    /* Global styles */
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #008080; /* Windows 95 desktop background color */
-      font-family: Monospace, sans-serif;
-    }
-    
-    .clock {
-      position: fixed;
-      bottom: 13px;
-      right: 20px;
-      font-size: 18px;
-      color: #000000;
-      text-align: center;
-      line-height: 33px;
-      border: 2px inset #c8c7c7;
-      width: 150px;
-      height: 30px;
-      background-color: rgba(170,170,170,255);
-    }
 
-    .loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 8); /* Semi-transparent black overlay */
-      display: flex;
-      align-items: left;
-      justify-content: left;
-      z-index: 9999; /* Ensure it's above all other content */
-    }
-
-    .loading-text {
-      color: #fff;
-      font-size: 16px;
-    }
-
-    /* Existing styles for other elements */
-    .window {
-      position: absolute;
-      width: 300px;
-      background-color: #fff;
-      border: 2px solid #000;
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-      cursor: move;
-      padding: 10px;
-      border: 2px outset #c8c7c7;
-    }
-
-    .window-titlebar {
-      height: 20px;
-      background-color: #008080;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5px;
-    }
-
-    .window-title {
-      color: #fff;
-      font-size: 12px;
-    }
-
-    .window-buttons {
-      display: flex;
-      gap: 5px;
-      border: 1px outset #c8c7c7;
-    }
-
-    .window-button {
-      width: 12px;
-      height: 12px;
-      background-color: #fff;
-      cursor: pointer;
-      border: 2px outset #c8c7c7;
-    }
-
-    .desktop-icons {
-      display: flex;
-      align-items: middle;
-      justify-items: center;
-      flex-direction: column; /* Updated to cascade down */
-    }
-
-    .icon {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      background-color: #008080;
-      margin: 10px;
-      text-align: center;
-      line-height: 50px;
-      cursor: pointer;
-    }
-
-    .icon img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    textarea, input {
-      width: calc(100% - 23px);
-      margin-bottom: 10px;
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #ffffdf;
-      border: 2px inset #c8c7c7;
-    }
-
-    .start-menu {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #c0c0c0;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 5px;
-      border: 2px outset #c8c7c7;
-    }
-
-    .start-button {
-      width: 80px;
-      height: 40px;
-      background-color: #c0c0c0;
-      margin: 15 15px;
-      text-align: center;
-      line-height: 40px;
-      cursor: pointer;
-      font-size: 15px;
-      border: 2px outset #c0c0c0;
-    }
-
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-
-    .calendar-day {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      padding: 5px;
-      position: relative;
-      width: 27px;
-    }
-
-    .current-day-dot {
-      position: absolute;
-      bottom: -5px;
-      width: 10px;
-      height: 10px;
-      background-color: rgba(0,0,0);
-      border-radius: 30%;
-      left: calc(50% - 5px);
-      
-    }
-    #stars-container {
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .star {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      animation: fade-animation 2s linear infinite alternate, rotate-animation 10s linear infinite;
-    }
-
-    .star.white {
-      background-color: #fff;
-    }
-
-    .star.blue {
-      background-color: #89CFF0;
-    }
-
-    .star.cross {
-      background-color: transparent;
-    }
-
-    .star.cross::before,
-	  .star.cross::after {
-  	  content: '';
-  	  position: absolute;
-  	  background-color: inherit; /* Inherit color from parent */
-	}
-
-	.star.cross::before {
-  	  width: 1px;
-  	  height: 100%;
-  	  left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-	}
-
-	.star.cross::after {
-  	  width: 100%;
-  	  height: 1px;
-  	  top: 50%;
-  	  left: 0;
-  	  transform: translateY(-50%);
-	}
-
-	.star.blue::before,
-	.star.blue::after {
-  	  background-color: #89CFF0; /* Set blue color */
-	}
-
-	.star.white::before,
-	.star.white::after {
-  	  background-color: #fff; /* Set white color */
-	}
-
-    .star.cross::before {
-      width: 1px;
-      height: 100%;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-    }
-
-    .star.cross::after {
-      width: 100%;
-      height: 1px;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-    }
-
-    @keyframes fade-animation {
-      0% {
-        opacity: 1;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi There</title>
+    <meta property="og:title" content="hi">
+    <meta property="og:description" content="This is my bio">
+    <meta property="og:image" content="https://files.catbox.moe/0950ou.png" />
+    <meta property="og:url" content="https://whale.lat/">
+    <link rel="icon" href="https://files.catbox.moe/as4bdr.png" type="image/png">
+    <style>
+      /* Global styles */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #008080;
+        /* Windows 95 desktop background color */
+        font-family: Monospace, sans-serif;
+        overflow: hidden;
       }
-      50% {
-        opacity: 0.5;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
 
-    @keyframes rotate-animation {
-      from {
-        transform: rotate(0deg);
+      .clock {
+        position: fixed;
+        bottom: 13px;
+        right: 20px;
+        font-size: 18px;
+        color: #000000;
+        text-align: center;
+        line-height: 33px;
+        border: 2px inset #c8c7c7;
+        width: 150px;
+        height: 30px;
+        background-color: rgba(170, 170, 170, 255);
       }
-      to {
-        transform: rotate(180deg);
+
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 8);
+        /* Semi-transparent black overlay */
+        display: flex;
+        align-items: left;
+        justify-content: left;
+        z-index: 9999;
+        /* Ensure it's above all other content */
       }
-    }
-    
-  </style>
-</head>
-<body>
 
-<!-- Loading screen -->
-<div class="loading-screen">
+      .loading-text {
+        color: #fff;
+        font-size: 16px;
+      }
 
-  <div class="loading-text">
-    <p>Loading...</p>
-  </div>
-</div>
+      /* Existing styles for other elements */
+      .window {
+        position: absolute;
+        width: 300px;
+        background-color: #fff;
+        border: 2px solid #000;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        cursor: move;
+        padding: 10px;
+        border: 2px outset #c8c7c7;
+      }
 
-<!-- Rest of the content -->
-<div class="window about-window" style="top: 100px; left: 100px;">
-  <div class="window-titlebar">
-    <div class="window-title">About Me</div>
-    <div class="window-buttons">
-      <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      .window-titlebar {
+        height: 20px;
+        background-color: #008080;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+      }
+
+      .window-title {
+        color: #fff;
+        font-size: 12px;
+      }
+
+      .window-buttons {
+        display: flex;
+        gap: 5px;
+        border: 1px outset #c8c7c7;
+      }
+
+      .window-button {
+        width: 12px;
+        height: 12px;
+        background-color: #fff;
+        cursor: pointer;
+        border: 2px outset #c8c7c7;
+      }
+
+      .desktop-icons {
+        display: flex;
+        align-items: middle;
+        justify-items: center;
+        flex-direction: column;
+        /* Updated to cascade down */
+      }
+
+      .icon {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: #008080;
+        margin: 10px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+      }
+
+      .icon img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      textarea,
+      input {
+        width: calc(100% - 23px);
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #ffffdf;
+        border: 2px inset #c8c7c7;
+      }
+
+      .start-menu {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #c0c0c0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 5px;
+        border: 2px outset #c8c7c7;
+      }
+
+      .start-button {
+        width: 80px;
+        height: 40px;
+        background-color: #c0c0c0;
+        margin: 15 15px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        font-size: 15px;
+        border: 2px outset #c0c0c0;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+      }
+
+      .calendar-day {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        position: relative;
+        width: 27px;
+      }
+
+      .current-day-dot {
+        position: absolute;
+        bottom: -5px;
+        width: 10px;
+        height: 10px;
+        background-color: rgba(0, 0, 0);
+        border-radius: 30%;
+        left: calc(50% - 5px);
+
+      }
+
+      #stars-container {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .star {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        animation: fade-animation 2s linear infinite alternate, rotate-animation 5s linear infinite;
+      }
+
+      .star.white {
+        background-color: #fff;
+      }
+
+      .star.blue {
+        background-color: #89CFF0;
+      }
+
+      .star.cross {
+        background-color: transparent;
+      }
+
+      .star.cross::before,
+      .star.cross::after {
+        content: '';
+        position: absolute;
+        background-color: inherit;
+        /* Inherit color from parent */
+      }
+
+      .star.cross::before {
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+
+      .star.cross::after {
+        width: 100%;
+        height: 1px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+
+      .star.blue::before,
+      .star.blue::after {
+        background-color: #89CFF0;
+        /* Set blue color */
+      }
+
+      .star.white::before,
+      .star.white::after {
+        background-color: #fff;
+        /* Set white color */
+      }
+
+      .star.cross::before {
+        width: 1px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+
+      .star.cross::after {
+        width: 100%;
+        height: 1px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+
+      @keyframes fade-animation {
+        0% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.5;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes rotate-animation {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(180deg);
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Loading screen -->
+    <div class="loading-screen">
+
+      <div class="loading-text">
+        <p>Loading...</p>
+      </div>
     </div>
-  </div>
-  <div class="about-content">
-  <img src="https://files.catbox.moe/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
-  <div class="about-text">
-  <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
-  <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
-  <button class="project-btn" onclick="openWindow('projects')" style="border: 2px outset #c8c7c7;">Projects</button>
-  </div>
- </div>
-</div>
-<script>
+
+    <!-- Rest of the content -->
+    <div class="window about-window" style="top: 100px; left: 100px;">
+      <div class="window-titlebar">
+        <div class="window-title">About Me</div>
+        <div class="window-buttons">
+          <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+        </div>
+      </div>
+      <div class="about-content">
+        <img src="https://files.catbox.moe/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
+        <div class="about-text">
+          <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
+          <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
+          <button class="project-btn" onclick="openWindow('projects')" style="border: 2px outset #c8c7c7;">Projects</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Function to show boot-up sequence text
+      function showBootUpSequence() {
+        const bootUpText = [
+          "Initializing system...",
+          "Loading drivers...",
+          "Establishing network connection...",
+          "Performing memory check...",
+          "Booting operating system...",
+          "Loading user interface...",
+          "Ready for use."
+        ];
+
+        const bootUpDelay = 130; // Adjust the delay between each line of text (in milliseconds)
+        const finalDelay = 500; // Additional delay after the final line (in milliseconds)
+        let currentIndex = 0;
+
+        const bootUpInterval = setInterval(() => {
+          if (currentIndex < bootUpText.length) {
+            const loadingText = document.createElement('p');
+            loadingText.textContent = bootUpText[currentIndex];
+            document.querySelector('.loading-text').appendChild(loadingText);
+            currentIndex++;
+          } else {
+            clearInterval(bootUpInterval);
+            // Hide the loading screen after the boot-up sequence is complete
+            setTimeout(() => {
+              document.querySelector('.loading-screen').style.display = 'none';
+            }, finalDelay);
+          }
+        }, bootUpDelay);
+      }
+
+      // Call the function to start the boot-up sequence when the window loads
+      window.addEventListener('load', showBootUpSequence);
+
+    </script>
+
+    <div class="desktop-icons">
+      <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openWindow('notepad')">
+        <img src="https://static.wikia.nocookie.net/logopedia/images/7/75/Notepad16.svg" alt="Notepad">
+      </div>
+      <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openWindow('calculator')">
+        <img src="https://static.wikia.nocookie.net/logopedia/images/9/9c/Calculator_Win3.1.svg" alt="Calculator">
+      </div>
+      <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openWindow('calendar')">
+        <img src="https://static.wikia.nocookie.net/logopedia/images/7/98/Calendar_Windows_3.svg" alt="Calendar">
+      </div>
+    </div>
+
+    <div class="start-menu">
+      <div class="start-button" onclick="openWindow('about')">Start</div>
+
+    </div>
+
+    <div class="clock" id="clock"></div>
+
+    <script>
+      // That god damn calendar
+      function updateCalendar() {
+        const currentDate = new Date();
+        const currentDay = currentDate.getDate();
+
+        const calendarDays = document.querySelectorAll('.calendar-day');
+
+        calendarDays.forEach(day => {
+          day.classList.remove('current-day-dot');
+          if (parseInt(day.textContent) === currentDay) {
+            day.classList.add('current-day-dot');
+          }
+        });
+      }
+
+      updateCalendar();
+
+      // Function to update the clock
+      function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const meridiem = hours >= 12 ? ' PM' : ' AM';
+
+        // converts hours to 12-hour 
+        const formattedHours = hours % 12 || 12;
+
+        const timeString = `${formattedHours}:${padZero(minutes)}:${padZero(seconds)}${meridiem}`;
+        document.querySelector('.clock').textContent = timeString;
+      }
+
+      function padZero(number) {
+        return number < 10 ? '0' + number : number;
+      }
+
+      // Update the clock every second
+      setInterval(updateClock, 1000);
+
+      // Call the function once to initialize the clock
+      updateClock();
+
+      const windows = document.querySelectorAll('.window');
+      windows.forEach(window => {
+        window.addEventListener('mousedown', startDragging);
+      });
+      
+      
+
+      let offsetX, offsetY;
+
+      function startDragging(e) {
+        const window = e.target.closest('.window');
+        const rect = window.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+
+        window.style.zIndex = '1000';
+
+        function dragWindow(event) {
+          const newX = event.clientX - offsetX;
+          const newY = event.clientY - offsetY;
+          window.style.left = `${newX}px`;
+          window.style.top = `${newY}px`
+        }
+
+        function stopDragging() {
+          document.removeEventListener('mousemove', dragWindow);
+          document.removeEventListener('mouseup', stopDragging);
+        }
+
+        document.addEventListener('mousemove', dragWindow);
+        document.addEventListener('mouseup', stopDragging);
+      }
 
 
-  // Function to show boot-up sequence text
-  function showBootUpSequence() {
-  const bootUpText = [
-    "Initializing system...",
-    "Loading drivers...",
-    "Establishing network connection...",
-    "Performing memory check...",
-    "Booting operating system...",
-    "Loading user interface...",
-    "Ready for use."
-  ];
+      function addToCalc(value) {
+        const inputField = document.getElementById('calcInput');
+        inputField.value += value;
+      }
 
-  const bootUpDelay = 130; // Adjust the delay between each line of text (in milliseconds)
-  const finalDelay = 500; // Additional delay after the final line (in milliseconds)
-  let currentIndex = 0;
+      function clearCalc() {
+        const inputField = document.getElementById('calcInput');
+        inputField.value = '';
+      }
 
-  const bootUpInterval = setInterval(() => {
-    if (currentIndex < bootUpText.length) {
-      const loadingText = document.createElement('p');
-      loadingText.textContent = bootUpText[currentIndex];
-      document.querySelector('.loading-text').appendChild(loadingText);
-      currentIndex++;
-    } else {
-      clearInterval(bootUpInterval);
-      // Hide the loading screen after the boot-up sequence is complete
-      setTimeout(() => {
-        document.querySelector('.loading-screen').style.display = 'none';
-      }, finalDelay);
-    }
-  }, bootUpDelay);
-}
+      function calculate() {
+        const inputField = document.getElementById('calcInput');
+        const expression = inputField.value;
+        try {
+          const result = eval(expression);
+          inputField.value = result;
+        } catch (error) {
+          inputField.value = 'Error';
+        }
+      }
 
-  // Call the function to start the boot-up sequence when the window loads
-  window.addEventListener('load', showBootUpSequence);
-</script>
+      function openWindow(windowName) {
+        const windowSelector = '.' + windowName + '-window';
+        const existingWindow = document.querySelector(windowSelector + ':not([style*="display: none"])');
 
-<div class="desktop-icons">
-  <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openWindow('notepad')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/7/75/Notepad16.svg" alt="Notepad">
-  </div>
-  <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openWindow('calculator')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/9/9c/Calculator_Win3.1.svg" alt="Calculator">
-  </div>
-  <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openWindow('calendar')">
-    <img src="https://static.wikia.nocookie.net/logopedia/images/7/98/Calendar_Windows_3.svg" alt="Calendar">
-  </div>
-</div>
-
-<div class="start-menu">
-  <div class="start-button" onclick="openWindow('about')">Start</div>
-  
-</div>
-
-<div class="clock" id="clock"></div>
-
-<script>
-  // That god damn calendar
-  function updateCalendar() {
-  const currentDate = new Date();
-  const currentDay = currentDate.getDate();
-  
-  const calendarDays = document.querySelectorAll('.calendar-day');
-  
-  calendarDays.forEach(day => {
-    day.classList.remove('current-day-dot');
-    if (parseInt(day.textContent) === currentDay) {
-    	day.classList.add('current-day-dot');
-    }    
-  });
-}
-
-updateCalendar();
-
-  // Function to update the clock
-  function updateClock() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const meridiem = hours >= 12 ? ' PM' : ' AM';
-
-    // converts hours to 12-hour 
-    const formattedHours = hours % 12 || 12;
-
-    const timeString = `${formattedHours}:${padZero(minutes)}:${padZero(seconds)}${meridiem}`;
-    document.querySelector('.clock').textContent = timeString;
-}
-
-function padZero(number) {
-    return number < 10 ? '0' + number : number;
-}
-  
-// Update the clock every second
-setInterval(updateClock, 1000);
-
-// Call the function once to initialize the clock
-updateClock();
-  
-const windows = document.querySelectorAll('.window');
-  windows.forEach(window => {
-    window.addEventListener('mousedown', startDragging);
-  });
-
-  let offsetX, offsetY;
-
-  function startDragging(e) {
-    const window = e.target.closest('.window');
-    offsetX = e.clientX - window.getBoundingClientRect().left;
-    offsetY = e.clientY - window.getBoundingClientRect().top;
-
-    window.style.zIndex = '1000'; // Bring the window to the front
-
-    document.addEventListener('mousemove', dragWindow);
-    document.addEventListener('mouseup', stopDragging);
-  }
-  
-  function addToCalc(value) {
-  	const inputField=document.getElementById('calcInput');
-    inputField.value += value;
-  }
-  function clearCalc() {
-  	const inputField = document.getElementById('calcInput');
-    inputField.value = '';
-  }
-  
-  function calculate() {
-  const inputField = document.getElementById('calcInput');
-  const expression = inputField.value;
-  try {
-  	const result = eval(expression);
-    inputField.value = result;
-  } catch (error) {
-  	inputField.value = 'Error';
-  	}
-  }
-
-  function dragWindow(e) {
-    const window = e.target.closest('.window');
-    const newX = e.clientX - offsetX;
-    const newY = e.clientY - offsetY;
-    window.style.left = newX + 'px';
-       window.style.top = newY + 'px';
-  }
-
- function stopDragging() {
-    document.removeEventListener('mousemove', dragWindow);
-    document.removeEventListener('mouseup', stopDragging);
-  }
-
-  function openWindow(windowName) {
-    const windowSelector = '.' + windowName + '-window';
-    const existingWindow = document.querySelector(windowSelector + ':not([style*="display: none"])');
-
-    if (existingWindow) {
-        alert(windowName.charAt(0).toUpperCase() + windowName.slice(1) + " window is already open.");
-    } else {
-        const newWindow = document.createElement('div');
-        newWindow.classList.add('window', windowName + '-window');
-        newWindow.style.top = '20px';
-        newWindow.style.left = '20px';
-        newWindow.innerHTML = `
+        if (existingWindow) {
+          alert(windowName.charAt(0).toUpperCase() + windowName.slice(1) + " window is already open.");
+        } else {
+          const newWindow = document.createElement('div');
+          newWindow.classList.add('window', windowName + '-window');
+          newWindow.style.top = '20px';
+          newWindow.style.left = '20px';
+          newWindow.innerHTML = `
             <div class="window-titlebar">
                 <div class="window-title">${windowName.charAt(0).toUpperCase() + windowName.slice(1)}</div>
                 <div class="window-buttons">
@@ -542,36 +560,36 @@ const windows = document.querySelectorAll('.window');
                 <textarea rows="6" placeholder="Type your notes here..."></textarea>
             `}
         `;
-        document.body.appendChild(newWindow);
-        makeDraggable(newWindow);
-    }
-}
+          document.body.appendChild(newWindow);
+          makeDraggable(newWindow);
+        }
+      }
 
 
-  function closeWindow(button) {
-    const window = button.closest('.window');
-    window.remove();
-  }
+      function closeWindow(button) {
+        const window = button.closest('.window');
+        window.remove();
+      }
 
-  function makeDraggable(window) {
-    window.addEventListener('mousedown', startDragging);
-  }
+      function makeDraggable(window) {
+        window.addEventListener('mousedown', startDragging);
+      }
 
-  function reopenAboutMe() {
-    const aboutWindow = document.querySelector('.about-window');
-    if (aboutWindow) {
-      aboutWindow.remove();
-    }
-    openWindow('about');
-  }
+      function reopenAboutMe() {
+        const aboutWindow = document.querySelector('.about-window');
+        if (aboutWindow) {
+          aboutWindow.remove();
+        }
+        openWindow('about');
+      }
 
 
-  function openContactWindow() {
-    const contactWindow = document.createElement('div');
-    contactWindow.classList.add('window', 'contact-window');
-    contactWindow.style.top = '20px';
-    contactWindow.style.left = '20px';
-    contactWindow.innerHTML = `
+      function openContactWindow() {
+        const contactWindow = document.createElement('div');
+        contactWindow.classList.add('window', 'contact-window');
+        contactWindow.style.top = '20px';
+        contactWindow.style.left = '20px';
+        contactWindow.innerHTML = `
     	 <div class="window-titlebar">
         <div class="window-title">Contact Me</div>
         <div class="window-buttons">
@@ -589,42 +607,44 @@ const windows = document.querySelectorAll('.window');
     </div>
 </div>
       `;
-    document.body.appendChild(contactWindow);
-    makeDraggable(contactWindow);
-  } 
-  </script>
-  <div id="stars-container"></div>
-  <script>
-  // Generate stars
-    const container = document.getElementById('stars-container');
-    const numStars = 900;
-
-    function createStar() {
-      const star = document.createElement('div');
-      star.classList.add('star');
-
-      // Randomly assign color
-      const randomColor = Math.random();
-      if (randomColor < 0.3) {
-        star.classList.add('white');
-      } else if (randomColor < 0.6) {
-        star.classList.add('blue');
-      } else {
-        // You can add more colors here if needed
-        // star.classList.add('otherColor');
+        document.body.appendChild(contactWindow);
+        makeDraggable(contactWindow);
       }
 
-      star.classList.add('cross');
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.top = `${Math.random() * 100}vh`;
-      container.appendChild(star);
-    }
+    </script>
+    <div id="stars-container"></div>
+    <script>
+      // Generate stars
+      const container = document.getElementById('stars-container');
+      const numStars = 900;
 
-    // Start animation
-    for (let i = 0; i < numStars; i++) {
-      createStar();
-    }
+      function createStar() {
+        const star = document.createElement('div');
+        star.classList.add('star');
 
-</script>
-</body>
+        // Randomly assign color
+        const randomColor = Math.random();
+        if (randomColor < 0.3) {
+          star.classList.add('white');
+        } else if (randomColor < 0.6) {
+          star.classList.add('blue');
+        } else {
+          // You can add more colors here if needed
+          // star.classList.add('otherColor');
+        }
+
+        star.classList.add('cross');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        container.appendChild(star);
+      }
+
+      // Start animation
+      for (let i = 0; i < numStars; i++) {
+        createStar();
+      }
+
+    </script>
+  </body>
+
 </html>
