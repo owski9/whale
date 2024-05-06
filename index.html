@@ -353,7 +353,7 @@
             clearInterval(bootUpInterval);
             // Hide the loading screen after the boot-up sequence is complete
             setTimeout(() => {
-              alert("Boot Up Time took: " + bootUpDelay + " Seconds!");
+              alert("Boot Up Time took: " + bootUpDelay + "ms.");
               document.querySelector('.loading-screen').style.display = 'none';
             }, finalDelay);
           }
