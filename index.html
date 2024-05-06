@@ -327,10 +327,10 @@
           "Loading user interface...",
           "Manufactured and supported by:",
           "Micron Electronics, Inc.",
-          "Micron Computer Systems"
+          "Micron Computer Systems",
         ];
 
-        const bootUpDelay = Math.random(10, 20) * 80; // Adjust the delay between each line of text (in milliseconds)
+        const bootUpDelay = Math.trunc(Math.random(10, 20) * 80); // Adjust the delay between each line of text (in milliseconds)
         const finalDelay = 500; // Additional delay after the final line (in milliseconds)
         let currentIndex = 0;
 
@@ -353,6 +353,7 @@
             clearInterval(bootUpInterval);
             // Hide the loading screen after the boot-up sequence is complete
             setTimeout(() => {
+              alert("Boot Up Time took: " + bootUpDelay + " Seconds!");
               document.querySelector('.loading-screen').style.display = 'none';
             }, finalDelay);
           }
