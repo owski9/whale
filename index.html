@@ -288,7 +288,6 @@
     <div class="loading-screen">
 
       <div class="loading-text">
-        <p>Loading...</p>
       </div>
     </div>
 
@@ -316,10 +315,10 @@
         const bootUpText = [
           "Initializing system...",
           "System Information:",
-          "   Microsoft Windows 95",
-          "   4.00.950 b",
-          "   IE 4.0 4.72.31.10.8",
-          "   Pentium II(r)",
+          "Microsoft Windows 95",
+          "4.00.950 b",
+          "IE 4.0 4.72.31.10.8",
+          "Pentium II(r)",
           "Loading drivers...",
           "Establishing network connection...",
           "Performing memory check...",
@@ -328,17 +327,26 @@
           "Loading user interface...",
           "Manufactured and supported by:",
           "Micron Electronics, Inc.",
-          "Micron Computer System",
+          "Micron Computer Systems"
         ];
 
         const bootUpDelay = Math.random(10, 20) * 80; // Adjust the delay between each line of text (in milliseconds)
         const finalDelay = 500; // Additional delay after the final line (in milliseconds)
         let currentIndex = 0;
 
+        const loadingTextContainer = document.querySelector('.loading-text');
+
+        const textStyles = {
+          color: '#fff',
+          fontSize: '10px',
+          fontFamily: 'Lucida Console, monospace, sans-serif'
+        };
+
         const bootUpInterval = setInterval(() => {
           if (currentIndex < bootUpText.length) {
             const loadingText = document.createElement('p');
             loadingText.textContent = bootUpText[currentIndex];
+            Object.assign(loadingText.style, textStyles);
             document.querySelector('.loading-text').appendChild(loadingText);
             currentIndex++;
           } else {
