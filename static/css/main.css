@@ -257,6 +257,9 @@ body {
       transform: rotate(180deg);
     }
   }
+   .welcome-window {
+       width: 500px;
+   }
 
   canvas {
     position: fixed;
