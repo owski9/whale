@@ -520,7 +520,7 @@
           const calculatorWindow = document.createElement('div');
           calculatorWindow.classList.add('window', 'calculator-window');
           calculatorWindow.style.top = '100px';
-          calculatorWindow.style.left = '100px';
+          calculatorWindow.style.left = '800px';
           calculatorWindow.innerHTML = `
             <div class="window-titlebar">
                 <div class="window-title">Calculator</div>
@@ -621,10 +621,10 @@
           const contactWindow = document.createElement('div');
           contactWindow.classList.add('window', 'contact-window');
           contactWindow.style.top = '100px';
-          contactWindow.style.left = '100px';
+          contactWindow.style.left = '450px';
           contactWindow.innerHTML = `
             <div class="window-titlebar">
-                <div class="window-title">Calendar</div>
+                <div class="window-title">Contact</div>
                 <div class="window-buttons">
                     <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
@@ -650,8 +650,8 @@
         if (!existingWindow) {
           const projectWindow = document.createElement('div');
           projectWindow.classList.add('window', 'project-window');
-          projectWindow.style.top = '100px';
-          projectWindow.style.left = '100px';
+          projectWindow.style.top = '320px';
+          projectWindow.style.left = '450px';
           projectWindow.innerHTML = `
               <div class="window-titlebar">
                 <div class="window-title">Projects</div>
