@@ -46,7 +46,7 @@
         display: flex;
         align-items: left;
         justify-content: left;
-        z-index: 1000;
+        z-index: 9999;
         /* Ensure it's above all other content */
       }
 
@@ -85,7 +85,7 @@
         display: flex;
         gap: 5px;
         border: 1px outset #c8c7c7;
-        z-index: 9999;
+        z-index: 9998;
       }
 
       .window-button {
@@ -94,6 +94,7 @@
         background-color: #fff;
         cursor: pointer;
         border: 2px outset #c8c7c7;
+        z-index: 9998;
       }
 
       .desktop-icons {
@@ -101,6 +102,7 @@
         align-items: middle;
         justify-items: center;
         flex-direction: column;
+        z-index: 9997;
         /* Updated to cascade down */
       }
 
@@ -290,7 +292,7 @@
 				position: fixed;
         top: 0;
         left: 0;
-        z-index: 9998;
+        z-index: 9997;
         pointer-events: none;
 			}
 
