@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 95</title>
+    <title>Hi There</title>
     <meta property="og:title" content="👋">
     <meta property="og:description" content="Chimken Samdwich 🥪">
     <meta property="og:image" content="https://files.catbox.moe/0950ou.png" />
@@ -314,15 +315,23 @@
       function showBootUpSequence() {
         const bootUpText = [
           "Initializing system...",
+          "System Information:",
+          "   Microsoft Windows 95",
+          "   4.00.950 b",
+          "   IE 4.0 4.72.31.10.8",
+          "   Pentium II(r)",
           "Loading drivers...",
           "Establishing network connection...",
           "Performing memory check...",
+          "192.0MB RAM",
           "Booting operating system...",
           "Loading user interface...",
-          "Ready for use."
+          "Manufactured and supported by:",
+          "Micron Electronics, Inc.",
+          "Micron Computer System",
         ];
 
-        const bootUpDelay = 130; // Adjust the delay between each line of text (in milliseconds)
+        const bootUpDelay = Math.random(10, 20) * 80; // Adjust the delay between each line of text (in milliseconds)
         const finalDelay = 500; // Additional delay after the final line (in milliseconds)
         let currentIndex = 0;
 
@@ -607,7 +616,7 @@
                 <div class="calendar-day">29</div>
                 <div class="calendar-day">30</div>
                 <div class="calendar-day">31</div>
-            </div>
+        </div>
         `;
           document.body.appendChild(calendarWindow);
           makeDraggable(calendarWindow);
