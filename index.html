@@ -7,7 +7,7 @@
     <title>Hi There</title>
     <meta property="og:title" content="👋">
     <meta property="og:description" content="Chimken Samdwich 🥪">
-    <meta property="og:image" content="https://files.catbox.moe/0950ou.png" />
+    <meta property="og:image" content="https://files.catbox.moe/0950ou.png"/>
     <meta property="og:url" content="https://whale.lat/">
     <link rel="icon" href="https://files.catbox.moe/51f6fn.png" type="image/png" sizes="64x64">
     <style>
@@ -18,7 +18,7 @@
         background-color: #008080;
         /* Windows 95 desktop background color */
         font-family: Monospace, sans-serif;
-        overflow: 0;
+        overflow: hidden;
       }
 
       .clock {
@@ -192,8 +192,8 @@
 
       .star {
         position: absolute;
-        width: 5px;
-        height: 5px;
+        width: 10px;
+        height: 10px;
         animation: fade-animation 2s linear infinite alternate, rotate-animation 5s linear infinite;
       }
 
@@ -261,34 +261,11 @@
         transform: translateY(-50%);
       }
 
-      @keyframes fade-animation {
-        0% {
-          opacity: 1;
-        }
-
-        50% {
-          opacity: 0.5;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes rotate-animation {
-        from {
-          transform: rotate(0deg);
-        }
-
-        to {
-          transform: rotate(180deg);
-        }
-      }
-
     </style>
   </head>
 
   <body>
+
     <!-- Loading screen -->
     <div class="loading-screen">
 
@@ -418,144 +395,24 @@
       windows.forEach(window => {
         window.addEventListener('mousedown', startDragging);
       });
-
-
+      
+      
 
       let offsetX, offsetY;
 
-      function openAboutWindow() {
-        const existingWindow = document.querySelector('.about-window');
-        if (!existingWindow) {
-          const aboutWindow = document.createElement('div');
-          aboutWindow.classList.add('window', 'about-window');
-          aboutWindow.style.top = '100px';
-          aboutWindow.style.left = '100px';
-          aboutWindow.innerHTML = `
-            <div class="window-titlebar">
-                <div class="window-title">About Me</div>
-                <div class="window-buttons">
-                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-                </div>
-            </div>
-            <div class="about-content">
-                <img src="https://files.catbox.moe/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
-                <div class="about-text">
-                    <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
-                    <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
-                    <button class="project-btn" onclick="openProjectsWindow()" style="border: 2px outset #c8c7c7;">Projects</button>
-                </div>
-            </div>
-        `;
-          document.body.appendChild(aboutWindow);
-          makeDraggable(aboutWindow);
-        }
-      }
-
-      function openNotepadWindow() {
-        const existingWindow = document.querySelector('.notepad-window');
-        if (!existingWindow) {
-          const notepadWindow = document.createElement('div');
-          notepadWindow.classList.add('window', 'notepad-window');
-          notepadWindow.style.top = '100px';
-          notepadWindow.style.left = '100px';
-          notepadWindow.innerHTML = `
-              <div class="window-titlebar">
-                <div class="window-title">Notepad</div>
-                <div class="window-buttons">
-                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-                </div>
-            </div>
-            <textarea rows="6" placeholder="Type your notes here..."></textarea>
-        `;
-          document.body.appendChild(notepadWindow);
-          makeDraggable(notepadWindow);
-        }
-      }
-
-      function openCalculatorWindow() {
-        const existingWindow = document.querySelector('.calculator-window');
-        if (!existingWindow) {
-          const calculatorWindow = document.createElement('div');
-          calculatorWindow.classList.add('window', 'calculator-window');
-          calculatorWindow.style.top = '100px';
-          calculatorWindow.style.left = '100px';
-          calculatorWindow.innerHTML = `
-            <div class="window-titlebar">
-                <div class="window-title">Calculator</div>
-                <div class="window-buttons">
-                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-                </div>
-            </div>
-            <input type="text" id="calcInput" readonly>
-            <br>
-            <button onclick="addToCalc('1')">1</button>
-            <button onclick="addToCalc('2')">2</button>
-            <button onclick="addToCalc('3')">3</button>
-            <button onclick="addToCalc('+')">+</button>
-            <br>
-            <button onclick="addToCalc('4')">4</button>
-            <button onclick="addToCalc('5')">5</button>
-            <button onclick="addToCalc('6')">6</button>
-            <button onclick="addToCalc('-')">-</button>
-            <br>
-            <button onclick="addToCalc('7')">7</button>
-            <button onclick="addToCalc('8')">8</button>
-            <button onclick="addToCalc('9')">9</button>
-            <button onclick="addToCalc('*')">*</button>
-            <br>
-            <button onclick="addToCalc('0')">0</button>
-            <button onclick="addToCalc('.')">.</button>
-            <button onclick="clearCalc()">C</button>
-            <button onclick="calculate()">=</button>
-        `;
-          document.body.appendChild(calculatorWindow);
-          makeDraggable(calculatorWindow);
-        }
-      }
-
-      function openCalendarWindow() {
-        const existingWindow = document.querySelector('.calendar-window');
-        if (!existingWindow) {
-          const calendarWindow = document.createElement('div');
-          calendarWindow.classList.add('window', 'calendar-window');
-          calendarWindow.style.top = '100px';
-          calendarWindow.style.left = '100px';
-          calendarWindow.innerHTML = `
-            <div class="window-titlebar">
-                <div class="window-title">Calendar</div>
-                <div class="window-buttons">
-                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-                </div>
-            </div>
-            <div class="calendar">
-                <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
-                <div class="calendar-day">Mon</div>
-                <div class="calendar-day">Tue</div>
-                <div class="calendar-day">Wed</div>
-                <div class="calendar-day">Thu</div>
-                <div class="calendar-day">Fri</div>
-                <div class="calendar-day">Sat</div>
-                <!-- Days of the month can be dynamically added here -->
-            </div>
-        `;
-          document.body.appendChild(calendarWindow);
-          makeDraggable(calendarWindow);
-        }
-      }
-
       function startDragging(e) {
         const window = e.target.closest('.window');
-        if (!window) return;
+        const rect = window.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
 
-        let offsetX = e.clientX - window.offsetLeft;
-        let offsetY = e.clientY - window.offsetTop;
         window.style.zIndex = '1000';
 
         function dragWindow(event) {
           const newX = event.clientX - offsetX;
           const newY = event.clientY - offsetY;
           window.style.left = `${newX}px`;
-          window.style.top = `${newY}px`;
+          window.style.top = `${newY}px`
         }
 
         function stopDragging() {
@@ -566,10 +423,173 @@
         document.addEventListener('mousemove', dragWindow);
         document.addEventListener('mouseup', stopDragging);
       }
-      </script>
-      
-      <div id = "stars-container"></div>
-      <script>
+
+
+      function addToCalc(value) {
+        const inputField = document.getElementById('calcInput');
+        inputField.value += value;
+      }
+
+      function clearCalc() {
+        const inputField = document.getElementById('calcInput');
+        inputField.value = '';
+      }
+
+      function calculate() {
+        const inputField = document.getElementById('calcInput');
+        const expression = inputField.value;
+        try {
+          const result = eval(expression);
+          inputField.value = result;
+        } catch (error) {
+          inputField.value = 'Error';
+        }
+      }
+
+      function openWindow(windowName) {
+        const windowSelector = '.' + windowName + '-window';
+        const existingWindow = document.querySelector(windowSelector + ':not([style*="display: none"])');
+
+        if (existingWindow) {
+          alert(windowName.charAt(0).toUpperCase() + windowName.slice(1) + " window is already open.");
+        } else {
+          const newWindow = document.createElement('div');
+          newWindow.classList.add('window', windowName + '-window');
+          newWindow.style.top = '20px';
+          newWindow.style.left = '20px';
+          newWindow.innerHTML = `
+            <div class="window-titlebar">
+                <div class="window-title">${windowName.charAt(0).toUpperCase() + windowName.slice(1)}</div>
+                <div class="window-buttons">
+                    <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+                </div>
+            </div>
+            ${windowName === 'calculator' ? `
+                <input type="text" id="calcInput" readonly>
+                <br>
+                <button onclick="addToCalc('1')">1</button>
+                <button onclick="addToCalc('2')">2</button>
+                <button onclick="addToCalc('3')">3</button>
+                <button onclick="addToCalc('+')">+</button>
+                <br>
+                <button onclick="addToCalc('4')">4</button>
+                <button onclick="addToCalc('5')">5</button>
+                <button onclick="addToCalc('6')">6</button>
+                <button onclick="addToCalc('-')">-</button>
+                <br>
+                <button onclick="addToCalc('7')">7</button>
+                <button onclick="addToCalc('8')">8</button>
+                <button onclick="addToCalc('9')">9</button>
+                <button onclick="addToCalc('*')">*</button>
+                <br>
+                <button onclick="addToCalc('0')">0</button>
+                <button onclick="addToCalc('.')">.</button>
+                <button onclick="clearCalc()">C</button>
+                <button onclick="calculate()">=</button>
+            ` : windowName === 'calendar' ? `
+                <div class="calendar">
+                    <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
+                    <div class="calendar-day">Mon</div>
+                    <div class="calendar-day">Tue</div>
+                    <div class="calendar-day">Wed</div>
+                    <div class="calendar-day">Thu</div>
+                    <div class="calendar-day">Fri</div>
+                    <div class="calendar-day">Sat</div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                </div>
+            ` : windowName === 'about' ? `
+                <img src="https://files.catbox.moe/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto;">
+                <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
+                <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
+                <button class="projects-btn" onclick="openWindow('projects')" style="border: 2px outset #c8c7c7;">Projects</button>
+            ` : `
+                <textarea rows="6" placeholder="Type your notes here..."></textarea>
+            `}
+        `;
+          document.body.appendChild(newWindow);
+          makeDraggable(newWindow);
+        }
+      }
+
+
+      function closeWindow(button) {
+        const window = button.closest('.window');
+        window.remove();
+      }
+
+      function makeDraggable(window) {
+        window.addEventListener('mousedown', startDragging);
+      }
+
+      function reopenAboutMe() {
+        const aboutWindow = document.querySelector('.about-window');
+        if (aboutWindow) {
+          aboutWindow.remove();
+        }
+        openWindow('about');
+      }
+
+
+      function openContactWindow() {
+        const contactWindow = document.createElement('div');
+        contactWindow.classList.add('window', 'contact-window');
+        contactWindow.style.top = '20px';
+        contactWindow.style.left = '20px';
+        contactWindow.innerHTML = `
+    	 <div class="window-titlebar">
+        <div class="window-title">Contact Me</div>
+        <div class="window-buttons">
+        <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+        </div>
+        </div>
+    	  <div class="window-content">
+        <p>You can contact me via:</p>
+        <ul>
+            <li>Email: <a href="mailto:theturtleinwater@gmail.com">theturtleinwater@gmail.com</a></li>
+            <li>Discord: lnarion</li>
+            <li>Matrix: <a href="https://matrix.com/@lnarin">@lnarin:matrix.com</a></li>
+            <li>Phone: hi osama </li>
+        </ul>
+    </div>
+</div>
+      `;
+        document.body.appendChild(contactWindow);
+        makeDraggable(contactWindow);
+      }
+
+    </script>
+    <div id="stars-container"></div>
+    <script>
       // Generate stars
       const container = document.getElementById('stars-container');
       const numStars = 400;
@@ -602,7 +622,6 @@
       window.addEventListener('load', function() {
         generateStars(900);
       });
-
     </script>
   </body>
 
