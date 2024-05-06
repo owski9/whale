@@ -18,7 +18,7 @@
         background-color: #008080;
         /* Windows 95 desktop background color */
         font-family: Monospace, sans-serif;
-        overflow: hidden;
+        overflow: 0;
       }
 
       .clock {
@@ -46,7 +46,7 @@
         display: flex;
         align-items: left;
         justify-content: left;
-        z-index: 11000;
+        z-index: 9999;
         /* Ensure it's above all other content */
       }
 
@@ -65,7 +65,6 @@
         cursor: move;
         padding: 10px;
         border: 2px outset #c8c7c7;
-        z-index: 10000;
       }
 
       .window-titlebar {
@@ -86,7 +85,6 @@
         display: flex;
         gap: 5px;
         border: 1px outset #c8c7c7;
-        z-index: 10000;
       }
 
       .window-button {
@@ -95,7 +93,6 @@
         background-color: #fff;
         cursor: pointer;
         border: 2px outset #c8c7c7;
-        z-index: 10000;
       }
 
       .desktop-icons {
@@ -103,7 +100,6 @@
         align-items: middle;
         justify-items: center;
         flex-direction: column;
-        z-index: 10000;
         /* Updated to cascade down */
       }
 
@@ -116,7 +112,6 @@
         text-align: center;
         line-height: 50px;
         cursor: pointer;
-        z-index: 10000;
       }
 
       .icon img {
@@ -144,7 +139,6 @@
         justify-content: flex-start;
         padding: 5px;
         border: 2px outset #c8c7c7;
-        z-index: 10000;
       }
 
       .start-button {
@@ -157,7 +151,6 @@
         cursor: pointer;
         font-size: 15px;
         border: 2px outset #c0c0c0;
-        z-index: 10000;
       }
 
       .calendar {
@@ -296,7 +289,6 @@
   </head>
 
   <body>
-
     <!-- Loading screen -->
     <div class="loading-screen">
 
@@ -378,7 +370,6 @@
     </div>
 
     <div class="clock" id="clock"></div>
-    
 
     <script>
       // That god damn calendar
@@ -613,7 +604,6 @@
       });
 
     </script>
-  
   </body>
 
 </html>
