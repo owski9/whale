@@ -273,6 +273,10 @@ body {
     }
   }
 
+  .left-align {
+      text-align: left;
+  }  
+
   canvas {
     position: fixed;
     top: 0;
