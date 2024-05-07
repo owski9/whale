@@ -22,7 +22,7 @@ function showBootUpSequence() {
   const finalDelay = 500; 
   let currentIndex = 0;
 
-  const audio = document.getElementById('myAudio');
+  const audio = document.getElementById("myAudio");
 
   const loadingTextContainer = document.querySelector('.loading-text');
 
