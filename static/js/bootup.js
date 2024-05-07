@@ -58,11 +58,6 @@ function showBootUpSequence() {
       currentIndex++;
     } else {
       clearInterval(bootUpInterval);
-
-      const delayText = document.createElement('p');
-      delayText.textContent = `Boot up time: ${bootUpDelay}ms`; 
-      Object.assign(delayText.style, textStyles);
-      loadingTextContainer.appendChild(delayText);
       
       // Create and append button
       const button = document.createElement('button');
@@ -71,6 +66,7 @@ function showBootUpSequence() {
       button.onclick = function () {
         loadingScreen.style.display = 'none';
         audio.play();
+        alert(const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
       };
       loadingTextContainer.appendChild(button);
     }
