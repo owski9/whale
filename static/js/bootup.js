@@ -19,7 +19,7 @@ function showBootUpSequence() {
   ];
 
   const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
-  const finalDelay = 500;
+  const finalDelay = 500; 
   let currentIndex = 0;
 
   const loadingTextContainer = document.querySelector('.loading-text');
@@ -42,12 +42,9 @@ function showBootUpSequence() {
       setTimeout(() => {
         alert("Boot Up Time took: " + bootUpDelay + "ms.");
         document.querySelector('.loading-screen').style.display = 'none';
-
-        const proceedButton = document.createElement('button');
-        proceedButton.textContent = 'Proceed'; 
-        proceedButton.classList.add('proceed-button');
-        proceedButton.onclick = openWelcomeWindow;
-        document.body.appendChild(proceedButton);
+        
+            
+        
       }, finalDelay);
     }
   }, bootUpDelay);
