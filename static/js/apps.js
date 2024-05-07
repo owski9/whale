@@ -289,12 +289,22 @@
           projectWindow.style.left = '450px';
           projectWindow.innerHTML = `
               <div class="window-titlebar">
-                <div class="window-title">Projects</div>
+                <div class="window-title">Credits</div>
                 <div class="window-buttons">
                     <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
-            <textarea rows="6" placeholder="Bleehhhh"></textarea>
+            <div class="window-content">
+        <p>Thanks to those who helped me:</p>
+        <ul>
+            <li> yuko, literally made this code better. </li>
+            <li> <a href="https://github.com/yu6x">yuko's github</a></li>
+            <li> sydney, site tester. </li>
+            <li> wearr, great web dev </li>
+            <li> <a href="https://github.com/wearrrrr">wearr's github</a></li>
+            <li> interpolation, made the sparkles javascript and css </li>
+        </ul>
+    </div>
         `;
           document.body.appendChild(projectWindow);
           makeDraggable(projectWindow);
