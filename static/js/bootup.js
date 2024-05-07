@@ -31,21 +31,6 @@ function showBootUpSequence() {
     fontSize: '10px',
     fontFamily: 'Lucida Console, monospace, sans-serif'
   };
-
-  const buttonStyles = {
-    position: 'absolute',
-    padding: '10px 30px',
-    backgroundColor: '#c8c7c7',
-    width: '36px',
-    height: '18px',
-    color: '#000000', 
-    border: 'border: 2px outset #c8c7c7',
-    borderRadius: 0,
-    fontSize: '60%',
-    cursor: 'pointer',
-    lineHeight: '1px',
-    textContent: 'Continue'
-  }
   
   const loadingScreen = document.querySelector('.loading-screen');
   
@@ -61,7 +46,8 @@ function showBootUpSequence() {
       
       // Create and append button
       const button = document.createElement('button');
-      Object.assign(button.style, buttonStyles);
+      button.textContent = buttonText;
+      button.classList.add('button-styles');
       button.onclick = function () {
         loadingScreen.style.display = 'none';
         audio.play();
