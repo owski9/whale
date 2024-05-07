@@ -45,6 +45,7 @@ function showBootUpSequence() {
       clearInterval(bootUpInterval);
       
       // Create and append button
+      const buttonText = "Start";
       const button = document.createElement('button');
       button.textContent = buttonText;
       button.classList.add('button-styles');
