@@ -18,8 +18,15 @@ function showBootUpSequence() {
     "Micron Computer Systems",
   ];
 
+  function proceedButton() {
+    const proceedButton = document.createElement('button');
+    proceedButton.textContent = 'Proceed';
+    proceedButton.classList.add('proceed-button');
+    proceedButton.button.onclick = document.querySelector('.loading-screen').style.display = 'none';
+    document.body.appendChild(proceedButton);
+  }
   const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
-  const finalDelay = 500; 
+  const finalDelay = 500;
   let currentIndex = 0;
 
   const loadingTextContainer = document.querySelector('.loading-text');
@@ -41,10 +48,7 @@ function showBootUpSequence() {
       clearInterval(bootUpInterval);
       setTimeout(() => {
         alert("Boot Up Time took: " + bootUpDelay + "ms.");
-        document.querySelector('.loading-screen').style.display = 'none';
-        
-            
-        
+        proceedButton();
       }, finalDelay);
     }
   }, bootUpDelay);
