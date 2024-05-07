@@ -22,6 +22,8 @@ function showBootUpSequence() {
   const finalDelay = 500; 
   let currentIndex = 0;
 
+  const audio = document.getElementById('myAudio');
+
   const loadingTextContainer = document.querySelector('.loading-text');
 
   const textStyles = {
@@ -56,6 +58,7 @@ function showBootUpSequence() {
       button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
       button.onclick = function () {
+        audio.play();
         loadingScreen.style.display = 'none';
       };
       loadingTextContainer.appendChild(button);
