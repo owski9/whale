@@ -43,7 +43,6 @@ function showBootUpSequence() {
     borderRadius: 0,
     fontSize: '60%',
     cursor: 'pointer',
-    left: `2px`.
     lineHeight: '1px',
   }
   
