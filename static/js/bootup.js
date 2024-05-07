@@ -62,7 +62,7 @@ function showBootUpSequence() {
       const button = document.createElement('button');
       button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
-      button.style.textAlign = 'left';
+      button.classList.add('left-align');
       button.onclick = function () {
         loadingScreen.style.display = 'none';
         audio.play();
