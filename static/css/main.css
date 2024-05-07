@@ -290,9 +290,8 @@ body {
     color: #000000; 
     border: 2px outset #c8c7c7;
     border-radius: 0;
-    fontSize: 60%;
     cursor: pointer;
-    line-height: 1px';
+    line-height: 1px;
     text-align: center;
     line-height: 30px;
   }
