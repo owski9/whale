@@ -52,6 +52,3 @@ function showBootUpSequence() {
 
 // Call the function to start the boot-up sequence when the window loads
 window.addEventListener('load', showBootUpSequence);
-<audio controls autoplay>
-  <source src="static/img/videoplayback.mp3" type="audio/mpeg"></source>
-</audio>
