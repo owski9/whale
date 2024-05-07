@@ -41,10 +41,12 @@ function showBootUpSequence() {
       clearInterval(bootUpInterval);
       setTimeout(() => {
         alert("Boot Up Time took: " + bootUpDelay + "ms.");
+        document.querySelector('.loading-screen').style.display = 'none';
+
         const proceedButton = document.createElement('button');
-        proceedButton.textContent = 'Proceed';
+        proceedButton.textContent = 'Proceed'; 
         proceedButton.classList.add('proceed-button');
-        proceedButton.button.onclick = document.querySelector('.loading-screen').style.display = 'none';
+        proceedButton.onclick = openWelcomeWindow;
         document.body.appendChild(proceedButton);
       }, finalDelay);
     }
