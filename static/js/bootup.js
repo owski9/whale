@@ -36,7 +36,7 @@ function showBootUpSequence() {
   }
 
   function showAlertAndPlayMusic() {
-     var context = new AudioContext();
+     var myaudio = document.getElementById("myAudio").autoplay = true;
   }
   
   const bootUpInterval = setInterval(() => {
