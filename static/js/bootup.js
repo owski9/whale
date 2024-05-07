@@ -34,12 +34,13 @@ function showBootUpSequence() {
 
   const buttonStyles = {
     padding: '10px 20px',
-    backgroundColor: '#fff',
+    backgroundColor: '#c8c7c7',
     width: '12px',
     height: '12px',
-    color: '#fff', 
+    color: '#ffffff', 
     border: 'border: 2px outset #c8c7c7',
     borderRadius: 0,
+    fontSize: '80%',
     cursor: 'pointer',
   }
   
