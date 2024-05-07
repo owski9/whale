@@ -22,7 +22,7 @@ function showBootUpSequence() {
   const finalDelay = 500; 
   let currentIndex = 0;
 
-  const audio = document.getElementById("myAudio");
+  const audio = document.getElementById('myAudio');
 
   const loadingTextContainer = document.querySelector('.loading-text');
 
@@ -58,8 +58,8 @@ function showBootUpSequence() {
       button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
       button.onclick = function () {
-        audio.play();
         loadingScreen.style.display = 'none';
+        audio.play();
       };
       loadingTextContainer.appendChild(button);
     }
