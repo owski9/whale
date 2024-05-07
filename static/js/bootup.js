@@ -18,7 +18,6 @@ function showBootUpSequence() {
     "Micron Computer Systems",
   ];
   
-  const audio = document.getElementById("myAudio");
   const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
   const finalDelay = 500; 
   let currentIndex = 0;
@@ -31,31 +30,39 @@ function showBootUpSequence() {
     fontFamily: 'Lucida Console, monospace, sans-serif'
   };
 
-  function playMusic() {
-    audio.play();
-  }
-
-  function showAlertAndPlayMusic() {
-     var myaudio = document.getElementById("myAudio").autoplay = true;
-  }
+  const buttonStyles = {
+    padding: '10px 20px',
+    backgroundColor: '#007bff',
+    color: '#fff', 
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer';
+  };
+  
+  const loadingScreen = document.querySelector('.loading-screen');
   
   const bootUpInterval = setInterval(() => {
     if (currentIndex < bootUpText.length) {
       const loadingText = document.createElement('p');
       loadingText.textContent = bootUpText[currentIndex];
       Object.assign(loadingText.style, textStyles);
-      document.querySelector('.loading-text').appendChild(loadingText);
+      loadingTextContainer.appendChild(loadingText);
       currentIndex++;
     } else {
       clearInterval(bootUpInterval);
-      setTimeout(() => {
-        showAlertAndPlayMusic();
-        document.querySelector('.loading-screen').style.display = 'none';
-      }, finalDelay);
+
+      // Create and append button
+      const button = document.createElement('button');
+      button.textContent = 'Continue':
+      Object.assign(button.style, buttonStyles);
+      button.onclick = function () {
+        loadingScreen.style.display = 'none';
+      };
+      loadingTextContainer.appendChild(button);
     }
   }, bootUpDelay);
 }
-
+      
 // Call the function to start the boot-up sequence when the window loads
 window.addEventListener('load', showBootUpSequence);
 
