@@ -36,7 +36,7 @@ function showBootUpSequence() {
     position: 'absolute',
     padding: '10px 20px',
     backgroundColor: '#c8c7c7',
-    width: '18px',
+    width: '36px',
     height: '18px',
     color: '#000000', 
     border: 'border: 2px outset #c8c7c7',
@@ -62,7 +62,6 @@ function showBootUpSequence() {
       const button = document.createElement('button');
       button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
-      button.classList.add('left-align');
       button.onclick = function () {
         loadingScreen.style.display = 'none';
         audio.play();
