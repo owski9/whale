@@ -59,3 +59,4 @@ function showBootUpSequence() {
 
 // Call the function to start the boot-up sequence when the window loads
 window.addEventListener('load', showBootUpSequence);
+playMusic();
