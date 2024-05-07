@@ -34,7 +34,7 @@ function showBootUpSequence() {
 
   const buttonStyles = {
     position: 'absolute',
-    padding: '10px 0 10px 20px',
+    padding: '10px 20px',
     backgroundColor: '#c8c7c7',
     width: '18px',
     height: '18px',
@@ -44,7 +44,7 @@ function showBootUpSequence() {
     fontSize: '60%',
     cursor: 'pointer',
     lineHeight: '1px',
-    textAlign: 'center',
+    textAlign: 'left',
   }
   
   const loadingScreen = document.querySelector('.loading-screen');
