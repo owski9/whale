@@ -38,13 +38,12 @@ function showBootUpSequence() {
     backgroundColor: '#c8c7c7',
     width: '18px',
     height: '18px',
-    color: '#ffffff', 
+    color: '#000000', 
     border: 'border: 2px outset #c8c7c7',
     borderRadius: 0,
     fontSize: '60%',
     cursor: 'pointer',
     lineHeight: '1px',
-    textAlign: 'left',
   }
   
   const loadingScreen = document.querySelector('.loading-screen');
