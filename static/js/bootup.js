@@ -16,7 +16,6 @@ function showBootUpSequence() {
     "Manufactured and supported by:",
     "Micron Electronics, Inc.",
     "Micron Computer Systems",
-    `Boot up time: ${bootUpDelay}ms`,
   ];
   
   const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
