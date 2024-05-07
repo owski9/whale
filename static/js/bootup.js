@@ -40,8 +40,10 @@ function showBootUpSequence() {
     color: '#ffffff', 
     border: 'border: 2px outset #c8c7c7',
     borderRadius: 0,
-    fontSize: '80%',
+    fontSize: '60%',
     cursor: 'pointer',
+    lineHeight: '12px',
+    textAlign: 'center'.
   }
   
   const loadingScreen = document.querySelector('.loading-screen');
