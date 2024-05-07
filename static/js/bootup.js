@@ -36,7 +36,13 @@ function showBootUpSequence() {
   }
 
   function showAlertAndPlayMusic() {
-    playMusic();
+     var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (!isChrome){
+      $('#iframeAudio').remove()
+  }
+  else {
+      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+  }
   }
   
   const bootUpInterval = setInterval(() => {
@@ -58,4 +64,4 @@ function showBootUpSequence() {
 
 // Call the function to start the boot-up sequence when the window loads
 window.addEventListener('load', showBootUpSequence);
-playMusic();
+
