@@ -294,7 +294,7 @@
                     <img src="https://files.catbox.moe/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
-            <textarea rows="6" placeholder="Placeholder"></textarea>
+            <textarea rows="6" placeholder="Bleehhhh"></textarea>
         `;
           document.body.appendChild(projectWindow);
           makeDraggable(projectWindow);
