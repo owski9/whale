@@ -36,7 +36,6 @@ function showBootUpSequence() {
   }
 
   function showAlertAndPlayMusic() {
-    alert("Boot Up Time took: " + bootUpDelay + "ms.");
     playMusic();
   }
   
