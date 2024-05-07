@@ -43,7 +43,7 @@ function showBootUpSequence() {
     fontSize: '60%',
     cursor: 'pointer',
     lineHeight: '12px',
-    textAlign: 'center'.
+    textAlign: 'center',
   }
   
   const loadingScreen = document.querySelector('.loading-screen');
