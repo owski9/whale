@@ -43,7 +43,7 @@ function showBootUpSequence() {
     borderRadius: 0,
     fontSize: '60%',
     cursor: 'pointer',
-    lineHeight: '5px',
+    lineHeight: '2px',
     textAlign: 'center',
   }
   
@@ -59,6 +59,11 @@ function showBootUpSequence() {
     } else {
       clearInterval(bootUpInterval);
 
+      const delayText = document.createElement('p');
+      delayText.textContent = `Boot up time: ${bootUpDelay}ms`; 
+      Object.assign(delayText.style, textStyles);
+      loadingTextContainer.appendChild(delayText);
+      
       // Create and append button
       const button = document.createElement('button');
       button.textContent = 'Continue';
