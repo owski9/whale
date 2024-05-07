@@ -273,14 +273,26 @@ body {
     }
   }
 
-  .left-align {
-      text-align: left;
-  }  
-
   canvas {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 8888;
     pointer-events: none;
+  }
+
+   .button-styles  {
+    position: absolute;
+    padding: 10px 30px;
+    background-color: #c8c7c7;
+    width: 36px;
+    height: 18px;
+    color: #000000; 
+    border: 2px outset #c8c7c7;
+    border-radius: 0;
+    fontSize: 60%;
+    cursor: pointer;
+    line-height: 1px';
+    text-align: center;
+    line-height: 30px;
   }
