@@ -61,7 +61,6 @@ function showBootUpSequence() {
       // Create and append button
       const button = document.createElement('button');
       button.textContent = 'Continue';
-      button.textContent.style.left = "1px"
       Object.assign(button.style, buttonStyles);
       button.onclick = function () {
         loadingScreen.style.display = 'none';
