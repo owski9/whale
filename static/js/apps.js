@@ -262,6 +262,10 @@
     	  <div class="window-content">
         <p>You can contact me via:</p>
         <ul>
+            <li>Email: <a href="mailto:theturtleinwater@gmail.com">theturtleinwater@gmail.com</a></li>
+            <li>Discord: @lnarion</li>
+            <li>Matrix: <a href="https://matrix.com/@lnarin">@lnarin:matrix.com</a></li>
+            <li>Phone: hi osama </li>
             <li>--------yuko---------</li>
             <li>Email: <a href="mailto:yuko@slimepointe.top">yuko@slimepointe.top</a></li>
             <li>Discord: @yu6x</li>
