@@ -36,8 +36,8 @@ function showBootUpSequence() {
     color: '#fff', 
     border: 'none',
     borderRadius: '5px',
-    cursor: 'pointer';
-  };
+    cursor: 'pointer',
+  }
   
   const loadingScreen = document.querySelector('.loading-screen');
   
@@ -53,7 +53,7 @@ function showBootUpSequence() {
 
       // Create and append button
       const button = document.createElement('button');
-      button.textContent = 'Continue':
+      button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
       button.onclick = function () {
         loadingScreen.style.display = 'none';
@@ -65,4 +65,3 @@ function showBootUpSequence() {
       
 // Call the function to start the boot-up sequence when the window loads
 window.addEventListener('load', showBootUpSequence);
-
