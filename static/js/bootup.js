@@ -66,7 +66,6 @@ function showBootUpSequence() {
       button.onclick = function () {
         loadingScreen.style.display = 'none';
         audio.play();
-        alert(const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
       };
       loadingTextContainer.appendChild(button);
     }
