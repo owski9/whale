@@ -44,6 +44,7 @@ function showBootUpSequence() {
     fontSize: '60%',
     cursor: 'pointer',
     lineHeight: '1px',
+    textContent: 'Continue'
   }
   
   const loadingScreen = document.querySelector('.loading-screen');
@@ -60,7 +61,6 @@ function showBootUpSequence() {
       
       // Create and append button
       const button = document.createElement('button');
-      button.textContent = 'Continue';
       Object.assign(button.style, buttonStyles);
       button.onclick = function () {
         loadingScreen.style.display = 'none';
