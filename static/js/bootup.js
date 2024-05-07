@@ -34,7 +34,7 @@ function showBootUpSequence() {
 
   const buttonStyles = {
     position: 'absolute',
-    padding: '10px 20px',
+    padding: '10px 30px',
     backgroundColor: '#c8c7c7',
     width: '36px',
     height: '18px',
