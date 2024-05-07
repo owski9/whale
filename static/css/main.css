@@ -272,7 +272,10 @@ body {
       transform: rotate(180deg);
     }
   }
-
+  
+  .buttonStyles {
+    left: 0;
+  
   canvas {
     position: fixed;
     top: 0;
