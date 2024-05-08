@@ -103,13 +103,13 @@
       aboutWindow.style.top = '100px';
       aboutWindow.style.left = '100px';
       aboutWindow.innerHTML = `
-        <div class="window-titlebar">
-            <div class="window-title">About Me</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
-        <div class="about-content">
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">About Me</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+        <div class="about-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
             <img src="static/img/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto; border: 2px outset #c8c7c7;">
             <div class="about-text" style="border: 2px inset #fff;">
                 <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
