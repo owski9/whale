@@ -99,7 +99,6 @@ body {
   }
 
   .window-button:active {
-    transform: translate(1px, 1px);
     border: 2px inset #ffff;
   }
   
@@ -303,6 +302,5 @@ body {
   }
 
   button:active {
-    transform: translate(1px, 1px);
     border: 2px inset #ffff;
   }
