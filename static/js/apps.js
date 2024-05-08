@@ -294,7 +294,7 @@
                     <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
-            <div class="window-content">
+            <div class="window-content" style="border: 2px inset #fff;">
         <p>Thanks to those who helped me:</p>
         <ul>
             <li> yuko, literally made this code better. </li>
@@ -311,7 +311,7 @@
         }
       }
 
-      function openSettingstWindow() {
+      function openSettingsWindow() {
         const existingWindow = document.querySelector('.settings-window');
         if (!existingWindow) {
           const settingsWindow = document.createElement('div');
