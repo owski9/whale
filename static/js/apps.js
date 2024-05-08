@@ -137,8 +137,9 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
+      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
         <textarea rows="6" placeholder="Type your notes here..."></textarea>
-    `;
+   </div> `;
       document.body.appendChild(notepadWindow);
       makeDraggable(notepadWindow);
     }
@@ -158,6 +159,7 @@
        <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
        </div>
        </div>
+       <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
         <input type="text" id="calcInput"readonly>
         <br>
         <button onclick="addToCalc('1')">1</button>
@@ -258,6 +260,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
+      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
     <p>You can contact me via:</p>
     <ul>
         <li>--------yuko---------</li>
@@ -292,7 +295,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-        <div class="window-content" style="border: 2px inset #fff;">
+        <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
     <p>Thanks to those who helped me:</p>
     <ul>
         <li> yuko, literally made this code better. </li>
@@ -323,6 +326,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
+      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
     <p>Still In Testing</p>
     <ul>
         <li> Text Info </li>
