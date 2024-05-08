@@ -131,12 +131,12 @@
       notepadWindow.style.top = '100px';
       notepadWindow.style.left = '1150px';
       notepadWindow.innerHTML = `
-          <div class="window-titlebar">
-            <div class="window-title">Notepad</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Notepad</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
         <textarea rows="6" placeholder="Type your notes here..."></textarea>
     `;
       document.body.appendChild(notepadWindow);
@@ -152,12 +152,12 @@
       calculatorWindow.style.top = '100px';
       calculatorWindow.style.left = '800px';
       calculatorWindow.innerHTML = `
-        <div class="window-titlebar">
-            <div class="window-title">Calculator</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
+       <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+       <div class="window-title" style="margin-left: 5px;">Calculator</div>
+       <div class="window-buttons" style="margin-right: 5px;">
+       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+       </div>
+       </div>
         <input type="text" id="calcInput"readonly>
         <br>
         <button onclick="addToCalc('1')">1</button>
@@ -193,13 +193,12 @@
       calendarWindow.style.top = '300px';
       calendarWindow.style.left = '800px';
       calendarWindow.innerHTML = `
-        <div class="window-titlebar">
-            <div class="window-title">Calendar</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
-        <div class="calendar">
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Calendar</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
             <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
             <div class="calendar-day">Mon</div>
             <div class="calendar-day">Tue</div>
@@ -253,13 +252,12 @@
       contactWindow.style.top = '100px';
       contactWindow.style.left = '450px';
       contactWindow.innerHTML = `
-        <div class="window-titlebar">
-            <div class="window-title">Contact</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
-      <div class="window-content" style="border: 2px inset #fff;">
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Contact</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
     <p>You can contact me via:</p>
     <ul>
         <li>--------yuko---------</li>
@@ -288,12 +286,12 @@
       projectWindow.style.top = '320px';
       projectWindow.style.left = '450px';
       projectWindow.innerHTML = `
-          <div class="window-titlebar">
-            <div class="window-title">Credits</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Credits</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
         <div class="window-content" style="border: 2px inset #fff;">
     <p>Thanks to those who helped me:</p>
     <ul>
@@ -319,13 +317,12 @@
       settingsWindow.style.top = '320px';
       settingsWindow.style.left = '450px';
       settingsWindow.innerHTML = `
-          <div class="window-titlebar">
-            <div class="window-title">Settings</div>
-            <div class="window-buttons">
-                <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
-            </div>
-        </div>
-        <div class="window-content" style="border: 2px inset #fff;">
+      <div class="window-titlebar" style="left: 3px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Settings</div>
+      <div class="window-buttons" style="margin-right: 5px;">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
     <p>Still In Testing</p>
     <ul>
         <li> Text Info </li>
