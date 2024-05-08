@@ -158,7 +158,7 @@
                     <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
-            <input type="text" id="calcInput" style="style="border: 2px outset #c0c0c0;" readonly>
+            <input type="text" id="calcInput"readonly>
             <br>
             <button onclick="addToCalc('1')">1</button>
             <button onclick="addToCalc('2')">2</button>
