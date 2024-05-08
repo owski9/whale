@@ -11,17 +11,6 @@ body {
     font-family: Monospace, sans-serif;
     overflow: hidden;
   }
-  .welcome-window {
-    position: absolute;
-    width: 700px;
-    background-color: #c6c6c6;
-    border: 2px solid #000;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    cursor: move;
-    font-size: 13px;
-    padding: 10px;
-    border: 2px outset #c8c7c7;
-  }
   
 
   .clock {
@@ -60,22 +49,35 @@ body {
 
   /* Existing styles for other elements */
   .window {
-    position: absolute;
-    width: 300px;
+    position: flex;
+    width: 400px;
+    top: 10px;
     background-color: #c6c6c6;
-    border: 2px solid #000;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     cursor: move;
-    padding: 10px;
+    font-size: 13px;
     border: 2px outset #c8c7c7;
   }
-  .window-titlebar {
-    height: 20px;
+  
+  .welcome-window { 
+    position: flex;
+    width: 400px;
+    top: 10px;
+    background-color: #c6c6c6;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: move;
+    font-size: 13px;
+    border: 2px outset #c8c7c7;
+  }
+  
+  .window-titlebar { 
+    height: 25px;
+    width: 100%;
     background-color: #000080;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px;
+
   }
 
   .window-title {
@@ -83,24 +85,13 @@ body {
     font-size: 12px;
   }
 
-  .window-buttons {
-    display: flex;
-    gap: 5px;
-    border: 1px outset #c8c7c7;
+  .window-button {
+    background-color: #c0c0c0;
+    cursor: pointer;
+    border: 2px outset #c0c0c0;
   }
   
-
-  .window-button {
-    width: 12px;
-    height: 12px;
-    background-color: #c6c6c6;
-    cursor: pointer;
-    border: 2px outset #c8c7c7;
-  }
-
-  .window-button:active {
-    border: 2px inset #ffff;
-  }
+  
   
   .desktop-icons {
     display: flex;
@@ -288,7 +279,7 @@ body {
     pointer-events: none;
   }
 
-   .button-styles  {
+  .button-styles  {
     position: absolute;
     font-family: Monospace, sans-serif;
     background-color: #c8c7c7;
@@ -302,23 +293,11 @@ body {
     line-height: 11px;
   }
 
-  button:active {
-    border: 2px inset #ffff;
-  }
-
+  
   .start-button:active {
     border: 2px inset #c0c0c0;
   }
-
-  .test-button {
-    width: 60px;
-    height: 25px;
-    background-color: #c6c6c6;
-    cursor: pointer;
-    border: 2px outset #c8c7c7;
-  }
   
-  .test-button:active {
-    border: 2px inset #c0c0c0;
+  .window-button:active {
+    border: 2px inset #c8c7c7;
   }
-  
