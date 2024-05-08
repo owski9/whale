@@ -137,7 +137,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
         <textarea rows="6" placeholder="Type your notes here..."></textarea>
    </div> `;
       document.body.appendChild(notepadWindow);
@@ -159,7 +159,7 @@
        <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
        </div>
        </div>
-       <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
+       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
         <input type="text" id="calcInput"readonly>
         <br>
         <button onclick="addToCalc('1')">1</button>
@@ -201,6 +201,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
             <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
             <div class="calendar-day">Mon</div>
             <div class="calendar-day">Tue</div>
@@ -260,7 +261,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>You can contact me via:</p>
     <ul>
         <li>--------yuko---------</li>
@@ -295,7 +296,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-        <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Thanks to those who helped me:</p>
     <ul>
         <li> yuko, literally made this code better. </li>
@@ -326,7 +327,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-      <div class="window-content" style="display: flex; justify-content: center; align-itmes: flex-start; margin-top: 40px;">
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Still In Testing</p>
     <ul>
         <li> Text Info </li>
