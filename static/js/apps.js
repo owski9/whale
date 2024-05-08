@@ -111,7 +111,7 @@
             </div>
             <div class="about-content">
                 <img src="static/img/0950ou.png" alt="About Image" draggable="false" style="max-width: 100%; height: auto; border: 2px outset ##c8c7c7;">
-                <div class="about-text">
+                <div class="about-text" style="border: 2px inset #fff;">
                     <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
                     <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
                     <button class="project-btn" onclick="openProjectWindow()" style="border: 2px outset #c8c7c7;">Credits</button>
@@ -259,7 +259,7 @@
                     <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
                 </div>
             </div>
-    	  <div class="window-content">
+    	  <div class="window-content" style="border: 2px inset #fff;">
         <p>You can contact me via:</p>
         <ul>
             <li>--------yuko---------</li>
