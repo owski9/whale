@@ -14,7 +14,7 @@ body {
   .welcome-window {
     position: absolute;
     width: 700px;
-    background-color: #fff;
+    background-color: #c6c6c6;
     border: 2px solid #000;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     cursor: move;
@@ -61,7 +61,7 @@ body {
   .window {
     position: absolute;
     width: 300px;
-    background-color: #fff;
+    background-color: #c6c6c6;
     border: 2px solid #000;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     cursor: move;
@@ -92,7 +92,7 @@ body {
   .window-button {
     width: 12px;
     height: 12px;
-    background-color: #fff;
+    background-color: #c6c6c6;
     cursor: pointer;
     border: 2px outset #c8c7c7;
   }
