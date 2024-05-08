@@ -105,7 +105,7 @@
       aboutWindow.innerHTML = `
         <div class="window-titlebar">
             <div class="window-title">About Me</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -133,7 +133,7 @@
       notepadWindow.innerHTML = `
           <div class="window-titlebar">
             <div class="window-title">Notepad</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -154,7 +154,7 @@
       calculatorWindow.innerHTML = `
         <div class="window-titlebar">
             <div class="window-title">Calculator</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -195,7 +195,7 @@
       calendarWindow.innerHTML = `
         <div class="window-titlebar">
             <div class="window-title">Calendar</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -255,7 +255,7 @@
       contactWindow.innerHTML = `
         <div class="window-titlebar">
             <div class="window-title">Contact</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -290,7 +290,7 @@
       projectWindow.innerHTML = `
           <div class="window-titlebar">
             <div class="window-title">Credits</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
@@ -321,7 +321,7 @@
       settingsWindow.innerHTML = `
           <div class="window-titlebar">
             <div class="window-title">Settings</div>
-            <div class="window-button">
+            <div class="window-buttons">
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
