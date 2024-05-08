@@ -49,7 +49,7 @@ body {
 /* Existing styles for other elements */
 .window {
   position: absolute;
-  width: 500px;
+  width: 400px;
   margin-top: 45px;
   background-color: #c6c6c6;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
