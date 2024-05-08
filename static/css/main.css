@@ -165,7 +165,6 @@ body {
   .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    border: 2px outset #c0c0c0;
     gap: 5px;
   }
 
