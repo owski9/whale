@@ -311,6 +311,37 @@
         }
       }
 
+      function openSettingstWindow() {
+        const existingWindow = document.querySelector('.settings-window');
+        if (!existingWindow) {
+          const settingsWindow = document.createElement('div');
+          settingsWindow.classList.add('window', 'project-window');
+          settingsWindow.style.top = '320px';
+          settingsWindow.style.left = '450px';
+          settingsWindow.innerHTML = `
+              <div class="window-titlebar">
+                <div class="window-title">Settings</div>
+                <div class="window-buttons">
+                    <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+                </div>
+            </div>
+            <div class="window-content">
+        <p>Still In Testing</p>
+        <ul>
+            <li> Text Info </li>
+            <li> Slider one </li>
+            <li> Text info </li>
+            <li> Slider two </li>
+            <li> Text 3 </li>
+            <li> Slider 3 </li>
+        </ul>
+    </div>
+        `;
+          document.body.appendChild(settingsWindow);
+          makeDraggable(settingsWindow);
+        }
+      }
+
 
       function closeWindow(button) {
         const window = button.closest('.window');
