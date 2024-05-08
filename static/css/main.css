@@ -59,17 +59,6 @@ body {
     border: 2px outset #c8c7c7;
   }
   
-  .welcome-window { 
-    position: absolute;
-    width: 400px;
-    top: 10px;
-    background-color: #c6c6c6;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    cursor: move;
-    font-size: 13px;
-    border: 2px outset #c8c7c7;
-  }
-  
   .window-titlebar { 
     position:absolute;
     height: 25px;
