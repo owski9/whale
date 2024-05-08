@@ -73,7 +73,6 @@ body {
   .window-titlebar {
     height: 20px;
     background-color: #000080;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
