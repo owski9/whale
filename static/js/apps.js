@@ -315,7 +315,7 @@
         const existingWindow = document.querySelector('.settings-window');
         if (!existingWindow) {
           const settingsWindow = document.createElement('div');
-          settingsWindow.classList.add('window', 'project-window');
+          settingsWindow.classList.add('window', 'settings-window');
           settingsWindow.style.top = '320px';
           settingsWindow.style.left = '450px';
           settingsWindow.innerHTML = `
