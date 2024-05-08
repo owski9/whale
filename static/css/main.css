@@ -86,6 +86,8 @@ body {
   }
 
   .window-button {
+    width: 12px;
+    height: 12px;
     background-color: #c0c0c0;
     cursor: pointer;
     border: 2px outset #c0c0c0;
