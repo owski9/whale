@@ -9,3 +9,4 @@ Website has some cool stuff:
 - Live clock
 
 Yeah I know there are bugs leave me alone 
+maybe I'll add settings...
