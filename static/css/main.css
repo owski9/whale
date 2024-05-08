@@ -305,3 +305,7 @@ body {
   button:active {
     border: 2px inset #ffff;
   }
+
+  .start-button:active {
+    border: 2px inset #c0c0c0;
+  }
