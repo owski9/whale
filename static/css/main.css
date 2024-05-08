@@ -71,11 +71,11 @@ body {
 
   .window-titlebar {
     height: 20px;
-    background-color: #008080;
+    background-color: #000080;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5px;
+    padding: 0px;
   }
 
   .window-title {
