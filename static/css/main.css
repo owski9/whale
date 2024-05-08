@@ -27,12 +27,12 @@ body {
     position: fixed;
     bottom: 13px;
     right: 20px;
-    font-size: 9px;
+    font-size: 13px;
     color: #000000;
     text-align: center;
-    line-height: 25px;
+    line-height: 22px;
     border: 2px inset #c8c7c7;
-    width: 150px;
+    width: 130px;
     height: 15px;
     background-color: rgba(170, 170, 170, 255);
   }
