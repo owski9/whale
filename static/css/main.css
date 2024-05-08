@@ -310,3 +310,16 @@ body {
   .start-button:active {
     border: 2px inset #c0c0c0;
   }
+
+  .test-button {
+    width: 60px;
+    height: 25px;
+    background-color: #c6c6c6;
+    cursor: pointer;
+    border: 2px outset #c8c7c7;
+  }
+  
+  .test-button:active {
+    border: 2px inset #c0c0c0;
+  }
+  
