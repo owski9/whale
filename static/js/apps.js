@@ -325,7 +325,7 @@
                 <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
             </div>
         </div>
-        <div class="window-content" style="border: 2px inset #fff;>
+        <div class="window-content" style="border: 2px inset #fff;">
     <p>Still In Testing</p>
     <ul>
         <li> Text Info </li>
