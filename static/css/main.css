@@ -295,3 +295,7 @@ body {
     text-align: center;
     line-height: 30px;
   }
+
+  button:active {
+    transform: translateY(4px);
+  }
