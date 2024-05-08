@@ -88,6 +88,7 @@ body {
     gap: 5px;
     border: 1px outset #c8c7c7;
   }
+  
 
   .window-button {
     width: 12px;
@@ -97,6 +98,11 @@ body {
     border: 2px outset #c8c7c7;
   }
 
+  .window-button:active {
+    transform: translate(1px, 1px);
+    border: 2px inset #ffff;
+  }
+  
   .desktop-icons {
     display: flex;
     align-items: middle;
