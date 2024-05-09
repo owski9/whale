@@ -95,6 +95,15 @@
     }
   }
 
+  function toggleDisplayMenu() {
+   var startDisplay = document.querySelector(".start-display");
+   if (startDisplay.style.display === "none") {
+    startDisplay.style.display = "block";
+   } else { 
+    startDisplay.style.display = "none";
+   }
+ }
+
   function openAboutWindow() {
     const existingWindow = document.querySelector('.about-window');
     if (!existingWindow) {
