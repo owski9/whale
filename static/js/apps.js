@@ -349,8 +349,8 @@
     if (!existingWindow) {
       const changelogWindow = document.createElement('div');
       changelogWindow.classList.add('window', 'settings-window');
-      changelogWindow.style.top = '320px';
-      changelogWindow.style.left = '450px';
+      changelogWindow.style.top = '100px';
+      changelogWindow.style.left = '100px';
       changelogWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Changelog</div>
