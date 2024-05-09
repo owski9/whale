@@ -137,9 +137,8 @@ input {
 .start-display {
   display: none;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-256%, 213%);
+  top: 100px;
+  left: 100px;
   max-width: 300px;
   background-color: #c0c0c0;
   padding: 10px;
