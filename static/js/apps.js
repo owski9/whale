@@ -384,10 +384,12 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Changelog:</p>
     <p>Changes this update:</p>
-    <p>MAJOR graphics overhaul (I DID spend an entire 9 hours on it) </p>
-    <p>Future Updates?</p>
-    <p>Working on a fully functioning start menu and app icons in the taskbar</p>
-    <p>Might add working eaglercraft thing?</p>
+    <p>The graphics overhaul is almost done</p>
+    <p>Added the start menu and the app taskbar</p>
+    <p>Adding minimize button, and mayhaps even maximize button!?</p>
+    <p>Still working on that eaglercraft thing, spritz</p> 
+    <p>From now on, I'm going to start giving these official updates.</p>
+    <p>Consider this update Beta.Workflow-Ver-373.Main</p>
 </div>
     `;
           document.body.appendChild(changelogWindow);
