@@ -364,10 +364,9 @@ function updateCalendar() {
           document.body.appendChild(settingsWindow);
           makeDraggable(settingsWindow);
 
-          addTaskbarIcon('Settings', 'openChangelogWindow');
+          addTaskbarIcon('Settings', 'openSettingsWindow');
         }
       }
-
       function openChangelogWindow() {
         const existingWindow = document.querySelector('.changelog-window');
         if (!existingWindow) {
