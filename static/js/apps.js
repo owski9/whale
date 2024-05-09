@@ -1,128 +1,118 @@
- function addTaskbarIcon(label, onClickFunction) {
-      	console.log("Adding taskbar button for: " + label);
-        const taskbar = document.querySelector('.taskbar');
-        const taskbarButton = document.createElement('div');
-        taskbarButton.classList.add('taskbar-button');
-        taskbarButton.textContent = label;
-        taskbarButton.onclick = window[onClickFunction];
-        taskbar.appendChild(taskbarButton);
+function updateCalendar() {
+        const currentDate = new Date();
+        const currentDay = currentDate.getDate();
+
+        const calendarDays = document.querySelectorAll('.calendar-day');
+
+        calendarDays.forEach(day => {
+          day.classList.remove('current-day-dot');
+          if (parseInt(day.textContent) === currentDay) {
+            day.classList.add('current-day-dot');
+          }
+        });
       }
 
- function updateCalendar() {
-    const currentDate = new Date();
-    const currentDay = currentDate.getDate();
+      updateCalendar();
 
-    const calendarDays = document.querySelectorAll('.calendar-day');
 
-    calendarDays.forEach(day => {
-      day.classList.remove('current-day-dot');
-      if (parseInt(day.textContent) === currentDay) {
-        day.classList.add('current-day-dot');
+      function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const meridiem = hours >= 12 ? ' PM' : ' AM';
+
+
+        const formattedHours = hours % 12 || 12;
+
+        const timeString = `${formattedHours}:${padZero(minutes)}:${padZero(seconds)}${meridiem}`;
+        document.querySelector('.clock').textContent = timeString;
       }
-    });
-  }
 
-  updateCalendar();
+      function padZero(number) {
+        return number < 10 ? '0' + number : number;
+      }
 
+      // Update the clock every second
+      setInterval(updateClock, 1000);
 
-  function updateClock() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const meridiem = hours >= 12 ? ' PM' : ' AM';
+      // Call the function once to initialize the clock
+      updateClock();
 
-  
-    const formattedHours = hours % 12 || 12;
-
-    const timeString = `${formattedHours}:${padZero(minutes)}:${padZero(seconds)}${meridiem}`;
-    document.querySelector('.clock').textContent = timeString;
-  }
-
-  function padZero(number) {
-    return number < 10 ? '0' + number : number;
-  }
-
-  // Update the clock every second
-  setInterval(updateClock, 1000);
-
-  // Call the function once to initialize the clock
-  updateClock();
-
-  const windows = document.querySelectorAll('.window');
-  windows.forEach(window => {
-    window.addEventListener('mousedown', startDragging);
-  });
+      const windows = document.querySelectorAll('.window');
+      windows.forEach(window => {
+        window.addEventListener('mousedown', startDragging);
+      });
 
 
 
-  let offsetX, offsetY;
+      let offsetX, offsetY;
 
-  function startDragging(e) {
-    const window = e.target.closest('.window');
-    const rect = window.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
+      function startDragging(e) {
+        const window = e.target.closest('.window');
+        const rect = window.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
 
-    window.style.zIndex = '1000';
+        window.style.zIndex = '1000';
 
-    function dragWindow(event) {
-      const newX = event.clientX - offsetX;
-      const newY = event.clientY - offsetY;
-      window.style.left = `${newX}px`;
-      window.style.top = `${newY}px`
-    }
+        function dragWindow(event) {
+          const newX = event.clientX - offsetX;
+          const newY = event.clientY - offsetY;
+          window.style.left = `${newX}px`;
+          window.style.top = `${newY}px`
+        }
 
-    function stopDragging() {
-      document.removeEventListener('mousemove', dragWindow);
-      document.removeEventListener('mouseup', stopDragging);
-    }
+        function stopDragging() {
+          document.removeEventListener('mousemove', dragWindow);
+          document.removeEventListener('mouseup', stopDragging);
+        }
 
-    document.addEventListener('mousemove', dragWindow);
-    document.addEventListener('mouseup', stopDragging);
-  }
+        document.addEventListener('mousemove', dragWindow);
+        document.addEventListener('mouseup', stopDragging);
+      }
 
 
-  function addToCalc(value) {
-    const inputField = document.getElementById('calcInput');
-    inputField.value += value;
-  }
+      function addToCalc(value) {
+        const inputField = document.getElementById('calcInput');
+        inputField.value += value;
+      }
 
-  function clearCalc() {
-    const inputField = document.getElementById('calcInput');
-    inputField.value = '';
-  }
+      function clearCalc() {
+        const inputField = document.getElementById('calcInput');
+        inputField.value = '';
+      }
 
-  function calculate() {
-    const inputField = document.getElementById('calcInput');
-    const expression = inputField.value;
-    try {
-      const result = eval(expression);
-      inputField.value = result;
-    } catch (error) {
-      inputField.value = 'Error';
-    }
-  }
+      function calculate() {
+        const inputField = document.getElementById('calcInput');
+        const expression = inputField.value;
+        try {
+          const result = eval(expression);
+          inputField.value = result;
+        } catch (error) {
+          inputField.value = 'Error';
+        }
+      }
 
-  function toggleDisplayMenu() {
-   var startDisplay = document.querySelector(".start-display");
-   if (startDisplay.style.display === "none") {
-    startDisplay.style.display = "block";
-   } else { 
-    startDisplay.style.display = "none";
-   }
- }
+      function toggleDisplayMenu() {
+        var startDisplay = document.querySelector(".start-display");
+        if (startDisplay.style.display === "none") {
+          startDisplay.style.display = "block";
+        } else {
+          startDisplay.style.display = "none";
+        }
+      }
 
- document.querySelector(".start-button").addEventListener("click", toggleDisplayMenu);
+      document.querySelector(".start-button").addEventListener("click", toggleDisplayMenu);
 
-  function openAboutWindow() {
-    const existingWindow = document.querySelector('.about-window');
-    if (!existingWindow) {
-      const aboutWindow = document.createElement('div');
-      aboutWindow.classList.add('window', 'about-window');
-      aboutWindow.style.top = '100px';
-      aboutWindow.style.left = '100px';
-      aboutWindow.innerHTML = `
+      function openAboutWindow() {
+        const existingWindow = document.querySelector('.about-window');
+        if (!existingWindow) {
+          const aboutWindow = document.createElement('div');
+          aboutWindow.classList.add('window', 'about-window');
+          aboutWindow.style.top = '100px';
+          aboutWindow.style.left = '100px';
+          aboutWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">About Me</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -138,21 +128,21 @@
             </div>
         </div>
     `;
-      document.body.appendChild(aboutWindow);
-      makeDraggable(aboutWindow);
+          document.body.appendChild(aboutWindow);
+          makeDraggable(aboutWindow);
 
-      addTaskbarIcon('About, 'openAboutWindow');
-    }
-  }
+          addTaskbarIcon('About Me', 'openAboutWindow');
+        }
+      }
 
-  function openNotepadWindow() {
-    const existingWindow = document.querySelector('.notepad-window');
-    if (!existingWindow) {
-      const notepadWindow = document.createElement('div');
-      notepadWindow.classList.add('window', 'notepad-window');
-      notepadWindow.style.top = '100px';
-      notepadWindow.style.left = '1150px';
-      notepadWindow.innerHTML = `
+      function openNotepadWindow() {
+        const existingWindow = document.querySelector('.notepad-window');
+        if (!existingWindow) {
+          const notepadWindow = document.createElement('div');
+          notepadWindow.classList.add('window', 'notepad-window');
+          notepadWindow.style.top = '100px';
+          notepadWindow.style.left = '1150px';
+          notepadWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Notepad</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -162,21 +152,21 @@
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
         <textarea rows="6" placeholder="Type your notes here..."></textarea>
    </div> `;
-      document.body.appendChild(notepadWindow);
-      makeDraggable(notepadWindow);
+          document.body.appendChild(notepadWindow);
+          makeDraggable(notepadWindow);
 
-      addTaskbarIcon('Notepad', 'openNotepadWindow');
-    }
-  }
+          addTaskbarIcon('Notepad', 'openNotepadWindow');
+        }
+      }
 
-  function openCalculatorWindow() {
-    const existingWindow = document.querySelector('.calculator-window');
-    if (!existingWindow) {
-      const calculatorWindow = document.createElement('div');
-      calculatorWindow.classList.add('window', 'calculator-window');
-      calculatorWindow.style.top = '100px';
-      calculatorWindow.style.left = '800px';
-      calculatorWindow.innerHTML = `
+      function openCalculatorWindow() {
+        const existingWindow = document.querySelector('.calculator-window');
+        if (!existingWindow) {
+          const calculatorWindow = document.createElement('div');
+          calculatorWindow.classList.add('window', 'calculator-window');
+          calculatorWindow.style.top = '100px';
+          calculatorWindow.style.left = '800px';
+          calculatorWindow.innerHTML = `
        <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
        <div class="window-title" style="margin-left: 5px;">Calculator</div>
        <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -206,21 +196,21 @@
         <button onclick="clearCalc()">C</button>
         <button onclick="calculate()">=</button>
     `;
-      document.body.appendChild(calculatorWindow);
-      makeDraggable(calculatorWindow);
+          document.body.appendChild(calculatorWindow);
+          makeDraggable(calculatorWindow);
 
-      addTaskbarIcon('Calculator', 'openCalculatorWindow');
-    }
-  }
+          addTaskbarIcon('Calculator', 'openCalculatorWindow');
+        }
+      }
 
-  function openCalendarWindow() {
-    const existingWindow = document.querySelector('.calendar-window');
-    if (!existingWindow) {
-      const calendarWindow = document.createElement('div');
-      calendarWindow.classList.add('window', 'calendar-window');
-      calendarWindow.style.top = '300px';
-      calendarWindow.style.left = '800px';
-      calendarWindow.innerHTML = `
+      function openCalendarWindow() {
+        const existingWindow = document.querySelector('.calendar-window');
+        if (!existingWindow) {
+          const calendarWindow = document.createElement('div');
+          calendarWindow.classList.add('window', 'calendar-window');
+          calendarWindow.style.top = '300px';
+          calendarWindow.style.left = '800px';
+          calendarWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Calendar</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -268,21 +258,21 @@
             <div class="calendar-day">31</div>
     </div>
     `;
-      document.body.appendChild(calendarWindow);
-      makeDraggable(calendarWindow);
+          document.body.appendChild(calendarWindow);
+          makeDraggable(calendarWindow);
 
-      addTaskbarIcon('Calendar', 'openCalendarWindow');
-    }
-  }
+          addTaskbarIcon('Calendar', 'openCalendarWindow');
+        }
+      }
 
-  function openContactWindow() {
-    const existingWindow = document.querySelector('.contact-window');
-    if (!existingWindow) {
-      const contactWindow = document.createElement('div');
-      contactWindow.classList.add('window', 'contact-window');
-      contactWindow.style.top = '100px';
-      contactWindow.style.left = '450px';
-      contactWindow.innerHTML = `
+      function openContactWindow() {
+        const existingWindow = document.querySelector('.contact-window');
+        if (!existingWindow) {
+          const contactWindow = document.createElement('div');
+          contactWindow.classList.add('window', 'contact-window');
+          contactWindow.style.top = '100px';
+          contactWindow.style.left = '450px';
+          contactWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Contact</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -305,21 +295,21 @@
 </div>
 </div>
   `;
-      document.body.appendChild(contactWindow);
-      makeDraggable(contactWindow);
+          document.body.appendChild(contactWindow);
+          makeDraggable(contactWindow);
 
-      addTaskbarIcon('Contact', 'openContactWindow');
-    }
-  }
+          addTaskbarIcon('Contact', 'openContactWindow');
+        }
+      }
 
-  function openProjectWindow() {
-    const existingWindow = document.querySelector('.project-window');
-    if (!existingWindow) {
-      const projectWindow = document.createElement('div');
-      projectWindow.classList.add('window', 'project-window');
-      projectWindow.style.top = '320px';
-      projectWindow.style.left = '450px';
-      projectWindow.innerHTML = `
+      function openProjectWindow() {
+        const existingWindow = document.querySelector('.project-window');
+        if (!existingWindow) {
+          const projectWindow = document.createElement('div');
+          projectWindow.classList.add('window', 'project-window');
+          projectWindow.style.top = '320px';
+          projectWindow.style.left = '450px';
+          projectWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Credits</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -338,21 +328,21 @@
     </ul>
 </div>
     `;
-      document.body.appendChild(projectWindow);
-      makeDraggable(projectWindow);
+          document.body.appendChild(projectWindow);
+          makeDraggable(projectWindow);
 
-      addTaskbarIcon('Credits', 'openProjectWindow');
-    }
-  }
+          addTaskbarIcon('Credits', 'openProjectWindow');
+        }
+      }
 
-  function openSettingsWindow() {
-    const existingWindow = document.querySelector('.settings-window');
-    if (!existingWindow) {
-      const settingsWindow = document.createElement('div');
-      settingsWindow.classList.add('window', 'settings-window');
-      settingsWindow.style.top = '320px';
-      settingsWindow.style.left = '450px';
-      settingsWindow.innerHTML = `
+      function openSettingsWindow() {
+        const existingWindow = document.querySelector('.settings-window');
+        if (!existingWindow) {
+          const settingsWindow = document.createElement('div');
+          settingsWindow.classList.add('window', 'settings-window');
+          settingsWindow.style.top = '320px';
+          settingsWindow.style.left = '450px';
+          settingsWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Settings</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -371,21 +361,21 @@
     </ul>
 </div>
     `;
-      document.body.appendChild(settingsWindow);
-      makeDraggable(settingsWindow);
+          document.body.appendChild(settingsWindow);
+          makeDraggable(settingsWindow);
 
-      addTaskbarIcon('Settings', 'openChangelogWindow');
-    }
-  }
+          addTaskbarIcon('Settings', 'openChangelogWindow');
+        }
+      }
 
-  function openChangelogWindow() {
-    const existingWindow = document.querySelector('.changelog-window');
-    if (!existingWindow) {
-      const changelogWindow = document.createElement('div');
-      changelogWindow.classList.add('window', 'settings-window');
-      changelogWindow.style.top = '100px';
-      changelogWindow.style.left = '100px';
-      changelogWindow.innerHTML = `
+      function openChangelogWindow() {
+        const existingWindow = document.querySelector('.changelog-window');
+        if (!existingWindow) {
+          const changelogWindow = document.createElement('div');
+          changelogWindow.classList.add('window', 'settings-window');
+          changelogWindow.style.top = '100px';
+          changelogWindow.style.left = '100px';
+          changelogWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Changelog</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
@@ -401,18 +391,38 @@
     <p>Might add working eaglercraft thing?</p>
 </div>
     `;
-      document.body.appendChild(changelogWindow);
-      makeDraggable(changelogWindow);
-     
-      addTaskbarIcon('Changelog', 'openChangelogWindow');
-    }
-  }
+          document.body.appendChild(changelogWindow);
+          makeDraggable(changelogWindow);
 
-  function closeWindow(button) {
-    const window = button.closest('.window');
-    window.remove();
-  }
+          addTaskbarIcon('Changelog', 'openChangelogWindow');
+        }
+      }
 
-  function makeDraggable(window) {
-    window.addEventListener('mousedown', startDragging);
-  }
+      function closeWindow(button) {
+        const window = button.closest('.window');
+        window.remove();
+        const taskbarButtons = document.querySelectorAll('.taskbar-button');
+        const windowTitle = window.querySelector('.window-title').textContent;
+        console.log("Window Title:", windowTitle);
+        taskbarButtons.forEach(taskbarButton => {
+        	 console.log("Taskbar Button Content:", taskbarButton.textContent);
+        	 if (taskbarButton.textContent === windowTitle) {
+            taskbarButton.remove();
+          }
+        });
+      }
+
+
+      function makeDraggable(window) {
+        window.addEventListener('mousedown', startDragging);
+      }
+
+      function addTaskbarIcon(label, onClickFunction) {
+        console.log("Adding taskbar button for: " + label);
+        const taskbar = document.querySelector('.taskbar');
+        const taskbarButton = document.createElement('div');
+        taskbarButton.classList.add('taskbar-button');
+        taskbarButton.textContent = label;
+        taskbarButton.onclick = window[onClickFunction];
+        taskbar.appendChild(taskbarButton);
+      }
