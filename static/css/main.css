@@ -135,7 +135,7 @@ input {
 .start-display {
   display: none;
   position: absolute;
-  top: 648px;
+  top: 640px;
   left: 0px;
   max-width: 300px;
   background-color: #c0c0c0;
