@@ -1,3 +1,12 @@
+ function addTaskbarIcon(label, onClickFunction) {
+      	console.log("Adding taskbar button for: " + label);
+        const taskbar = document.querySelector('.taskbar');
+        const taskbarButton = document.createElement('div');
+        taskbarButton.classList.add('taskbar-button');
+        taskbarButton.textContent = label;
+        taskbarButton.onclick = window[onClickFunction];
+        taskbar.appendChild(taskbarButton);
+      }
 
  function updateCalendar() {
     const currentDate = new Date();
@@ -131,6 +140,8 @@
     `;
       document.body.appendChild(aboutWindow);
       makeDraggable(aboutWindow);
+
+      addTaskbarIcon('About, 'openAboutWindow');
     }
   }
 
@@ -153,6 +164,8 @@
    </div> `;
       document.body.appendChild(notepadWindow);
       makeDraggable(notepadWindow);
+
+      addTaskbarIcon('Notepad', 'openNotepadWindow');
     }
   }
 
@@ -195,6 +208,8 @@
     `;
       document.body.appendChild(calculatorWindow);
       makeDraggable(calculatorWindow);
+
+      addTaskbarIcon('Calculator', 'openCalculatorWindow');
     }
   }
 
@@ -255,6 +270,8 @@
     `;
       document.body.appendChild(calendarWindow);
       makeDraggable(calendarWindow);
+
+      addTaskbarIcon('Calendar', 'openCalendarWindow');
     }
   }
 
@@ -290,6 +307,8 @@
   `;
       document.body.appendChild(contactWindow);
       makeDraggable(contactWindow);
+
+      addTaskbarIcon('Contact', 'openContactWindow');
     }
   }
 
@@ -321,6 +340,8 @@
     `;
       document.body.appendChild(projectWindow);
       makeDraggable(projectWindow);
+
+      addTaskbarIcon('Credits', 'openProjectWindow');
     }
   }
 
@@ -352,6 +373,8 @@
     `;
       document.body.appendChild(settingsWindow);
       makeDraggable(settingsWindow);
+
+      addTaskbarIcon('Settings', 'openChangelogWindow');
     }
   }
 
@@ -380,6 +403,8 @@
     `;
       document.body.appendChild(changelogWindow);
       makeDraggable(changelogWindow);
+     
+      addTaskbarIcon('Changelog', 'openChangelogWindow');
     }
   }
 
