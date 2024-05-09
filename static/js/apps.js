@@ -104,6 +104,8 @@
    }
  }
 
+ document.querySelector(".start-button").addEventListener("click", toggleDisplayMenu);
+
   function openAboutWindow() {
     const existingWindow = document.querySelector('.about-window');
     if (!existingWindow) {
