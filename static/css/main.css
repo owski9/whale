@@ -87,8 +87,6 @@ body {
   left: 20px;
 }
 
-
-
 .desktop-icons {
   display: flex;
   align-items: middle;
@@ -101,7 +99,6 @@ body {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: #008080;
   margin: 10px;
   text-align: center;
   line-height: 1px;
@@ -142,7 +139,7 @@ input {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-223%, 240%);
+  transform: translate(-240%, 215%);
   max-width: 300px;
   background-color: #c0c0c0;
   padding: 10px;
