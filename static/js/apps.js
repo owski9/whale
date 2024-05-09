@@ -201,7 +201,7 @@
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+      <div class="calendar" style="margin-top: 40px; border: 2px inset #c8c7c7;">
             <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
             <div class="calendar-day">Mon</div>
             <div class="calendar-day">Tue</div>
