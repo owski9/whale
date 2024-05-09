@@ -135,7 +135,7 @@ input {
 .start-display {
   display: none;
   position: fixed;
-  top: 316px;
+  bottom: 33px;
   left: 0px;
   max-width: 300px;
   background-color: #c0c0c0;
@@ -159,11 +159,13 @@ input {
 
 .start-display .icon {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 50px;
   height: 30px;
   font-size: 10px;
   cursor: pointer;
+  margin-right: 8px;
+  margin-top: 2px;
 }
 
 .start-display .icon img {
