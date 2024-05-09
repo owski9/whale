@@ -57,6 +57,7 @@ audio {
         font-size: 13px;
         border: 2px outset #c8c7c7;
         align-items: center;
+        user-select: none; 
       }
 
       .window-titlebar {
@@ -83,6 +84,7 @@ audio {
         cursor: pointer;
         border: 2px outset #c0c0c0;
         left: 20px;
+        user-select: none; 
       }
 
       .desktop-icons {
@@ -90,6 +92,7 @@ audio {
         align-items: middle;
         justify-items: center;
         flex-direction: column;
+        user-select: none; 
         /* Updated to cascade down */
       }
 
