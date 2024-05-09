@@ -105,7 +105,7 @@
       aboutWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">About Me</div>
-      <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -133,7 +133,7 @@
       notepadWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Notepad</div>
-      <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -155,7 +155,7 @@
       calculatorWindow.innerHTML = `
        <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
        <div class="window-title" style="margin-left: 5px;">Calculator</div>
-       <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
        <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
        </div>
        </div>
@@ -197,7 +197,7 @@
       calendarWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Calendar</div>
-      <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -257,7 +257,7 @@
       contactWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Contact</div>
-      <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -292,7 +292,7 @@
       projectWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Credits</div>
-      <div class="window-buttons" style="margin-right: 7px; margin-top: 2px">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -323,7 +323,7 @@
       settingsWindow.innerHTML = `
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Settings</div>
-      <div class="window-buttons" style="margin-right: 7px;">
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
