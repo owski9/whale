@@ -139,7 +139,7 @@ input {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-240%, 215%);
+  transform: translate(-270%, 200%);
   max-width: 300px;
   background-color: #c0c0c0;
   padding: 10px;
@@ -159,11 +159,11 @@ input {
   font-size: 10px;
   border: 2px outset #c0c0c0;
 }
+
 .start-display .icon {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: #008080;
   margin: 10px;
   font-size: 10px;
   cursor: pointer;
