@@ -371,7 +371,7 @@ function updateCalendar() {
         const existingWindow = document.querySelector('.changelog-window');
         if (!existingWindow) {
           const changelogWindow = document.createElement('div');
-          changelogWindow.classList.add('window', 'settings-window');
+          changelogWindow.classList.add('window', 'changelog-window');
           changelogWindow.style.top = '100px';
           changelogWindow.style.left = '100px';
           changelogWindow.innerHTML = `
