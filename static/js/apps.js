@@ -344,6 +344,33 @@
     }
   }
 
+  function openChangelogWindow() {
+    const existingWindow = document.querySelector('.changelog-window');
+    if (!existingWindow) {
+      const changelogWindow = document.createElement('div');
+      changelogWindow.classList.add('window', 'settings-window');
+      changelogWindow.style.top = '320px';
+      changelogWindow.style.left = '450px';
+      changelogWindow.innerHTML = `
+      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Changelog</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+    <p>Changelog:</p>
+    <p>Changes this update:</p>
+    <p>MAJOR graphics overhaul (I DID spend an entire 9 hours on it) </p>
+    <p>Future Updates?</p>
+    <p>Working on a fully functioning start menu and app icons in the taskbar</p>
+    <p>Might add working eaglercraft thing?</p>
+</div>
+    `;
+      document.body.appendChild(changelogWindow);
+      makeDraggable(changelogWindow);
+    }
+  }
 
   function closeWindow(button) {
     const window = button.closest('.window');
