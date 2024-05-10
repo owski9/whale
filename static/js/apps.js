@@ -132,7 +132,7 @@ function updateCalendar() {
           document.body.appendChild(aboutWindow);
           makeDraggable(aboutWindow);
 
-          addTaskbarIcon('About Me', 'openAboutWindow');
+          addTaskbarIcon('About Me', 'openAboutWindow', 'about-window');
         }
       }
 
@@ -157,7 +157,7 @@ function updateCalendar() {
           document.body.appendChild(notepadWindow);
           makeDraggable(notepadWindow);
 
-          addTaskbarIcon('Notepad', 'openNotepadWindow');
+          addTaskbarIcon('Notepad', 'openNotepadWindow', 'notepad-window');
         }
       }
 
@@ -202,7 +202,7 @@ function updateCalendar() {
           document.body.appendChild(calculatorWindow);
           makeDraggable(calculatorWindow);
 
-          addTaskbarIcon('Calculator', 'openCalculatorWindow');
+          addTaskbarIcon('Calculator', 'openCalculatorWindow', 'calculator-window');
         }
       }
 
@@ -265,7 +265,7 @@ function updateCalendar() {
           document.body.appendChild(calendarWindow);
           makeDraggable(calendarWindow);
 
-          addTaskbarIcon('Calendar', 'openCalendarWindow');
+          addTaskbarIcon('Calendar', 'openCalendarWindow', 'calendar-window');
         }
       }
 
@@ -303,7 +303,7 @@ function updateCalendar() {
           document.body.appendChild(contactWindow);
           makeDraggable(contactWindow);
 
-          addTaskbarIcon('Contact', 'openContactWindow');
+          addTaskbarIcon('Contact', 'openContactWindow', 'contact-window');
         }
       }
 
@@ -337,7 +337,7 @@ function updateCalendar() {
           document.body.appendChild(projectWindow);
           makeDraggable(projectWindow);
 
-          addTaskbarIcon('Credits', 'openProjectWindow');
+          addTaskbarIcon('Credits', 'openProjectWindow', 'project-window');
         }
       }
 
@@ -371,7 +371,7 @@ function updateCalendar() {
           document.body.appendChild(settingsWindow);
           makeDraggable(settingsWindow);
 
-          addTaskbarIcon('Settings', 'openSettingsWindow');
+          addTaskbarIcon('Settings', 'openSettingsWindow', 'settings-window');
         }
       }
       function openChangelogWindow() {
@@ -403,9 +403,10 @@ function updateCalendar() {
           document.body.appendChild(changelogWindow);
           makeDraggable(changelogWindow);
 
-          addTaskbarIcon('Changelog', 'openChangelogWindow');
+          addTaskbarIcon('Changelog', 'openChangelogWindow', 'changelog-window');
         }
       }
+
 
       function closeWindow(button) {
         const window = button.closest('.window');
@@ -422,16 +423,22 @@ function updateCalendar() {
 
       function minimizeWindow(button) {
         const window = button.closest('.window');
-        window.remove();
+        if (window) {
+          const windowRect = window.getBoundingClientRect(); // Get window position
+          window.dataset.prevTop = windowRect.top; // Store position in dataset
+          window.dataset.prevLeft = windowRect.left;
+          window.style.display = 'none';
+        }
       }
 
-
       function toggleMinimizedWindow() {
-        var window = document.closest('.window');
-        if (window.style.display === "none") {
-          window.style.display = "block";
+        const window = document.querySelector('.window');
+        if (window) {
+          if (window.style.display === 'none') {
+            window.style.display = 'none';
+          }
         } else {
-          window.style.display = "none"
+          console.error("No window element found");
         }
       }
 
@@ -452,11 +459,22 @@ function updateCalendar() {
         taskbarButton.onclick = window[onClickFunction];
 
         // Check if a button with the same label already exists
-        const existingButton = taskbarButtons.find(button => button.textContent === label);
-        if (!existingButton) {
-          taskbar.appendChild(taskbarButton);
-          taskbarButtons.push(taskbarButton); // Add the new button to the array
-        } else {
+        const existingButton = taskbarButtons.find(button => button.textContent === lable);
+        if (existingButton) {
           console.warn("Taskbar button for", label, "already exists");
+          return;
         }
+        taskbarButton.onclick = function() {
+        	const windowClass = onClickFunction.replace(/^open(.*)Window$/, '$1').toLowerCase() + '-window';
+          const window = document.querySelector('.' + windowClass);
+          if (window) {
+            if (window.style.display === 'none') {
+              window.style.display = '';
+            }
+          } else {
+            console.log("Window not found for class: " + windowClass);
+          }
+      };
+      taskbar.appendChild(taskbarButton);
+      taskbarButtons.push(taskbarButton);
       }
