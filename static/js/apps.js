@@ -459,11 +459,7 @@ function updateCalendar() {
         taskbarButton.onclick = window[onClickFunction];
 
         // Check if a button with the same label already exists
-        const existingButton = taskbarButtons.find(button => button.textContent === lable);
-        if (existingButton) {
-          console.warn("Taskbar button for", label, "already exists");
-          return;
-        }
+        const existingButton = taskbarButtons.find(button => button.textContent === label);
         taskbarButton.onclick = function() {
         	const windowClass = onClickFunction.replace(/^open(.*)Window$/, '$1').toLowerCase() + '-window';
           const window = document.querySelector('.' + windowClass);
