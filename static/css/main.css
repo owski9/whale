@@ -149,7 +149,7 @@ audio {
       }
 
       .start-button {
-        width: 40px;
+        width: 50px;
         height: 20px;
         background-color: #c0c0c0;
         margin: 15 15px;
@@ -161,7 +161,7 @@ audio {
       }
 
       .taskbar-button {
-        width: 80px;
+        width: 120px;
         height: 20px;
         background-color: #A9A9A9;
         margin: 15 5px;
