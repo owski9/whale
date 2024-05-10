@@ -116,6 +116,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">About Me</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -146,6 +147,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Notepad</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -170,6 +172,7 @@ function updateCalendar() {
        <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
        <div class="window-title" style="margin-left: 5px;">Calculator</div>
        <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+       <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
        <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
        </div>
        </div>
@@ -214,6 +217,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Calendar</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -276,6 +280,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Contact</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -313,6 +318,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Credits</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -346,6 +352,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Settings</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -378,6 +385,7 @@ function updateCalendar() {
       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
       <div class="window-title" style="margin-left: 5px;">Changelog</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/minimize.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
@@ -406,17 +414,34 @@ function updateCalendar() {
         const windowTitle = window.querySelector('.window-title').textContent;
         console.log("Window Title:", windowTitle);
         taskbarButtons.forEach(taskbarButton => {
-        	 console.log("Taskbar Button Content:", taskbarButton.textContent);
-        	 if (taskbarButton.textContent === windowTitle) {
+          if (taskbarButton.textContent === windowTitle) {
             taskbarButton.remove();
           }
         });
+      }
+
+      function minimizeWindow(button) {
+        const window = button.closest('.window');
+        window.remove();
+      }
+
+
+      function toggleMinimizedWindow() {
+        var window = document.closest('.window');
+        if (window.style.display === "none") {
+          window.style.display = "block";
+        } else {
+          window.style.display = "none"
+        }
       }
 
 
       function makeDraggable(window) {
         window.addEventListener('mousedown', startDragging);
       }
+
+
+      let taskbarButtons = []; // Array to store created buttons
 
       function addTaskbarIcon(label, onClickFunction) {
         console.log("Adding taskbar button for: " + label);
@@ -425,5 +450,13 @@ function updateCalendar() {
         taskbarButton.classList.add('taskbar-button');
         taskbarButton.textContent = label;
         taskbarButton.onclick = window[onClickFunction];
-        taskbar.appendChild(taskbarButton);
+
+        // Check if a button with the same label already exists
+        const existingButton = taskbarButtons.find(button => button.textContent === label);
+        if (!existingButton) {
+          taskbar.appendChild(taskbarButton);
+          taskbarButtons.push(taskbarButton); // Add the new button to the array
+        } else {
+          console.warn("Taskbar button for", label, "already exists");
+        }
       }
