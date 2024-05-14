@@ -46,29 +46,29 @@ function updateCalendar() {
         window.addEventListener('mousedown', startDragging);
       });
 
-
-
       function startDragging(e) {
         let offsetX, offsetY;
         const window = e.target.closest('.window');
         const rect = window.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
-	offsetY = e.clientY - rect.top + 45;
-	//console.log("offsetX:", offsetX, "offsetY:", offsetY);
+        offsetY = e.clientY - rect.top + 45;
 
         function dragWindow(event) {
-          //console.log("mouseX:", event.clientX, "mouseY:", event.clientY);
           const newX = event.clientX - offsetX;
-	  const newY = event.clientY - offsetY;
-	  //console.log("newX:", newX, "newY:", newY);
-          //console.log("------------------------------")
+          const newY = event.clientY - offsetY;
           window.style.left = newX + "px";
           window.style.top = newY + "px";
+
+          // Bring window to front
+          window.style.zIndex = 9999; // Or any high value
         }
 
         function stopDragging() {
           document.removeEventListener('mousemove', dragWindow);
           document.removeEventListener('mouseup', stopDragging);
+
+          // Reset z-index when dragging stops (optional)
+          window.style.zIndex = ""; // Inherits default z-index
         }
 
         document.addEventListener('mousemove', dragWindow);
