@@ -209,14 +209,12 @@ audio {
       }
 
       .current-day-dot {
-        position: absolute;
         bottom: -5px;
         width: 10px;
         height: 10px;
         background-color: rgba(0, 0, 0);
         border-radius: 30%;
-        left: calc(50% - 5px);
-
+        position: relative;
       }
 
       #stars-container {
