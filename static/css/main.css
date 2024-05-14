@@ -208,15 +208,6 @@ audio {
         width: 20px;
       }
 
-      .current-day-dot {
-        bottom: -5px;
-        width: 10px;
-        height: 10px;
-        background-color: rgba(0, 0, 0);
-        border-radius: 30%;
-        position: relative;
-      }
-
       #stars-container {
         pointer-events: none;
         position: absolute;
