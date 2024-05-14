@@ -52,12 +52,11 @@ audio {
         width: 400px;
         margin-top: 45px;
         background-color: #c6c6c6;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         cursor: move;
         font-size: 13px;
-        border: 2px outset #c8c7c7;
+        border: 2px outset #ebebeb;
         align-items: center;
-        user-select: none; 
+        user-select: none;
       }
 
       .window-titlebar {
@@ -65,7 +64,7 @@ audio {
         top: -28px;
         left: -2px;
         height: 25px;
-        width: 99%;
+        width: 100%;
         background-color: #000080;
         display: flex;
         align-items: center;
