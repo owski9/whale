@@ -51,7 +51,7 @@ function updateCalendar() {
         const window = e.target.closest('.window');
         const rect = window.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
-	offsetY = e.clientY - rect.top + 50;
+	offsetY = e.clientY - rect.top + 45;
 	//console.log("offsetX:", offsetX, "offsetY:", offsetY);
 
         function dragWindow(event) {
