@@ -2,17 +2,19 @@ function updateCalendar() {
         const currentDate = new Date();
         const currentDay = currentDate.getDate();
 
-        const calendarDays = document.querySelectorAll('.calendar-day');
+        // **Modification:** Target elements within the calendar window (assuming it has class 'calendar')
+        const calendarDays = document.querySelector('.calendar').querySelectorAll('.calendar-day');
 
         calendarDays.forEach(day => {
-          day.classList.remove('current-day-dot');
-          if (parseInt(day.textContent) === currentDay) {
-            day.classList.add('current-day-dot');
+          day.style.backgroundColor = "";
+          const dayNumber = parseInt(day.textContent);
+          console.log("Day:", dayNumber, "Should Highlight:", dayNumber === currentDay);
+          if (dayNumber === currentDay) {
+            day.style.backgroundColor = "lightblue";
           }
         });
       }
 
-      updateCalendar();
 
 
       function updateClock() {
@@ -223,7 +225,7 @@ function updateCalendar() {
       </div>
       </div>
       <div class="calendar" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-            <div class="calendar-day">Sun<span class="current-day-dot"></span></div>
+            <div class="calendar-day">Sun</div>
             <div class="calendar-day">Mon</div>
             <div class="calendar-day">Tue</div>
             <div class="calendar-day">Wed</div>
@@ -265,7 +267,7 @@ function updateCalendar() {
     `;
           document.body.appendChild(calendarWindow);
           makeDraggable(calendarWindow);
-
+          updateCalendar();
           addTaskbarIcon('Calendar', 'openCalendarWindow', 'calendar-window');
         }
       }
