@@ -46,21 +46,22 @@ function updateCalendar() {
 
 
 
-      let offsetX, offsetY;
-
       function startDragging(e) {
+        let offsetX, offsetY;
         const window = e.target.closest('.window');
         const rect = window.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
-        offsetY = e.clientY - rect.top;
-
-        window.style.zIndex = '1000';
+	offsetY = e.clientY - rect.top + 50;
+	//console.log("offsetX:", offsetX, "offsetY:", offsetY);
 
         function dragWindow(event) {
+          //console.log("mouseX:", event.clientX, "mouseY:", event.clientY);
           const newX = event.clientX - offsetX;
-          const newY = event.clientY - offsetY;
-          window.style.left = `${newX}px`;
-          window.style.top = `${newY}px`
+	  const newY = event.clientY - offsetY;
+	  //console.log("newX:", newX, "newY:", newY);
+          //console.log("------------------------------")
+          window.style.left = newX + "px";
+          window.style.top = newY + "px";
         }
 
         function stopDragging() {
