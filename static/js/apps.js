@@ -177,28 +177,28 @@ function updateCalendar() {
        <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
        </div>
        </div>
-       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;"">
         <input type="text" id="calcInput"readonly>
         <br>
-        <button onclick="addToCalc('1')">1</button>
-        <button onclick="addToCalc('2')">2</button>
-        <button onclick="addToCalc('3')">3</button>
-        <button onclick="addToCalc('+')">+</button>
+        <button onclick="addToCalc('1')" class="calculator-button">1</button>
+        <button onclick="addToCalc('2')" class="calculator-button">2</button>
+        <button onclick="addToCalc('3')" class="calculator-button">3</button>
+        <button onclick="addToCalc('+')" class="calculator-button">+</button>
         <br>
-        <button onclick="addToCalc('4')">4</button>
-        <button onclick="addToCalc('5')">5</button>
-        <button onclick="addToCalc('6')">6</button>
-        <button onclick="addToCalc('-')">-</button>
+        <button onclick="addToCalc('4')" class="calculator-button">4</button>
+        <button onclick="addToCalc('5')" class="calculator-button">5</button>
+        <button onclick="addToCalc('6')" class="calculator-button">6</button>
+        <button onclick="addToCalc('-')" class="calculator-button">-</button>
         <br>
-        <button onclick="addToCalc('7')">7</button>
-        <button onclick="addToCalc('8')">8</button>
-        <button onclick="addToCalc('9')">9</button>
-        <button onclick="addToCalc('*')">*</button>
+        <button onclick="addToCalc('7')" class="calculator-button">7</button>
+        <button onclick="addToCalc('8')" class="calculator-button">8</button>
+        <button onclick="addToCalc('9')" class="calculator-button">9</button>
+        <button onclick="addToCalc('*')" class="calculator-button">*</button>
         <br>
-        <button onclick="addToCalc('0')">0</button>
-        <button onclick="addToCalc('.')">.</button>
-        <button onclick="clearCalc()">C</button>
-        <button onclick="calculate()">=</button>
+        <button onclick="addToCalc('0')" class="calculator-button">0</button>
+        <button onclick="addToCalc('.')"class="calculator-button">.</button>
+        <button onclick="clearCalc()" class="calculator-button">C</button>
+        <button onclick="calculate()" class="calculator-button">=</button>
     `;
           document.body.appendChild(calculatorWindow);
           makeDraggable(calculatorWindow);
