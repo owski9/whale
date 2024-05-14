@@ -117,6 +117,7 @@ audio {
         width: calc(100% - 23px);
         margin-bottom: 10px;
         margin-top: 10px;
+        height: 100px;
         padding: 10px;
         background-color: #ffffdf;
         border: 2px inset #c8c7c7;
