@@ -316,6 +316,15 @@ audio {
         pointer-events: none;
       }
 
+      .calculator-button {
+        background-color: #f0f0f0;
+        border: 2px outset #c8c7c7;
+        padding: 1px;
+        margin: 5px;
+        height: 30px;
+        width: 30px;
+      }
+
       .button-styles {
         position: absolute;
         font-family: Monospace, sans-serif;
@@ -335,5 +344,13 @@ audio {
       }
 
       .window-button:active {
+        border: 2px inset #c8c7c7;
+      }
+
+      .minimize-button:active {
+        border: 2px inset #c8c7c7;
+      }
+      
+      .calculator-button:active {
         border: 2px inset #c8c7c7;
       }
