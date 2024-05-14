@@ -127,8 +127,8 @@ function updateCalendar() {
             <img src="static/img/0950ou.png" alt="About Image" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
             <div class="about-text" style="border: 2px inset #fff;">
                 <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
-                <button class="contact-btn" onclick="openContactWindow()" style="border: 2px outset #c8c7c7;">Contact</button>
-                <button class="project-btn" onclick="openProjectWindow()" style="border: 2px outset #c8c7c7;">Credits</button>
+                <button class="test-button" onclick="openContactWindow()">Contact</button>
+                <button class="test-button" onclick="openProjectWindow()">Credits</button>
             </div>
         </div>
     `;
