@@ -47,21 +47,29 @@ function updateCalendar() {
       });
 
       function startDragging(e) {
-        let offsetX, offsetY;
+        let offsetX, offsetY, maxWidth, maxHeight;
         const window = e.target.closest('.window');
         const rect = window.getBoundingClientRect();
         offsetX = e.clientX - rect.left;
         offsetY = e.clientY - rect.top + 45;
+        const windowWidth = window.offsetWidth;
+        const windowHeight = window.offsetHeight;
 
         function dragWindow(event) {
           const newX = event.clientX - offsetX;
           const newY = event.clientY - offsetY;
-          window.style.left = newX + "px";
-          window.style.top = newY + "px";
 
-          // Bring window to front
-          window.style.zIndex = 9999; // Or any high value
-        }
+          // Get the maximum draggable widht and height
+          maxWidth = window.parentNode.clientWidth - windowWidth;
+          maxHeight = window.parentNode.clientHeight - windowHeight;
+
+          // Limit newX and newY to prevent window from going off screen
+          const clampedX = Math.min(Math.max(newX, 0), maxWidth);
+          const clampedY = Math.min(Math.max(newY, -45), (maxHeight + 350));
+
+          window.style.left = clampedX + "px";
+          window.style.top = clampedY + "px";
+	}
 
         function stopDragging() {
           document.removeEventListener('mousemove', dragWindow);
