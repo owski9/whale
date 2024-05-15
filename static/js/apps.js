@@ -403,12 +403,12 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Changelog:</p>
     <p>Changes this update:</p>
-    <p>The graphics overhaul is almost done</p>
-    <p>Added the start menu and the app taskbar</p>
-    <p>Adding minimize button, and mayhaps even maximize button!?</p>
+    <p>Graphics overhaul is pretty much complete, patching out a few bugs</p>
+    <p>Fixed dragging</p>
+    <p>Potential maximize button</p>
+    <p>Windows can't go off the screen now</p>
     <p>Still working on that eaglercraft thing, spritz</p> 
-    <p>From now on, I'm going to start giving these official updates.</p>
-    <p>Consider this update Beta.Workflow-Ver-373.Main</p>
+    <p>Changed the updating naming scheme. It's just Version 408 now</p>
 </div>
     `;
           document.body.appendChild(changelogWindow);
