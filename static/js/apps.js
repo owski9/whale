@@ -393,7 +393,7 @@ function updateCalendar() {
           changelogWindow.style.top = '100px';
           changelogWindow.style.left = '100px';
           changelogWindow.innerHTML = `
-      <div class="window-titlebar" style="margin-left: 1px; margin-top: 28px; width: 99.8%">
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
       <div class="window-title" style="margin-left: 5px;">Changelog</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
