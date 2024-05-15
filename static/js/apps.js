@@ -124,7 +124,7 @@ function updateCalendar() {
           aboutWindow.style.top = '100px';
           aboutWindow.style.left = '100px';
           aboutWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">About Me</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -155,7 +155,7 @@ function updateCalendar() {
           notepadWindow.style.top = '100px';
           notepadWindow.style.left = '1150px';
           notepadWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Notepad</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -180,7 +180,7 @@ function updateCalendar() {
           calculatorWindow.style.top = '100px';
           calculatorWindow.style.left = '800px';
           calculatorWindow.innerHTML = `
-       <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+       <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
        <div class="window-title" style="margin-left: 5px;">Calculator</div>
        <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
        <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -225,7 +225,7 @@ function updateCalendar() {
           calendarWindow.style.top = '300px';
           calendarWindow.style.left = '800px';
           calendarWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Calendar</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -288,7 +288,7 @@ function updateCalendar() {
           contactWindow.style.top = '100px';
           contactWindow.style.left = '450px';
           contactWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Contact</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -326,7 +326,7 @@ function updateCalendar() {
           projectWindow.style.top = '320px';
           projectWindow.style.left = '450px';
           projectWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Credits</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -360,7 +360,7 @@ function updateCalendar() {
           settingsWindow.style.top = '320px';
           settingsWindow.style.left = '450px';
           settingsWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Settings</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
@@ -393,7 +393,7 @@ function updateCalendar() {
           changelogWindow.style.top = '100px';
           changelogWindow.style.left = '100px';
           changelogWindow.innerHTML = `
-      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-titlebar" style="margin-left: 1px; margin-top: 33px;">
       <div class="window-title" style="margin-left: 5px;">Changelog</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
