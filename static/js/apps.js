@@ -342,6 +342,8 @@ function updateCalendar() {
         <li> wearr, great web dev </li>
         <li> <a href="https://github.com/wearrrrr">wearr's github</a></li>
         <li> interpolation, made the sparkles javascript and css </li>
+	<li> kxtzownsu, fix contact box and embed </li>
+ 	<li> <a href="https://kxtz.dev">kxtzownsu's website</a></li>
     </ul>
 </div>
     `;
