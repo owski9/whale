@@ -50,6 +50,7 @@ function showBootUpSequence() {
       button.textContent = buttonText;
       button.classList.add('button-styles');
       button.onclick = function () {
+        alert("Load time: " + bootUpDelay + " ms" + "\nThis tab plays audio on startup");
         loadingScreen.style.display = 'none';
         audio.play();
       };
