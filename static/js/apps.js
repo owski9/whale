@@ -1,8 +1,8 @@
+// Updates the calendar
 function updateCalendar() {
         const currentDate = new Date();
         const currentDay = currentDate.getDate();
 
-        // **Modification:** Target elements within the calendar window (assuming it has class 'calendar')
         const calendarDays = document.querySelector('.calendar').querySelectorAll('.calendar-day');
 
         calendarDays.forEach(day => {
@@ -16,7 +16,7 @@ function updateCalendar() {
       }
 
 
-
+      // Updates the clock to get recent time
       function updateClock() {
         const now = new Date();
         const hours = now.getHours();
@@ -40,7 +40,8 @@ function updateCalendar() {
 
       // Call the function once to initialize the clock
       updateClock();
-
+      
+      // Window dragging control
       const windows = document.querySelectorAll('.window');
       windows.forEach(window => {
         window.addEventListener('mousedown', startDragging);
@@ -83,7 +84,11 @@ function updateCalendar() {
         document.addEventListener('mouseup', stopDragging);
       }
 
+      function makeDraggable(window) {
+        window.addEventListener('mousedown', startDragging);
+      }
 
+      // Calculator stuff
       function addToCalc(value) {
         const inputField = document.getElementById('calcInput');
         inputField.value += value;
@@ -104,7 +109,8 @@ function updateCalendar() {
           inputField.value = 'Error';
         }
       }
-
+      
+      // Opens the start window
       function toggleDisplayMenu() {
         var startDisplay = document.querySelector(".start-display");
         if (startDisplay.style.display === "none") {
@@ -116,6 +122,8 @@ function updateCalendar() {
 
       document.querySelector(".start-button").addEventListener("click", toggleDisplayMenu);
 
+
+      // Windows
       function openAboutWindow() {
         const existingWindow = document.querySelector('.about-window');
         if (!existingWindow) {
@@ -420,7 +428,7 @@ function updateCalendar() {
         }
       }
 
-
+      // Closes the window
       function closeWindow(button) {
         const window = button.closest('.window');
         window.remove();
@@ -433,7 +441,8 @@ function updateCalendar() {
           }
         });
       }
-
+      
+      // Minimizes the window
       function minimizeWindow(button) {
         const window = button.closest('.window');
         if (window) {
@@ -443,7 +452,8 @@ function updateCalendar() {
           window.style.display = 'none';
         }
       }
-
+      
+      // Toggle the window
       function toggleMinimizedWindow() {
         const window = document.querySelector('.window');
         if (window) {
@@ -456,11 +466,7 @@ function updateCalendar() {
       }
 
 
-      function makeDraggable(window) {
-        window.addEventListener('mousedown', startDragging);
-      }
-
-
+      // Makes the taskbar buttons
       let taskbarButtons = []; // Array to store created buttons
 
       function addTaskbarIcon(label, onClickFunction) {

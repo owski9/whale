@@ -18,6 +18,7 @@ function showBootUpSequence() {
     "Micron Computer Systems",
   ];
   
+  
   const bootUpDelay = Math.trunc(Math.random(10, 20) * 80);
   const finalDelay = 500; 
   let currentIndex = 0;
@@ -34,6 +35,7 @@ function showBootUpSequence() {
   
   const loadingScreen = document.querySelector('.loading-screen');
   
+  // Loading screen delay
   const bootUpInterval = setInterval(() => {
     if (currentIndex < bootUpText.length) {
       const loadingText = document.createElement('p');
