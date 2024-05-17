@@ -2,7 +2,7 @@
 function updateCalendar() {
         const currentDate = new Date();
         const currentDay = currentDate.getDate();
-
+        
         const calendarDays = document.querySelector('.calendar').querySelectorAll('.calendar-day');
 
         calendarDays.forEach(day => {
