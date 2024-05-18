@@ -56,7 +56,7 @@ function updateCalendar() {
         const windowWidth = window.offsetWidth;
         const windowHeight = window.offsetHeight;
 
-        window.parentNode.appendChild(window);
+        //window.parentNode.appendChild(window);
 
         function dragWindow(event) {
           const newX = event.clientX - offsetX;
