@@ -223,15 +223,15 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <div class="desktop-icons">
       <div class="icon glxgears-icon" style="top: 20px; left: 20px;" onclick="openGLXGearsWindow()">
-        <img src="https://whale.lat/static/img/notepad.png" alt="GlxGears" draggable="false">
+        <img src="https://whale.lat/static/img/glxgears.png" alt="GlxGears" draggable="false">
         <p>glxgears</p>
       </div>
       <div class="icon tux-icon" style="top: 20px; left: 100px;" onclick="openTuxWindow()">
-        <img src="https://whale.lat/static/img/calculator.png" alt="Tux" draggable="false">
+        <img src="https://whale.lat/static/img/tux.png" alt="Tux" draggable="false">
         <p>tux</p>
       </div>
       <div class="icon paper-icon" style="top: 20px; left: 180px;" onclick="openPaperWindow()">
-        <img src="https://whale.lat/static/img/calendar.png" alt="Paper" draggable="false">
+        <img src="https://whale.lat/static/img/paper.png" alt="Paper" draggable="false">
         <p>paper</p>
       </div>
    </div>
