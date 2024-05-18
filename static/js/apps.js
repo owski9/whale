@@ -140,7 +140,7 @@ function updateCalendar() {
           </div>
           </div>
           <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-          <img src="static/img/glxgears.gif" alt="GLXGears" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+          <img src="static/img/glxgears.gif" alt="GLXGears" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
     </div>
     </div>
           `;
@@ -167,7 +167,7 @@ function updateCalendar() {
           </div>
           </div>
           <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-          <img src="static/img/paper.gif" alt="Paper" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+          <img src="static/img/paper.gif" alt="Paper" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
     </div>
     </div>
           `;
@@ -194,7 +194,7 @@ function updateCalendar() {
           </div>
           </div>
           <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-          <img src="static/img/tux.gif" alt="Tux" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+          <img src="static/img/tux.gif" alt="Tux" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
     </div>
     </div>
           `;
