@@ -351,3 +351,7 @@ audio {
       .test-button:active {
         border: 2px inset #c8c7c7;
       }
+
+      .button-style:active{
+        border: 2px inset #c8c7c7;
+      }
