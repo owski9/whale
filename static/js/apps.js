@@ -61,7 +61,7 @@ function updateCalendar() {
         function dragWindow(event) {
           const newX = event.clientX - offsetX;
           const newY = event.clientY - offsetY;
-          
+
           // Get the maximum draggable widht and height
           maxWidth = window.parentNode.clientWidth - windowWidth;
           maxHeight = window.parentNode.clientHeight - windowHeight;
@@ -126,6 +126,37 @@ function updateCalendar() {
 
 
       // Windows
+      function openTempWindow() {
+        const existingWindow = document.querySelector('.temp-window');
+        if (!existingWindow) {
+          const tempWindow = document.createElement('div');
+          tempWindow.classList.add('window', 'temp-window');
+          tempWindow.style.top = '100px';
+          tempWindow.style.left = '450px';
+          tempWindow.innerHTML = `
+      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Projects</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/lyt65r.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+    <p>Projects!</p>
+    <ul>
+    		<li>PrBromine35. Dev team working on chromebook exploits</li>
+        <li>Website: <a href="https://bromine35.netlify.app/">bromine.netlify.app</a></li>
+    </ul>
+</div>
+</div>
+  `;
+          document.body.appendChild(tempWindow);
+          makeDraggable(tempWindow);
+
+          addTaskbarIcon('Projects', 'openTempWindow', 'temp-window');
+        }
+      }	
+
       function openGLXGearsWindow() {
         const existingWindow = document.querySelector('.glxgears-window');
         if (!existingWindow) {
@@ -268,6 +299,7 @@ function updateCalendar() {
                 <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
                 <button class="test-button" onclick="openContactWindow()">Contact</button>
                 <button class="test-button" onclick="openProjectWindow()">Credits</button>
+                <button class="test-button" onclick="openTempWindow()">Projects</button>
             </div>
         </div>
     `;
