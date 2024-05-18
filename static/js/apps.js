@@ -221,7 +221,6 @@ function updateCalendar() {
       </div>
       </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>You can contact me via:</p>
     <div class="desktop-icons">
       <div class="icon glxgears-icon" style="top: 20px; left: 20px;" onclick="openGLXGearsWindow()">
         <img src="https://whale.lat/static/img/notepad.png" alt="GlxGears" draggable="false">
