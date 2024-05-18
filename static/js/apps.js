@@ -61,7 +61,7 @@ function updateCalendar() {
         function dragWindow(event) {
           const newX = event.clientX - offsetX;
           const newY = event.clientY - offsetY;
-
+          
           // Get the maximum draggable widht and height
           maxWidth = window.parentNode.clientWidth - windowWidth;
           maxHeight = window.parentNode.clientHeight - windowHeight;
