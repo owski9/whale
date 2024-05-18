@@ -2,7 +2,7 @@
 function updateCalendar() {
         const currentDate = new Date();
         const currentDay = currentDate.getDate();
-        
+
         const calendarDays = document.querySelector('.calendar').querySelectorAll('.calendar-day');
 
         calendarDays.forEach(day => {
@@ -124,6 +124,128 @@ function updateCalendar() {
 
 
       // Windows
+      function openGLXGearsWindow() {
+        const existingWindow = document.querySelector('.glxgears-window');
+        if (!existingWindow) {
+          const glxgearsWindow = document.createElement('div');
+          glxgearsWindow.classList.add('window', 'glxgears-window');
+          glxgearsWindow.style.top = '150px';
+          glxgearsWindow.style.left = '100px';
+          glxgearsWindow.innerHTML = `
+          <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+          <div class="window-title" style="margin-left: 5px;">glxgears</div>
+          <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+          <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+          <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+          </div>
+          </div>
+          <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+          <img src="static/img/glxgears.gif" alt="GLXGears" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+    </div>
+    </div>
+          `;
+          document.body.appendChild(glxgearsWindow);
+          makeDraggable(glxgearsWindow);
+
+          addTaskbarIcon('glxgears', 'openGLXGearsWindow', 'glxgears-window');
+        }
+      }
+
+      function openPaperWindow() {
+        const existingWindow = document.querySelector('.paper-window');
+        if (!existingWindow) {
+          const paperWindow = document.createElement('div');
+          paperWindow.classList.add('window', 'paper-window');
+          paperWindow.style.top = '150px';
+          paperWindow.style.left = '100px';
+          paperWindow.innerHTML = `
+          <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+          <div class="window-title" style="margin-left: 5px;">paper</div>
+          <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+          <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+          <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+          </div>
+          </div>
+          <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+          <img src="static/img/paper.gif" alt="Paper" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+    </div>
+    </div>
+          `;
+          document.body.appendChild(paperWindow);
+          makeDraggable(paperWindow);
+
+          addTaskbarIcon('paper', 'openPaperWindow', 'paper-window');
+        }
+      }
+
+      function openTuxWindow() {
+        const existingWindow = document.querySelector('.tux-window');
+        if (!existingWindow) {
+          const tuxWindow = document.createElement('div');
+          tuxWindow.classList.add('window', 'tux-window');
+          tuxWindow.style.top = '150px';
+          tuxWindow.style.left = '100px';
+          tuxWindow.innerHTML = `
+          <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+          <div class="window-title" style="margin-left: 5px;">tux</div>
+          <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+          <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+          <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+          </div>
+          </div>
+          <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+          <img src="static/img/tux.gif" alt="Tux" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
+    </div>
+    </div>
+          `;
+          document.body.appendChild(tuxWindow);
+          makeDraggable(tuxWindow);
+
+          addTaskbarIcon('tux', 'openTuxWindow', 'tux-window');
+        }
+      }
+      
+      function openCoolWindow() {
+        const existingWindow = document.querySelector('.cool-window');
+        if (!existingWindow) {
+          const coolWindow = document.createElement('div');
+          coolWindow.classList.add('window', 'cool-window');
+          coolWindow.style.top = '100px';
+          coolWindow.style.left = '450px';
+          coolWindow.innerHTML = `
+      <div class="window-titlebar" style="left: 2px; margin-top: 35px;">
+      <div class="window-title" style="margin-left: 5px;">Cool</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/lyt65r.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+    <p>You can contact me via:</p>
+    <div class="desktop-icons">
+      <div class="icon glxgears-icon" style="top: 20px; left: 20px;" onclick="openGLXGearsWindow()">
+        <img src="https://whale.lat/static/img/notepad.png" alt="GlxGears" draggable="false">
+        <p>glxgears</p>
+      </div>
+      <div class="icon tux-icon" style="top: 20px; left: 100px;" onclick="openTuxWindow()">
+        <img src="https://whale.lat/static/img/calculator.png" alt="Tux" draggable="false">
+        <p>tux</p>
+      </div>
+      <div class="icon paper-icon" style="top: 20px; left: 180px;" onclick="openPaperWindow()">
+        <img src="https://whale.lat/static/img/calendar.png" alt="Paper" draggable="false">
+        <p>paper</p>
+      </div>
+   </div>
+</div>
+</div>
+  `;
+          document.body.appendChild(contactWindow);
+          makeDraggable(contactWindow);
+
+          addTaskbarIcon('Cool', 'openCoolWindow', 'cool-window');
+        }
+      }
+
       function openAboutWindow() {
         const existingWindow = document.querySelector('.about-window');
         if (!existingWindow) {
