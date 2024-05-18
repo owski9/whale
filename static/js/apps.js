@@ -174,7 +174,7 @@ function updateCalendar() {
           document.body.appendChild(paperWindow);
           makeDraggable(paperWindow);
 
-          addTaskbarIcon('paper', 'openPaperWindow', 'paper-window');
+          addTaskbarIcon('paper', 'openPaperWindow', 'paper-window'); 
         }
       }
 
