@@ -135,7 +135,7 @@ function updateCalendar() {
           tempWindow.style.left = '450px';
           tempWindow.innerHTML = `
         <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
-        <div class="window-title" style="margin-left: 5px;">glxgears</div>
+        <div class="window-title" style="margin-left: 5px;">Projects</div>
         <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
         <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
         <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
