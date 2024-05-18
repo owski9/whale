@@ -190,7 +190,7 @@ function updateCalendar() {
           <div class="window-title" style="margin-left: 5px;">tux</div>
           <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
           <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
-          <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+          <img src="static/svg/tux.gif" alt="Close" class="window-button" onclick="closeWindow(this)">
           </div>
           </div>
           <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
