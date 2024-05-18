@@ -239,8 +239,8 @@ function updateCalendar() {
 </div>
 </div>
   `;
-          document.body.appendChild(contactWindow);
-          makeDraggable(contactWindow);
+          document.body.appendChild(coolWindow);
+          makeDraggable(coolWindow);
 
           addTaskbarIcon('Cool', 'openCoolWindow', 'cool-window');
         }
