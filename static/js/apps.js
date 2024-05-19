@@ -662,8 +662,8 @@ function updateCalendar() {
           console.log(konamiCodePosition);
           if (konamiCodePosition === konamiCode.length) {
           	console.log("You found an easter egg!");
+            activateKonamiCode();
             konamiCodePosition = 0;
-            window.open("https://www.youtube.com/watch?v=uR4g9ybkT38", "_blank");
           }
         } else {
         	konamiCodePosition = 0;
@@ -671,6 +671,12 @@ function updateCalendar() {
       });
       
       function activateKonamiCode() {
-      	alert("Konami Code Activated");
-        document.body.style.backgroundColor = "#ffcc00";
+      	const video = document.createElement('iframe');
+        video.src = "https://www.youtube.com/watch?v=uR4g9ybkT38";
+        video.width = "560";
+        video.height = "315";
+        video.frameBorder = "0";
+        video.allow = "accelerometer; autoplay; clipboard-write; ecrypted-media; gyroscope; picture-in-picture";
+        video.allowFullscreen = false;
+        document.body.appendChild(video);
       }
