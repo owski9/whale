@@ -135,6 +135,11 @@ audio {
         border: 2px outset #c8c7c7;
       }
 
+      .start-text {
+        font-size: 16px;
+        color: #c0c0c0;
+      }
+
       .start-display {
         display: none;
         position: fixed;
