@@ -648,3 +648,25 @@ function updateCalendar() {
       taskbar.appendChild(taskbarButton);
       taskbarButtons.push(taskbarButton);
       }
+      const konamiCode = [
+      	"ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "KeyB", "KeyA"
+      ];
+      
+      let konamiCodePosition = 0;
+      
+      document.addEventListener('keydown', function (event) {
+      	if (event.code === konamiCode[konamiCodePosition]) {
+        	konamiCodePosition++;
+          if (konamiCodePosition === konamiCode.lenght) {
+          	activateKonamiCode();
+            konamiCodePosition = 0;
+          } else {
+          	konamiCodePosition = 0;
+          }
+        }
+      });
+      
+      function activateKonamiCode() {
+      	alert("Konami Code Activated");
+        document.body.style.backgroundColor = "#ffcc00";
+      }
