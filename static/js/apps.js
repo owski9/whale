@@ -669,5 +669,3 @@ function updateCalendar() {
         	konamiCodePosition = 0;
         }
       });
-      
-      
