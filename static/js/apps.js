@@ -662,10 +662,33 @@ function updateCalendar() {
           console.log(konamiCodePosition);
           if (konamiCodePosition === konamiCode.length) {
           	console.log("You found an easter egg!");
-            window.open("https://www.youtube.com/watch?v=uR4g9ybkT38", "_blank");
+            openKonamiWindow();
             konamiCodePosition = 0;
           }
         } else {
         	konamiCodePosition = 0;
         }
       });
+
+
+      function openKonamiWindow() {
+        const existingWindow = document.querySelector('.konami-window');
+        if (!existingWindow) {
+          const konamiWindow = document.createElement('div');
+          konamiWindow.classList.add('window', 'konami-window');
+          konamiWindow.style.top = '100px';
+          konamiWindow.style.left = '100px';
+          konamiWindow.innerHTML = `
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+      <div class="window-title" style="margin-left: 5px;">You found an easter egg!</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+      <img src="static/img/easteregg.png" alt="easteregg" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
+</div>
+    `;
+          document.body.appendChild(konamiWindow);
+      }
+      }
