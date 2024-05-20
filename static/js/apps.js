@@ -8,7 +8,7 @@ function updateCalendar() {
         calendarDays.forEach(day => {
           day.style.backgroundColor = "";
           const dayNumber = parseInt(day.textContent);
-          console.log("Day:", dayNumber, "Should Highlight:", dayNumber === currentDay);
+          //console.log("Day:", dayNumber, "Should Highlight:", dayNumber === currentDay);
           if (dayNumber === currentDay) {
             day.style.backgroundColor = "lightblue";
           }
@@ -589,7 +589,7 @@ function updateCalendar() {
         window.remove();
         const taskbarButtons = document.querySelectorAll('.taskbar-button');
         const windowTitle = window.querySelector('.window-title').textContent;
-        console.log("Window Title:", windowTitle);
+        //console.log("Window Title:", windowTitle);
         taskbarButtons.forEach(taskbarButton => {
           if (taskbarButton.textContent === windowTitle) {
             taskbarButton.remove();
@@ -625,7 +625,7 @@ function updateCalendar() {
       let taskbarButtons = []; // Array to store created buttons
 
       function addTaskbarIcon(label, onClickFunction) {
-        console.log("Adding taskbar button for: " + label);
+        //console.log("Adding taskbar button for: " + label);
         const taskbar = document.querySelector('.taskbar');
         const taskbarButton = document.createElement('div');
         taskbarButton.classList.add('taskbar-button');
@@ -655,11 +655,11 @@ function updateCalendar() {
       let konamiCodePosition = 0;
       
       document.addEventListener('keydown', function (event) {
-      	console.log(event.code);
+      	//console.log(event.code);
       	if (event.code === konamiCode[konamiCodePosition]) {
         	konamiCodePosition++;
-          console.log("+1");
-          console.log(konamiCodePosition);
+          //console.log("+1");
+          //console.log(konamiCodePosition);
           if (konamiCodePosition === konamiCode.length) {
           	console.log("You found an easter egg!");
             openKonamiWindow();
