@@ -686,7 +686,7 @@ function updateCalendar() {
       </div>
       </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-      <img src="static/img/easteregg.png" alt="easteregg" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
+      <img src="static/img/easteregg.gif" alt="easteregg" draggable="false" style="max-width: 100%; height: 100%; border: 2px outset #c8c7c7;">
 </div>
     `;
           document.body.appendChild(konamiWindow);
