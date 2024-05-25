@@ -573,7 +573,7 @@ function updateCalendar() {
     <p>Potential maximize button</p>
     <p>Windows can't go off the screen now</p>
     <p>Still working on that eaglercraft thing, spritz</p> 
-    <p>Changed the updating naming scheme. It's just Version 408 now</p>
+    <p>Most recent push: 05/25/2024 @ 3:00:24 PM Eastern Standard Time.</p>
 </div>
     `;
           document.body.appendChild(changelogWindow);
