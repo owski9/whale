@@ -690,5 +690,6 @@ function updateCalendar() {
 </div>
     `;
           document.body.appendChild(konamiWindow);
+          makeDraggable(konamiWindow);
       }
       }
