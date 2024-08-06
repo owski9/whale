@@ -655,11 +655,11 @@ function updateCalendar() {
       let konamiCodePosition = 0;
       
       document.addEventListener('keydown', function (event) {
-      	//console.log(event.code);
+      	console.log(event.code);
       	if (event.code === konamiCode[konamiCodePosition]) {
         	konamiCodePosition++;
-          //console.log("+1");
-          //console.log(konamiCodePosition);
+          console.log("+1");
+          console.log(konamiCodePosition);
           if (konamiCodePosition === konamiCode.length) {
           	console.log("You found an easter egg!");
             openKonamiWindow();
