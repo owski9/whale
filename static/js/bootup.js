@@ -4,9 +4,6 @@ function showBootUpSequence() {
     "Initializing system...",
     "System Information:",
     "Microsoft Windows 95",
-    "4.00.950 b",
-    "IE 4.0 4.72.31.10.8",
-    "Pentium II(r)",
     "Loading drivers...",
     "Establishing network connection...",
     "Performing memory check...",
@@ -14,8 +11,8 @@ function showBootUpSequence() {
     "Booting operating system...",
     "Loading user interface...",
     "Manufactured and supported by:",
-    "Micron Electronics, Inc.",
-    "Micron Computer Systems",
+    "Owski Electronics, Inc.",
+    "Owski Computer Systems",
   ];
   
   
