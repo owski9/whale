@@ -260,8 +260,8 @@ function updateCalendar() {
         <p>glxgears</p>
       </div>
       <div class="icon tux-icon" style="top: 20px; left: 100px;" onclick="openTuxWindow()">
-        <img src="https://whale.lat/static/img/tux.png" alt="Tux" draggable="false">
-        <p>tux</p>
+        <img src="https://https://owski9.up.railway.app//static/img/cat.jpg" alt="Tux" draggable="false">
+        <p>kitty</p>
       </div>
       <div class="icon paper-icon" style="top: 20px; left: 180px;" onclick="openPaperWindow()">
         <img src="https://whale.lat/static/img/paper.png" alt="Paper" draggable="false">
