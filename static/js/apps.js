@@ -234,7 +234,7 @@ function updateCalendar() {
           document.body.appendChild(tuxWindow);
           makeDraggable(tuxWindow);
 
-          addTaskbarIcon('tux', 'openTuxWindow', 'tux-window');
+          addTaskbarIcon('kitty', 'openTuxWindow', 'tux-window');
         }
       }
       
