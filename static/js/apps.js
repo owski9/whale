@@ -492,7 +492,7 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Owski</p>
     <ul>
-        <li> blah blah </li>
+        <li> original website is on github </li>
     </ul>
 </div>
     `;
@@ -519,14 +519,9 @@ function updateCalendar() {
       </div>
       </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>Still In Testing</p>
+    <p>Coming soon...</p>
     <ul>
-        <li> Text Info </li>
-        <li> Slider one </li>
-        <li> Text info </li>
-        <li> Slider two </li>
-        <li> Text 3 </li>
-        <li> Slider 3 </li>
+        <li> Info </li>
     </ul>
 </div>
     `;
@@ -554,8 +549,8 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Changelog:</p>
     <p>Changes this update:</p>
-    <p> Blah Blah </p>
-    <p> Hi </p>
+    <p> None </p>
+    <p> :) </p>
 </div>
     `;
           document.body.appendChild(changelogWindow);
