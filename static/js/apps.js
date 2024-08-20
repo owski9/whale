@@ -142,10 +142,10 @@ function updateCalendar() {
         </div>
         </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>Projects!</p>
+    <p>Proxy!</p>
     <ul>
-    		<li> Nothing </li>
-        <li>Website: <a href="https://radiusowski.site</a></li>
+    		<li> <Owski> </li>
+        <li>Website: https://radiusowski.site</li>
     </ul>
 </div>
 </div>
