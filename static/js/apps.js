@@ -144,8 +144,8 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Projects!</p>
     <ul>
-    		<li>PrBromine35. Dev team working on chromebook exploits</li>
-        <li>Website: <a href="https://bromine35.netlify.app/">bromine.netlify.app</a></li>
+    		<li> Nothing </li>
+        <li>Website: <a href="https://radiusowski.site</a></li>
     </ul>
 </div>
 </div>
@@ -296,7 +296,7 @@ function updateCalendar() {
         <div class="about-content" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
             <img src="static/img/0950ou.png" alt="About Image" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
             <div class="about-text" style="border: 2px inset #fff;">
-                <p>Hi there! I'm Lunarion. I'm a 16-year-old high-schooler who has a passion for programming. Feel free to contact me!</p>
+                <p>Hi I'm Owski!</p>
                 <button class="test-button" onclick="openContactWindow()">Contact</button>
                 <button class="test-button" onclick="openProjectWindow()">Credits</button>
                 <button class="test-button" onclick="openTempWindow()">Projects</button>
@@ -461,15 +461,8 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>You can contact me via:</p>
     <ul>
-        <li>--------yuko---------</li>
-        <li>Email: <a href="mailto:yuko@slimepointe.top">yuko@slimepointe.top</a></li>
-        <li>Discord: @yu6x</li>
-        <li>Telegram: t.me/homeIandsecurity</li>
-        <li>--------lunarion--------</li>
-        <li>Email: <a href="mailto:theturtleinwater@gmail.com">theturtleinwater@gmail.com</a></li>
-        <li>Discord: @lnarion</li>
-        <li>Matrix: <a href="https://matrix.com/@lnarin">@lnarin:matrix.com</a></li>
-        <li>Phone: hi osama </li>
+        <li>--------Owski---------</li>
+        <li>Discord: @owski09</li>
     </ul>
 </div>
 </div>
@@ -497,16 +490,9 @@ function updateCalendar() {
       </div>
       </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>Thanks to those who helped me:</p>
+    <p>Owski</p>
     <ul>
-        <li> yuko, literally made this code better. </li>
-        <li> <a href="https://github.com/yu6x">yuko's github</a></li>
-        <li> sydney, site tester. </li>
-        <li> wearr, great web dev </li>
-        <li> <a href="https://github.com/wearrrrr">wearr's github</a></li>
-        <li> interpolation, made the sparkles javascript and css </li>
-	<li> kxtzownsu, fix contact box and embed </li>
- 	<li> <a href="https://kxtz.dev">kxtzownsu's website</a></li>
+        <li> blah blah </li>
     </ul>
 </div>
     `;
@@ -568,12 +554,8 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Changelog:</p>
     <p>Changes this update:</p>
-    <p>Graphics overhaul is pretty much complete, patching out a few bugs</p>
-    <p>Fixed dragging</p>
-    <p>Potential maximize button</p>
-    <p>Windows can't go off the screen now</p>
-    <p>Still working on that eaglercraft thing, spritz</p> 
-    <p>Most recent push: 05/25/2024 @ 3:00:24 PM Eastern Standard Time.</p>
+    <p> Blah Blah </p>
+    <p> Hi </p>
 </div>
     `;
           document.body.appendChild(changelogWindow);
