@@ -144,7 +144,7 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Proxy!</p>
     <ul>
-    		<li> <Owski> </li>
+    		<li> Owski </li>
         <li>Website: https://radiusowski.site</li>
     </ul>
 </div>
