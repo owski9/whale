@@ -492,7 +492,7 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Owski</p>
     <ul>
-        <li> Lunarion31/whale on github </li>
+        <li> Owski9 on github </li>
     </ul>
 </div>
     `;
