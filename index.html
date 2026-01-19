@@ -4,69 +4,80 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 95</title>
-    <meta property="og:title" content="Owski">
+    <title>Solana 95</title>
+    <meta property="og:title" content="Solana 95">
     <meta property="og:description" content="About me">
-    <meta property="og:image" content="https://owski9.up.railway.app/static/output-onlinepngtools.png" sizes="128x128"/>
+    <meta property="og:image" content="static/output-onlinepngtools.png" sizes="128x128"/>
     <meta property="og:url" content="https://owski9.up.railway.app/">
     <meta content="#008080" data-react-helmet="true" name="theme-color" />
-    <link rel="icon" href="https://whale.lat/static/img/51f6fn.png" type="image/png" sizes="64x64">
-    <link rel="stylesheet" href="https://whale.lat/static/css/main.css">
+    <link rel="icon" href="static/img/51f6fn.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
 
   <body>
     <div class="loading-screen">
       <div class="loading-text">
-        <audio id="myAudio" autoplay><source src="https://whale.lat/static/img/videoplayback.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+        <audio id="myAudio" autoplay><source src="static/img/videoplayback.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
       </div>
     </div>
 
     <div class="window welcome-window" style="left: 122px; width: 700px; border: 2px outset #ebebeb;">
       <div class="window-titlebar" style="margin-left: 2px; margin-top: 29px; width: 100%">
-        <div class="window-title" style="margin-left: 5px;">Welcome to Windows 95!</div>
+        <div class="window-title" style="margin-left: 5px;">Welcome to Solana 95!</div>
         <div class="window-buttons" style="margin-right: 5px; margin-top: 3px;">
-          <img src="https://whale.lat/static/img/minimize.png" alt="Close" class="window-button" onclick="closeWindow(this)">
-          <img src="https://whale.lat/static/svg/lyt65r.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+          <img src="static/img/minimize.png" alt="Close" class="window-button" onclick="closeWindow(this)">
+          <img src="static/svg/lyt65r.svg" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
         </div>
       </div>
       <div class="about-content" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
         <div class="about-text" style="flex: 1; border: 2px inset #fff; padding: 10px;">
-          <p>Hi I'm Owski!</p>
-          <button class="test-button" onclick="openContactWindow()">Contact</button>
+          <p>Welcome to Solana 95</p>
+          <button class="test-button" onclick="openCAWindow()">CA</button>
           <button class="test-button" onclick="openProjectWindow()">Credits</button>
-          <button class="test-button" onclick="openTempWindow()">Projects</button>
         </div>
-        <img src="https://whale.lat/static/img/b8361cd88301da5372f86efff22d950c16dbed9b.gif" alt="About Image" draggable="false" style="max-width: 75%; height: 70%; margin-top: 5px; border: 2px outset #c8c7c7;">
+        <img src="static/img/b8361cd88301da5372f86efff22d950c16dbed9b.gif" alt="About Image" draggable="false" style="max-width: 75%; height: 70%; margin-top: 5px; border: 2px outset #c8c7c7;">
       </div>
     </div>
     <canvas id="sparkleCanvas"></canvas>
-    <script src="https://owski9.up.railway.app/static/js/bootup.js"></script>
+    <script src="static/js/bootup.js"></script>
 
     <div class="desktop-icons">
       <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openNotepadWindow()">
-        <img src="https://whale.lat/static/img/notepad.png" alt="Notepad" draggable="false">
+        <img src="static/img/notepad.png" alt="Notepad" draggable="false">
         <p>Notepad</p>
       </div>
       <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openCalculatorWindow()">
-        <img src="https://whale.lat/static/img/calculator.png" alt="Calculator" draggable="false">
+        <img src="static/img/calculator.png" alt="Calculator" draggable="false">
         <p>Calculator</p>
       </div>
       <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openCalendarWindow()">
-        <img src="https://whale.lat/static/img/calendar.png" alt="Calendar" draggable="false">
+        <img src="static/img/calendar.png" alt="Calendar" draggable="false">
         <p>Calendar</p>
       </div>
-      <div class="icon settings-icon" style="top: 20px; left: 260px;" onclick="openSettingsWindow()">
-        <img src="https://whale.lat/static/img/settings.png" alt="Settings" draggable="false">
-        <p>Settings</p>
+      <div class="icon bags-icon" style="top: 20px; left: 260px;" onclick="openBagsWindow()">
+        <img src="static/img/bags.png" alt="Bags" draggable="false">
+        <p>Bags</p>
     </div>
     	<div class="icon changelog-icon" style="top: 20px; left: 340px;" onclick="openChangelogWindow()">
-          <img src="https://whale.lat/static/img/notebook.png" alt = "Changelog" draggable="false">
+          <img src="static/img/notebook.png" alt = "Changelog" draggable="false">
           <p>Changelog</p>
       </div>
       <div class="icon cool-icon" style="top: 20px; left: 340px;" onclick="openCoolWindow()">
-        <img src="https://whale.lat/static/img/games.png" alt = "Cool" draggable="false">
+        <img src="static/img/games.png" alt = "Cool" draggable="false">
         <p>Other</p>
         <p>Stuff</p>
+    </div>
+      <div class="icon padre-icon" style="top: 20px; left: 420px;" onclick="openPadreWindow()">
+        <img src="static/img/padre.png" alt="Padre" draggable="false">
+        <p>Padre</p>
+    </div>
+      <div class="icon gecko-icon" style="top: 20px; left: 500px;" onclick="openGeckoWindow()">
+        <img src="static/img/gecko.png" alt="Gecko" draggable="false">
+        <p>Gecko</p>
+    </div>
+      <div class="icon dex-icon" style="top: 20px; left: 580px;" onclick="openDexWindow()">
+        <img src="static/img/dex.png" alt="Dex" draggable="false">
+        <p>Dex</p>
     </div>
    </div>
    
@@ -79,38 +90,38 @@
 
     <div class="start-display" style="display: none;">
       <div class="icon notepad-icon" style="top: 20px; left: 20px;" onclick="openNotepadWindow()">
-        <img src="https://whale.lat/static/img/notepad.png" alt="Notepad" draggable="false">
+        <img src="static/img/notepad.png" alt="Notepad" draggable="false">
         <p>Notepad</p>
       </div>
       <div class="icon calculator-icon" style="top: 20px; left: 100px;" onclick="openCalculatorWindow()">
-        <img src="https://whale.lat/static/img/calculator.png" alt="Calculator" draggable="false">
+        <img src="static/img/calculator.png" alt="Calculator" draggable="false">
         <p>Calculator</p>
       </div>
       <div class="icon calendar-icon" style="top: 20px; left: 180px;" onclick="openCalendarWindow()">
-        <img src="https://whale.lat/static/img/calendar.png" alt="Calendar" draggable="false">
+        <img src="static/img/calendar.png" alt="Calendar" draggable="false">
         <p>Calendar</p>
       </div>
-      <div class="icon settings-icon" style="top: 20px; left: 260px;" onclick="openSettingsWindow()">
-        <img src="https://whale.lat/static/img/settings.png" alt="Settings" draggable="false">
-        <p>Settings</p>
+      <div class="icon axiom-icon" style="top: 20px; left: 260px;" onclick="openAxiomWindow()">
+        <img src="static/img/settings.png" alt="Axiom" draggable="false">
+        <p>Axiom</p>
       </div>
       <div class="icon changelog-icon" style="top: 20px; left: 340px;" onclick="openChangelogWindow()">
-        <img src="https://whale.lat/static/img/notebook.png" alt="Changelog" draggable="false">
+        <img src="static/img/notebook.png" alt="Changelog" draggable="false">
         <p>Changelog</p>
       </div>
       <div class="icon about-icon" style="top: 20px; left: 420px;" onclick="openAboutWindow()">
-        <img src="https://whale.lat/static/img/about.png" alt="About" draggable="false">
+        <img src="static/img/about.png" alt="About" draggable="false">
         <p>About</p>
       </div>
     </div>
    
-    <script src="https://owski9.up.railway.app/static/js/apps.js"></script>
+    <script src="static/js/apps.js"></script>
 
     <div id="stars-container"></div>
     
-    <!---<script src="https://whale.lat/static/js/stars.js"></script> // I'm turning this off, for now
+    <!---<script src="static/js/stars.js"></script> // I'm turning this off, for now
 
-    <script src="https://whale.lat/static/js/canvas.js"></script> ---->
+    <script src="static/js/canvas.js"></script> ---->
 
   </body>
 

@@ -144,7 +144,7 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>Proxy!</p>
     <ul>
-    		<li> Owski </li>
+    		<li> Solana Electronics </li>
         <li>Website: https://radiusowski.site</li>
     </ul>
 </div>
@@ -256,16 +256,8 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <div class="desktop-icons">
       <div class="icon glxgears-icon" style="top: 20px; left: 20px;" onclick="openGLXGearsWindow()">
-        <img src="https://whale.lat/static/img/glxgears.png" alt="GlxGears" draggable="false">
+        <img src="static/img/glxgears.png" alt="GlxGears" draggable="false">
         <p>glxgears</p>
-      </div>
-      <div class="icon tux-icon" style="top: 20px; left: 100px;" onclick="openTuxWindow()">
-        <img src="https://owski9.up.railway.app/static/img/cat.jpg" alt="Tux" draggable="false">
-        <p>kitty</p>
-      </div>
-      <div class="icon paper-icon" style="top: 20px; left: 180px;" onclick="openPaperWindow()">
-        <img src="https://whale.lat/static/img/paper.png" alt="Paper" draggable="false">
-        <p>paper</p>
       </div>
    </div>
 </div>
@@ -296,10 +288,9 @@ function updateCalendar() {
         <div class="about-content" style="display: flex; justify-content: center; align-items: flex-start; margin-top: 40px;">
             <img src="static/img/output-onlinepngtools.png" alt="About Image" draggable="false" style="max-width: 50%; height: 50%; border: 2px outset #c8c7c7;">
             <div class="about-text" style="border: 2px inset #fff;">
-                <p>Hi I'm Owski!</p>
+                <p>Solana Electronics</p>
                 <button class="test-button" onclick="openContactWindow()">Contact</button>
                 <button class="test-button" onclick="openProjectWindow()">Credits</button>
-                <button class="test-button" onclick="openTempWindow()">Projects</button>
             </div>
         </div>
     `;
@@ -443,6 +434,36 @@ function updateCalendar() {
         }
       }
 
+      function openCAWindow() {
+        const existingWindow = document.querySelector('.ca-window');
+        if (!existingWindow) {
+          const caWindow = document.createElement('div');
+          caWindow.classList.add('window', 'ca-window');
+          caWindow.style.top = '100px';
+          caWindow.style.left = '450px';
+          caWindow.innerHTML = `
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+      <div class="window-title" style="margin-left: 5px;">CA</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
+    <p>Contract Address:</p>
+    <ul>
+        <li>Coming soon...</li>
+    </ul>
+</div>
+</div>
+  `;
+          document.body.appendChild(caWindow);
+          makeDraggable(caWindow);
+
+          addTaskbarIcon('CA', 'openCAWindow', 'ca-window');
+        }
+      }
+
       function openContactWindow() {
         const existingWindow = document.querySelector('.contact-window');
         if (!existingWindow) {
@@ -461,7 +482,7 @@ function updateCalendar() {
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
     <p>You can contact me via:</p>
     <ul>
-        <li>--------Owski---------</li>
+        <li>--------Solana Electronics---------</li>
         <li>Discord: @owski09</li>
     </ul>
 </div>
@@ -490,9 +511,9 @@ function updateCalendar() {
       </div>
       </div>
       <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>Owski</p>
+    <p>Solana Electronics</p>
     <ul>
-        <li> Owski9 on github </li>
+        <li> Solana Electronics </li>
     </ul>
 </div>
     `;
@@ -503,32 +524,109 @@ function updateCalendar() {
         }
       }
 
-      function openSettingsWindow() {
-        const existingWindow = document.querySelector('.settings-window');
+      function openBagsWindow() {
+        const existingWindow = document.querySelector('.bags-window');
         if (!existingWindow) {
-          const settingsWindow = document.createElement('div');
-          settingsWindow.classList.add('window', 'settings-window');
-          settingsWindow.style.top = '320px';
-          settingsWindow.style.left = '450px';
-          settingsWindow.innerHTML = `
+          const bagsWindow = document.createElement('div');
+          bagsWindow.classList.add('window', 'bags-window');
+          bagsWindow.style.top = '50px';
+          bagsWindow.style.left = '100px';
+          bagsWindow.style.width = '900px';
+          bagsWindow.style.height = '600px';
+          bagsWindow.innerHTML = `
       <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
-      <div class="window-title" style="margin-left: 5px;">Settings</div>
+      <div class="window-title" style="margin-left: 5px;">Bags</div>
       <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
       <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
       <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
       </div>
       </div>
-      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7;">
-    <p>Coming soon...</p>
-    <ul>
-        <li> Info </li>
-    </ul>
+      <div class="window-content" style="margin-top: 40px; border: 2px inset #c8c7c7; height: calc(100% - 70px);">
+    <iframe src="https://bags.fm/launch" style="width: 100%; height: 100%; border: none;"></iframe>
 </div>
     `;
-          document.body.appendChild(settingsWindow);
-          makeDraggable(settingsWindow);
+          document.body.appendChild(bagsWindow);
+          makeDraggable(bagsWindow);
 
-          addTaskbarIcon('Settings', 'openSettingsWindow', 'settings-window');
+          addTaskbarIcon('Bags', 'openBagsWindow', 'bags-window');
+        }
+      }
+
+      function openPadreWindow() {
+        const existingWindow = document.querySelector('.padre-window');
+        if (!existingWindow) {
+          const padreWindow = document.createElement('div');
+          padreWindow.classList.add('window', 'padre-window');
+          padreWindow.style.top = '50px';
+          padreWindow.style.left = '50px';
+          padreWindow.style.width = '900px';
+          padreWindow.style.height = '700px';
+          padreWindow.innerHTML = `
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+      <div class="window-title" style="margin-left: 5px;">Padre</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; padding: 0; height: calc(100% - 70px);">
+        <iframe src="https://trade.padre.gg/sign-in" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+          `;
+          document.body.appendChild(padreWindow);
+          makeDraggable(padreWindow);
+        }
+      }
+
+      function openGeckoWindow() {
+        const existingWindow = document.querySelector('.gecko-window');
+        if (!existingWindow) {
+          const geckoWindow = document.createElement('div');
+          geckoWindow.classList.add('window', 'gecko-window');
+          geckoWindow.style.top = '50px';
+          geckoWindow.style.left = '80px';
+          geckoWindow.style.width = '950px';
+          geckoWindow.style.height = '700px';
+          geckoWindow.innerHTML = `
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+      <div class="window-title" style="margin-left: 5px;">Gecko Terminal</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; padding: 0; height: calc(100% - 70px);">
+        <iframe src="https://www.geckoterminal.com/" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+          `;
+          document.body.appendChild(geckoWindow);
+          makeDraggable(geckoWindow);
+        }
+      }
+
+      function openDexWindow() {
+        const existingWindow = document.querySelector('.dex-window');
+        if (!existingWindow) {
+          const dexWindow = document.createElement('div');
+          dexWindow.classList.add('window', 'dex-window');
+          dexWindow.style.top = '50px';
+          dexWindow.style.left = '100px';
+          dexWindow.style.width = '950px';
+          dexWindow.style.height = '700px';
+          dexWindow.innerHTML = `
+      <div class="window-titlebar" style="margin-left: 2px; margin-top: 28px; width: 99.8%">
+      <div class="window-title" style="margin-left: 5px;">Dex Screener</div>
+      <div class="window-buttons" style="margin-right: 7px; margin-top: 3px">
+      <img src="static/img/minimize.png" alt="Minimize" class="window-button" onclick="minimizeWindow(this)">
+      <img src="static/svg/lyt65r.svg" alt="Close" class="window-button" onclick="closeWindow(this)">
+      </div>
+      </div>
+      <div class="window-content" style="margin-top: 40px; padding: 0; height: calc(100% - 70px);">
+        <iframe src="https://dexscreener.com/" style="width: 100%; height: 100%; border: none;"></iframe>
+      </div>
+          `;
+          document.body.appendChild(dexWindow);
+          makeDraggable(dexWindow);
         }
       }
       function openChangelogWindow() {

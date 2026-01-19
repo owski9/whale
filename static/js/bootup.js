@@ -3,7 +3,7 @@ function showBootUpSequence() {
   const bootUpText = [
     "Initializing system...",
     "System Information:",
-    "Microsoft Windows 95",
+    "Solana 95",
     "Loading drivers...",
     "Establishing network connection...",
     "Performing memory check...",
@@ -11,8 +11,8 @@ function showBootUpSequence() {
     "Booting operating system...",
     "Loading user interface...",
     "Manufactured and supported by:",
-    "Owski Electronics, Inc.",
-    "Owski Computer Systems",
+    "Solana Electronics, Inc.",
+    "Solana Computer Systems",
   ];
   
   
